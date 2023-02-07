@@ -1,0 +1,124 @@
+[gd_scene load_steps=21 format=3 uid="uid://0clqp6ktby0i"]
+
+[ext_resource type="Script" path="res://stateManager.gd" id="1_uv71e"]
+[ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_ka6ks"]
+[ext_resource type="Texture2D" uid="uid://b2flfywcegtuk" path="res://Mats/79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg" id="3_5b0xh"]
+[ext_resource type="Texture2D" uid="uid://c4lshviajyc8h" path="res://Mats/test.png" id="3_8716t"]
+[ext_resource type="Texture2D" uid="uid://c8c3kguaeg0tt" path="res://Mats/grass.png" id="3_p0nu7"]
+[ext_resource type="Script" path="res://pause.gd" id="5_y73ct"]
+[ext_resource type="Script" path="res://Interact.gd" id="7_eomde"]
+[ext_resource type="FontFile" uid="uid://7dyxyagwh2b7" path="res://Mats/ADOBEFANHEITISTD-BOLD.OTF" id="8_new6x"]
+[ext_resource type="Texture2D" uid="uid://btw8otdfcbbn5" path="res://Mats/PauseM.png" id="9_1l22d"]
+[ext_resource type="AudioStream" uid="uid://bdjjercy801ef" path="res://sound/town 1.mp3" id="10_tcxo7"]
+[ext_resource type="Script" path="res://Scripts/Battle.gd" id="11_g2cn7"]
+[ext_resource type="PackedScene" uid="uid://b4hktsq4rbub1" path="res://mon/test1.glb" id="12_5475d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxvg7"]
+albedo_texture = ExtResource("3_p0nu7")
+uv1_scale = Vector3(10.914, 10.914, 10.914)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b2ps5"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qrsnc"]
+panorama = ExtResource("3_5b0xh")
+
+[sub_resource type="Sky" id="Sky_adywd"]
+sky_material = SubResource("PanoramaSkyMaterial_qrsnc")
+
+[sub_resource type="Environment" id="Environment_n6rcq"]
+background_mode = 2
+sky = SubResource("Sky_adywd")
+ambient_light_source = 2
+ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noy3m"]
+albedo_texture = ExtResource("3_8716t")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7tt4q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ef48"]
+
+[node name="TestWorld" type="Node3D"]
+script = ExtResource("1_uv71e")
+
+[node name="Player" parent="." instance=ExtResource("2_ka6ks")]
+unique_name_in_owner = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(35.3669, 0, 0, 0, 0.601914, 0, 0, 0, 36.8792, 0, -1.0756, 0)
+material = SubResource("StandardMaterial3D_bxvg7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
+shape = SubResource("BoxShape3D_b2ps5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n6rcq")
+
+[node name="Pause" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("5_y73ct")
+
+[node name="pauseBG" type="Sprite2D" parent="Pause"]
+visible = false
+position = Vector2(2812.5, 1437)
+scale = Vector2(87.9531, 45)
+texture = ExtResource("9_1l22d")
+
+[node name="Sign" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327388, 15.2849)
+script = ExtResource("7_eomde")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Sign"]
+material_override = SubResource("StandardMaterial3D_noy3m")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sign"]
+visible = false
+anchors_preset = -1
+anchor_top = 0.727
+anchor_right = 0.861
+anchor_bottom = 0.997
+offset_left = 39.0
+offset_top = -5.09604
+offset_right = 106.128
+offset_bottom = -30.056
+theme_override_fonts/normal_font = ExtResource("8_new6x")
+theme_override_fonts/mono_font = ExtResource("8_new6x")
+theme_override_font_sizes/normal_font_size = 53
+theme_override_font_sizes/mono_font_size = 44
+bbcode_enabled = true
+shortcut_keys_enabled = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Sign/RichTextLabel"]
+position = Vector2(546, 101)
+scale = Vector2(18.8438, 4.625)
+texture = ExtResource("9_1l22d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018003, 0, -0.57807)
+shape = SubResource("BoxShape3D_7tt4q")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_tcxo7")
+volume_db = -19.675
+autoplay = true
+
+[node name="Battle01" type="Node" parent="."]
+script = ExtResource("11_g2cn7")
+creatureName = "Testagon"
+
+[node name="Area3D" type="Area3D" parent="Battle01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98642, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Battle01/Area3D"]
+shape = SubResource("BoxShape3D_0ef48")
+
+[node name="test1" parent="Battle01/Area3D" instance=ExtResource("12_5475d")]
+transform = Transform3D(-0.759271, 0, 0.650774, 0, 1, 0, -0.650774, 0, -0.759271, 0, -0.778748, 0)
+
+[connection signal="idle" from="Player" to="." method="_on_player_idle"]
+[connection signal="walking" from="Player" to="." method="_on_player_walking"]
+[connection signal="body_entered" from="Sign" to="Sign" method="_on_body_entered"]
+[connection signal="body_exited" from="Sign" to="Sign" method="_on_body_exited"]
+[connection signal="body_entered" from="Battle01/Area3D" to="Battle01" method="_on_area_3d_body_entered"]
