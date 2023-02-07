@@ -1,4 +1,7 @@
 res://battle.tscn
 res://pause.gd
 res://debug1.tscn
-res://Scripts/tranisitions.gd
+res://Scripts/Global.gd
+res://Interact.gd
+res://monBattle.gd
+res://scripts/moveButton.gd

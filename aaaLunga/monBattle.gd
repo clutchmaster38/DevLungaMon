@@ -34,3 +34,5 @@ func _ready():
 func _input(_event):
 	if Input.is_action_just_pressed("interact"):
 		get_node("/root/Global").end_battle()
+
+

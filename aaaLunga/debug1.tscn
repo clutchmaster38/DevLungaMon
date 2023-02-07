@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://0clqp6ktby0i"]
+[gd_scene load_steps=22 format=3 uid="uid://0clqp6ktby0i"]
 
 [ext_resource type="Script" path="res://stateManager.gd" id="1_uv71e"]
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_ka6ks"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Interact.gd" id="7_eomde"]
 [ext_resource type="FontFile" uid="uid://7dyxyagwh2b7" path="res://Mats/ADOBEFANHEITISTD-BOLD.OTF" id="8_new6x"]
 [ext_resource type="Texture2D" uid="uid://btw8otdfcbbn5" path="res://Mats/PauseM.png" id="9_1l22d"]
+[ext_resource type="Texture2D" uid="uid://tg3033kdemxs" path="res://Mats/text_box.png" id="10_5oxer"]
 [ext_resource type="AudioStream" uid="uid://bdjjercy801ef" path="res://sound/town 1.mp3" id="10_tcxo7"]
 [ext_resource type="Script" path="res://Scripts/Battle.gd" id="11_g2cn7"]
 [ext_resource type="PackedScene" uid="uid://b4hktsq4rbub1" path="res://mon/test1.glb" id="12_5475d"]
@@ -73,31 +74,43 @@ script = ExtResource("7_eomde")
 [node name="CSGBox3D2" type="CSGBox3D" parent="Sign"]
 material_override = SubResource("StandardMaterial3D_noy3m")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Sign"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018003, 0, -0.57807)
+shape = SubResource("BoxShape3D_7tt4q")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Sign"]
 visible = false
+texture_filter = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -360.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_5oxer")
+region_rect = Rect2(-7, -8, 371, 239)
+patch_margin_left = 65
+patch_margin_top = 56
+patch_margin_right = 65
+patch_margin_bottom = 56
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Sign/NinePatchRect"]
+layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.727
-anchor_right = 0.861
-anchor_bottom = 0.997
-offset_left = 39.0
-offset_top = -5.09604
-offset_right = 106.128
-offset_bottom = -30.056
+anchor_left = 0.042
+anchor_top = 0.175
+anchor_right = 0.955
+anchor_bottom = 0.794
+offset_left = -0.640007
+offset_right = 4.3999
+offset_bottom = 1.16
 theme_override_fonts/normal_font = ExtResource("8_new6x")
 theme_override_fonts/mono_font = ExtResource("8_new6x")
 theme_override_font_sizes/normal_font_size = 53
 theme_override_font_sizes/mono_font_size = 44
 bbcode_enabled = true
 shortcut_keys_enabled = false
-
-[node name="Sprite2D" type="Sprite2D" parent="Sign/RichTextLabel"]
-position = Vector2(546, 101)
-scale = Vector2(18.8438, 4.625)
-texture = ExtResource("9_1l22d")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sign"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018003, 0, -0.57807)
-shape = SubResource("BoxShape3D_7tt4q")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_tcxo7")

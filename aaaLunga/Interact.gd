@@ -16,8 +16,8 @@ const SPEED = 0.01
 		
 func _ready() -> void:
 	set_monitoring(true)
-	$RichTextLabel.text = signText
-	$RichTextLabel.visible_ratio = 0.01
+	$NinePatchRect/RichTextLabel.text = signText
+	$NinePatchRect/RichTextLabel.visible_ratio = 0.01
 	
 func _on_body_entered(body):
 	if body.name == "Player":
@@ -35,10 +35,10 @@ func _unhandled_input(_event):
 func _on_read():
 	if Reading == true:
 		get_parent()._handle_states(get_parent().playerStates.INTERACT)
-		$RichTextLabel.visible = true
+		$NinePatchRect.visible = true
 	if Reading == false && doneReading == true:
 		get_parent()._handle_states(get_parent().playerStates.IDLE)
-		$RichTextLabel.visible = false
+		$NinePatchRect.visible = false
 		currentChar = 0
 
 func _physics_process(delta):
@@ -46,8 +46,8 @@ func _physics_process(delta):
 		timer += delta
 		if timer > SPEED:
 			timer = 0
-			$RichTextLabel.visible_ratio = currentChar
+			$NinePatchRect/RichTextLabel.visible_ratio = currentChar
 			currentChar += 0.03
-		if $RichTextLabel.visible_ratio == 1:
+		if $NinePatchRect/RichTextLabel.visible_ratio == 1:
 			doneReading = true
 
