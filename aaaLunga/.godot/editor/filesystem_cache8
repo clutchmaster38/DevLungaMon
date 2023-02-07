@@ -1,11 +1,11 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1675729402
-battle.tscn::PackedScene::6456302651573038076::1675727499::0::1::::<><>::res://monBattle.gd<>uid://d2qouj1y71ejm<>uid://b2flfywcegtuk
-debug1.tscn::PackedScene::1759547142300840178::1675727499::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>uid://c4lshviajyc8h<>uid://c8c3kguaeg0tt<>res://pause.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://btw8otdfcbbn5<>uid://bdjjercy801ef<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1
+::res://::1675731773
+battle.tscn::PackedScene::6456302651573038076::1675729405::0::1::::<><>::res://monBattle.gd<>uid://d2qouj1y71ejm<>uid://b2flfywcegtuk
+debug1.tscn::PackedScene::1759547142300840178::1675730715::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>uid://c4lshviajyc8h<>uid://c8c3kguaeg0tt<>res://pause.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://btw8otdfcbbn5<>uid://bdjjercy801ef<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1
 icon.svg::CompressedTexture2D::5020595147807741154::1675114767::1675114773::1::::<><>::
 Interact.gd::GDScript::-1::1675477007::0::1::::<>Area3D<>::
 monBattle.gd::GDScript::-1::1675719545::0::1::::<>Node3D<>::
-pause.gd::GDScript::-1::1675671677::0::1::::<>Node<>::
+pause.gd::GDScript::-1::1675729405::0::1::::<>Node<>::
 Player.gd::GDScript::-1::1675564354::0::1::::<>CharacterBody3D<>::
 README.md::TextFile::-1::1675117182::0::1::::<><>::
 SpringArm3D.gd::GDScript::-1::1675461503::0::1::::<>SpringArm3D<>::
@@ -196,9 +196,10 @@ test1.glb::PackedScene::4436989864963897028::1675649467::1675649624::1::::<><>::
 test1_3.png::CompressedTexture2D::3392545558973204153::1675649623::1675649623::1::::<><>::
 test2.glb::PackedScene::3077978858824783165::1675656012::1675656012::1::::<><>::
 test2_3.png::CompressedTexture2D::5159346011254931927::1675656012::1675656012::1::::<><>::
-::res://Scripts/::1675727414
+::res://Scripts/::1675729628
 Battle.gd::GDScript::-1::1675719544::0::1::::<>Node<>::
 Global.gd::GDScript::-1::1675720659::0::1::::<>Node<>::
+player_own.gd::GDScript::-1::1675729628::0::1::::<>Node<>::
 startButton.gd::GDScript::-1::1675717860::0::1::::<>Button<>::
 tranisitions.gd::GDScript::-1::1675727414::0::1::::<><>::
 ::res://sound/::1675564636

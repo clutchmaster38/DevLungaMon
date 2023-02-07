@@ -1,3 +1,4 @@
 res://battle.tscn
 res://pause.gd
 res://debug1.tscn
+res://Scripts/tranisitions.gd
