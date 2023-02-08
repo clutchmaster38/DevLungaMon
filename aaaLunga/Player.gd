@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 		emit_signal("walking")
 		var look_direction = Vector2(_velocity.z, _velocity.x)
 		_model.rotation.y = lerp_angle(_model.rotation.y, look_direction.angle(), delta * rotation_speed)
-		if $FtStep.playing == false:
+		if $FtStep.playing == false && is_on_floor():
 			$FtStep.play(0)
 	if _velocity.length() < 0.2 && get_parent().current_state != 5:
 		emit_signal("idle")
