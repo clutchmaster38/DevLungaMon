@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Global="*res://Scripts/Global.gd"
 Tranisitions="*res://Scripts/tranisitions.gd"
 PlayerOwn="*res://Scripts/player_own.gd"
+MoveDex="*res://Scripts/moveDex.gd"
 
 [display]
 

@@ -1,7 +1,10 @@
+Control
+RichTextLabel
+ReferenceRect
+VBoxContainer
 Button
 GridContainer
 NinePatchRect
-VBoxContainer
 ColorRect
 AspectRatioContainer
 CanvasLayer
@@ -19,7 +22,6 @@ QodotMap
 AudioStreamPlayer
 AudioStreamPlayer3D
 Sprite3D
-RichTextLabel
 WorldEnvironment
 StaticBody3D
 CharacterBody3D

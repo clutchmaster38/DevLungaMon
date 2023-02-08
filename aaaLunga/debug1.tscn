@@ -120,6 +120,7 @@ autoplay = true
 [node name="Battle01" type="Node" parent="."]
 script = ExtResource("11_g2cn7")
 creatureName = "Testagon"
+creatureLevel = 14.0
 
 [node name="Area3D" type="Area3D" parent="Battle01"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98642, 0, 0)

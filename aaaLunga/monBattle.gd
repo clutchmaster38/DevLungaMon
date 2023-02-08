@@ -31,8 +31,5 @@ extends Node3D
 func _ready():
 	get_node("/root/Global").start_battle()
 
-func _input(_event):
-	if Input.is_action_just_pressed("interact"):
-		get_node("/root/Global").end_battle()
 
 

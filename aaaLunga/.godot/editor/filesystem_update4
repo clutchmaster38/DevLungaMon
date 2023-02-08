@@ -2,6 +2,11 @@ res://battle.tscn
 res://pause.gd
 res://debug1.tscn
 res://Scripts/Global.gd
-res://Interact.gd
 res://monBattle.gd
-res://scripts/moveButton.gd
+res://Scripts/Battle.gd
+res://Scripts/moveDex.gd
+res://Player.gd
+res://Scripts/startButton.gd
+res://stateManager.gd
+res://Scripts/tranisitions.gd
+res://Scripts/player_own.gd

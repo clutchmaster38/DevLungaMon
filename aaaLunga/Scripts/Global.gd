@@ -4,10 +4,11 @@ var playerLoc: Vector3
 
 @onready var currentMap
 @onready var lastMap
+@onready var inBattle = false
 var saved_scene = null
 var currentWild
 var wildName
-var playerMon = "Testagon2"
+var playerMon
 var playerName
 @onready var playerGrid = Vector3(1, 2.7, 1)
 @onready var enemyGrid = Vector3(4, 2.7, 4)
@@ -15,14 +16,28 @@ var playerName
 @onready var playersTurn = false
 @onready var enemyTurn = false
 
+var wildHP
+var wildLevel
+var wildAttack
+var wildDefense
+
+var playerHP
+var playerLevel
+var playerAttack
+var playerDefense
+var playerPower
+
 @onready var MovePlayer = Vector3.ZERO
 signal move_picked_player
+@onready var movePickedNumber
 
 var enemy
 @onready var spawnNode
+var playerTurn
 
 @onready var battlescene = preload("res://battle.tscn").instantiate()
 @onready var overworld
+
 
 #switchs to battle
 func switch_scene():
@@ -38,10 +53,12 @@ func end_battle():
 #loads the right creature
 func load_wild_creature():
 	currentWild = spawnNode.creatureName
+	wildLevel = spawnNode.creatureLevel
 	
 #inits the battle
 func start_battle():
 	#load enemy
+	inBattle = true
 	enemy = get_node("/root/mapBattle").monDict[currentWild] 
 	var enemyMDL = load(get_node("/root/mapBattle").monDict[currentWild]["MODEL"]).instantiate()
 	get_node("/root/mapBattle").add_child(enemyMDL)
@@ -51,15 +68,33 @@ func start_battle():
 	get_node(wildName).position.y = 0.5
 	get_node(wildName).position.z = (enemyGrid.z * 2.5) - 6.25
 	
+	var wildBHP = get_node("/root/mapBattle").monDict[currentWild]["BHP"]
+	wildAttack = get_node("/root/mapBattle").monDict[currentWild]["BATTACK"]
+	wildDefense = get_node("/root/mapBattle").monDict[currentWild]["BDEFENSE"]
+	
+	wildHP = floor(0.01 * (2 * wildBHP + 14 + floor(0.25 * 60)) * wildLevel) + wildLevel + 10
+	
+	get_node("/root/mapBattle/GUI/EnemyHealth").text = str(wildHP)
+	
 	#loads the player
+	playerMon = get_node("/root/PlayerOwn").Party["creature1"]["creatureName"]
+	playerLevel = get_node("/root/PlayerOwn").Party["creature1"]["creatureLevel"]
 	var player = get_node("/root/mapBattle").monDict[playerMon]
 	var playerMDL = load(get_node("/root/mapBattle").monDict[playerMon]["MODEL"]).instantiate()
 	get_node("/root/mapBattle").add_child(playerMDL)
 	playerName = get_node("/root/mapBattle").monDict[playerMon]["NAME"]
 	playerName = "/root/mapBattle/" + playerName
+	
+	playerHP = get_node("/root/mapBattle").monDict[playerMon]["BHP"]
+	playerAttack = get_node("/root/mapBattle").monDict[playerMon]["BATTACK"]
+	playerDefense = get_node("/root/mapBattle").monDict[playerMon]["BDEFENSE"]
+	
+	
 	get_node(playerName).position.x = (playerGrid.x * 2.5) - 6.25
 	get_node(playerName).position.y = 0.5
 	get_node(playerName).position.z = (playerGrid.z * 2.5) - 6.25
+	
+	
 	
 	#choose the first attacker
 	if enemy["BSPEED"] > player["BSPEED"]:
@@ -69,22 +104,27 @@ func start_battle():
 		
 		
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("left"):
-		MovePlayer = Vector3(0, 0, -1)
-		emit_signal("move_picked_player")
-		_await_user()
-	if Input.is_action_just_pressed("right"):
-		MovePlayer = Vector3(0, 0, 1)
-		emit_signal("move_picked_player")
-		_await_user()
-	if Input.is_action_just_pressed("forward"):
-		MovePlayer = Vector3(1, 0, 0)
-		emit_signal("move_picked_player")
-		_await_user()
-	if Input.is_action_just_pressed("back"):
-		MovePlayer = Vector3(-1, 0, 0)
-		emit_signal("move_picked_player")
-		_await_user()
+	if inBattle == true && playerTurn == true:
+		if Input.is_action_just_pressed("left"):
+			MovePlayer = Vector3(0, 0, -1)
+			movePickedNumber = "move2"
+			emit_signal("move_picked_player")
+			_await_user()
+		if Input.is_action_just_pressed("right"):
+			MovePlayer = Vector3(0, 0, 1)
+			movePickedNumber = "move3"
+			emit_signal("move_picked_player")
+			_await_user()
+		if Input.is_action_just_pressed("forward"):
+			MovePlayer = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move1"]]["Distance"]
+			movePickedNumber = "move1"
+			emit_signal("move_picked_player")
+			_await_user()
+		if Input.is_action_just_pressed("back"):
+			MovePlayer = Vector3(-1, 0, 0)
+			movePickedNumber = "move4"
+			emit_signal("move_picked_player")
+			_await_user()
 		
 		
 		
@@ -94,15 +134,48 @@ func _await_user():
 		
 		
 func enemy_goes_first():
+	var enemyMove = randf_range(1, 5)
+	enemyMove = int(enemyMove)
+	var moveEnemy
+	print(enemyMove)
+	match enemyMove:
+		1:
+			moveEnemy = Vector3(-1, 0 ,0)
+		2:
+			moveEnemy = Vector3(0, 0 ,-1)
+		3:
+			moveEnemy = Vector3(1, 0 ,0)
+		4:
+			moveEnemy = Vector3(0, 0 ,1)
+	enemyGrid = enemyGrid + moveEnemy
+	if enemyGrid == playerGrid:
+		enemyGrid = enemyGrid - moveEnemy
+	enemyGrid.x = clamp(enemyGrid.x, 1, 4)
+	enemyGrid.z = clamp(enemyGrid.z, 1, 4)
+	get_node(wildName).position.x = (enemyGrid.x * 2.5) - 6.25
+	get_node(wildName).position.y = 0.5
+	get_node(wildName).position.z = (enemyGrid.z * 2.5) - 6.25
 	player_goes_first()
 	
 func player_goes_first():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	playerTurn = true
 	var confirmed = await _await_user()
 	if confirmed == true:
+		playerPower = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["Power"]
 		playerGrid = playerGrid + MovePlayer
+		if playerGrid == enemyGrid:
+			playerGrid = playerGrid - MovePlayer
+		if enemyGrid == playerGrid + get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"]:
+			wildHP -= ((((2 * playerLevel * 1) / 5) * playerPower * (playerAttack / wildDefense)) / 50) + 2
+		playerGrid.x = clamp(playerGrid.x, 1, 4)
+		playerGrid.z = clamp(playerGrid.z, 1, 4)
 		get_node(playerName).position.x = (playerGrid.x * 2.5) - 6.25
 		get_node(playerName).position.y = 0.5
 		get_node(playerName).position.z = (playerGrid.z * 2.5) - 6.25
+		get_node("/root/mapBattle/GUI/EnemyHealth").text = str(wildHP)
+		playerTurn = false
+		if wildHP <= 0:
+			end_battle()
+			return
 		enemy_goes_first()
 
