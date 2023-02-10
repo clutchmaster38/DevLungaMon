@@ -4,31 +4,31 @@
 [ext_resource type="Texture2D" uid="uid://d2qouj1y71ejm" path="res://Mats/Gridlines.png" id="2_yt4j4"]
 [ext_resource type="Texture2D" uid="uid://b2flfywcegtuk" path="res://Mats/79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg" id="3_1c2op"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1m7pu"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_nnw31"]
 panorama = ExtResource("3_1c2op")
 
-[sub_resource type="Sky" id="Sky_57gf8"]
-sky_material = SubResource("PanoramaSkyMaterial_1m7pu")
+[sub_resource type="Sky" id="Sky_5juh4"]
+sky_material = SubResource("PanoramaSkyMaterial_nnw31")
 
-[sub_resource type="Environment" id="Environment_svnww"]
+[sub_resource type="Environment" id="Environment_mlvkw"]
 background_mode = 2
-sky = SubResource("Sky_57gf8")
+sky = SubResource("Sky_5juh4")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5uqf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jou6w"]
 albedo_texture = ExtResource("2_yt4j4")
 
 [node name="mapBattle" type="Node3D"]
 script = ExtResource("1_ybxwt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_svnww")
+environment = SubResource("Environment_mlvkw")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
 size = Vector3(10, 0.1, 10)
-material = SubResource("StandardMaterial3D_o5uqf")
+material = SubResource("StandardMaterial3D_jou6w")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -1.19249e-08, 0, 1.19249e-08, 1, 1, 4.37114e-08, -5.21253e-16, 0, 9.50536, 0)

@@ -106,12 +106,12 @@ func start_battle():
 func _unhandled_input(_event):
 	if inBattle == true && playerTurn == true:
 		if Input.is_action_just_pressed("left"):
-			MovePlayer = Vector3(0, 0, -1)
+			MovePlayer = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move2"]]["Distance"]
 			movePickedNumber = "move2"
 			emit_signal("move_picked_player")
 			_await_user()
 		if Input.is_action_just_pressed("right"):
-			MovePlayer = Vector3(0, 0, 1)
+			MovePlayer = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move3"]]["Distance"]
 			movePickedNumber = "move3"
 			emit_signal("move_picked_player")
 			_await_user()

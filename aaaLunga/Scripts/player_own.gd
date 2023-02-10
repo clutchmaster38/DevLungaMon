@@ -7,7 +7,7 @@ extends Node
 		"creatureNature" = "Bold",
 		"creatureMoves" = {
 			"move1" = "Tackle",
-			"move2" = "Tackle",
+			"move2" = "Swift",
 			"move3" = "Tackle",
 			"move4" = "Tackle"
 		}
