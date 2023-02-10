@@ -8,7 +8,7 @@ extends Node3D
 		"NAME" : "/test1",
 		"BHP" : 35,
 		"BATTACK" : 55,
-		"BDEFENSE" : 30,
+		"BDEFENSE" : 55,
 		"BSPAT" : 50,
 		"BSPDF" : 50,
 		"BSPEED" : 90
@@ -17,7 +17,7 @@ extends Node3D
 		"MODEL" : "res://mon/test2.glb",
 		"NAME" : "/test2",
 		"BHP" : 80,
-		"BATTACK" : 110,
+		"BATTACK" : 50,
 		"BDEFENSE" : 130,
 		"BSPAT" : 55,
 		"BSPDF" : 65,

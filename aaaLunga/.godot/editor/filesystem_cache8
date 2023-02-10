@@ -1,16 +1,16 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1675892760
-battle.tscn::PackedScene::6456302651573038076::1675890234::0::1::::<><>::res://monBattle.gd<>uid://d2qouj1y71ejm<>uid://b2flfywcegtuk
-debug1.tscn::PackedScene::1759547142300840178::1675890234::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>uid://c4lshviajyc8h<>uid://c8c3kguaeg0tt<>res://pause.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://btw8otdfcbbn5<>uid://tg3033kdemxs<>uid://bdjjercy801ef<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1
+::res://::1675982769
+battle.tscn::PackedScene::6456302651573038076::1675982769::0::1::::<><>::res://monBattle.gd<>uid://d2qouj1y71ejm<>uid://b2flfywcegtuk
+debug1.tscn::PackedScene::1759547142300840178::1675982769::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>uid://c4lshviajyc8h<>uid://c8c3kguaeg0tt<>res://pause.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://btw8otdfcbbn5<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>uid://bsarfexqwmmal<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1
 icon.svg::CompressedTexture2D::5020595147807741154::1675114767::1675114773::1::::<><>::
 Interact.gd::GDScript::-1::1675744033::0::1::::<>Area3D<>::
-monBattle.gd::GDScript::-1::1675822150::0::1::::<>Node3D<>::
-pause.gd::GDScript::-1::1675822150::0::1::::<>Node<>::
-Player.gd::GDScript::-1::1675822150::0::1::::<>CharacterBody3D<>::
+monBattle.gd::GDScript::-1::1675902206::0::1::::<>Node3D<>::
+pause.gd::GDScript::-1::1675895041::0::1::::<>Node<>::
+Player.gd::GDScript::-1::1675892820::0::1::::<>CharacterBody3D<>::
 README.md::TextFile::-1::1675117182::0::1::::<><>::
 SpringArm3D.gd::GDScript::-1::1675461503::0::1::::<>SpringArm3D<>::
 stateManager.gd::GDScript::-1::1675822150::0::1::::<>Node<>::
-title.tscn::PackedScene::6092127086782009002::1675717982::0::1::::<><>::uid://by3uikac1fvfh<>uid://de1343rduubsl<>uid://7dyxyagwh2b7<>res://Scripts/startButton.gd
+title.tscn::PackedScene::6092127086782009002::1675895056::0::1::::<><>::uid://by3uikac1fvfh<>uid://de1343rduubsl<>uid://7dyxyagwh2b7<>res://Scripts/startButton.gd<>uid://bg6j8inux8e6u
 ::res://addons/::1675117182
 ::res://addons/qodot/::1675117184
 icon.png::CompressedTexture2D::4303817965049754646::1675117184::1675117184::1::::<><>::
@@ -177,7 +177,7 @@ skip.png::CompressedTexture2D::3013576122456084822::1675117185::1675117185::1:::
 ::res://Main/::1675564444
 player.tscn::PackedScene::1651150601560104281::1675564444::0::1::::<><>::res://Player.gd<>res://SpringArm3D.gd<>uid://drnsk86bsq2rb<>uid://ruj3ji48b0bd
 ::res://Maps/::1675714701
-::res://Mats/::1675743174
+::res://Mats/::1675893175
 79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg::CompressedTexture2D::4292519461222805166::1675369025::1675369032::1::::<><>::
 ADOBEFANHEITISTD-BOLD.OTF::FontFile::2253735671628145158::1675416031::1675416031::1::::<><>::
 BGmenu.png::CompressedTexture2D::5366575006096254823::1675714697::1675714701::1::::<><>::
@@ -185,6 +185,7 @@ grass.png::CompressedTexture2D::7094920242727700205::1675565220::1675565225::1::
 Gridlines.png::CompressedTexture2D::9088277141157268254::1675646804::1675646810::1::::<><>::
 MENUanim.png::CompressedTexture2D::4129984659685458445::1675715573::1675715573::1::::<><>::
 PauseM.png::CompressedTexture2D::3767454688088949988::1674773202::1675389938::1::::<><>::
+pkmnrs.ttf::FontFile::5412394416559252293::1675893141::1675893175::1::::<><>::
 temp title.png::CompressedTexture2D::7495444608136989811::1675717219::1675717220::1::::<><>::
 test.png::CompressedTexture2D::6832132509972691521::1675371760::1675371765::1::::<><>::
 text_box.png::CompressedTexture2D::1347720530658920160::1675743163::1675743174::1::::<><>::
@@ -204,6 +205,7 @@ moveDex.gd::GDScript::-1::1675883865::0::1::::<>Node<>::
 player_own.gd::GDScript::-1::1675823761::0::1::::<>Node<>::
 startButton.gd::GDScript::-1::1675822150::0::1::::<>Button<>::
 tranisitions.gd::GDScript::-1::1675822150::0::1::::<>Node<>::
-::res://sound/::1675564636
+::res://sound/::1676004111
 ftstp.ogg::AudioStreamOggVorbis::1235094838522362561::1675564205::1675564205::1::::<><>::
-town 1.mp3::AudioStreamMP3::2616121107626377293::1675564578::1675564636::1::::<><>::
+the theme song.mp3::AudioStreamMP3::2872155281240913658::1675894999::1675894999::1::::<><>::
+Town1.ogg::AudioStreamOggVorbis::5493592415180524808::1676004111::1676004111::1::::<><>::

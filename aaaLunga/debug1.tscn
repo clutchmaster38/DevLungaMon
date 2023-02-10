@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://0clqp6ktby0i"]
+[gd_scene load_steps=23 format=3 uid="uid://0clqp6ktby0i"]
 
 [ext_resource type="Script" path="res://stateManager.gd" id="1_uv71e"]
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_ka6ks"]
@@ -10,15 +10,10 @@
 [ext_resource type="FontFile" uid="uid://7dyxyagwh2b7" path="res://Mats/ADOBEFANHEITISTD-BOLD.OTF" id="8_new6x"]
 [ext_resource type="Texture2D" uid="uid://btw8otdfcbbn5" path="res://Mats/PauseM.png" id="9_1l22d"]
 [ext_resource type="Texture2D" uid="uid://tg3033kdemxs" path="res://Mats/text_box.png" id="10_5oxer"]
-[ext_resource type="AudioStream" uid="uid://bdjjercy801ef" path="res://sound/town 1.mp3" id="10_tcxo7"]
+[ext_resource type="FontFile" uid="uid://cjd2l0e5dwugj" path="res://Mats/pkmnrs.ttf" id="10_jem1k"]
 [ext_resource type="Script" path="res://Scripts/Battle.gd" id="11_g2cn7"]
+[ext_resource type="AudioStream" uid="uid://jeq13m6c51p8" path="res://sound/Town1.ogg" id="11_kbj0r"]
 [ext_resource type="PackedScene" uid="uid://b4hktsq4rbub1" path="res://mon/test1.glb" id="12_5475d"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxvg7"]
-albedo_texture = ExtResource("3_p0nu7")
-uv1_scale = Vector3(10.914, 10.914, 10.914)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_b2ps5"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qrsnc"]
 panorama = ExtResource("3_5b0xh")
@@ -39,20 +34,18 @@ albedo_texture = ExtResource("3_8716t")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ef48"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bxvg7"]
+albedo_texture = ExtResource("3_p0nu7")
+uv1_scale = Vector3(10.914, 10.914, 10.914)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bc805"]
+albedo_texture = ExtResource("3_8716t")
+
 [node name="TestWorld" type="Node3D"]
 script = ExtResource("1_uv71e")
 
 [node name="Player" parent="." instance=ExtResource("2_ka6ks")]
 unique_name_in_owner = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(35.3669, 0, 0, 0, 0.601914, 0, 0, 0, 36.8792, 0, -1.0756, 0)
-material = SubResource("StandardMaterial3D_bxvg7")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="CSGBox3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D/StaticBody3D"]
-shape = SubResource("BoxShape3D_b2ps5")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n6rcq")
@@ -105,7 +98,7 @@ anchor_bottom = 0.794
 offset_left = -0.640007
 offset_right = 4.3999
 offset_bottom = 1.16
-theme_override_fonts/normal_font = ExtResource("8_new6x")
+theme_override_fonts/normal_font = ExtResource("10_jem1k")
 theme_override_fonts/mono_font = ExtResource("8_new6x")
 theme_override_font_sizes/normal_font_size = 53
 theme_override_font_sizes/mono_font_size = 44
@@ -113,8 +106,8 @@ bbcode_enabled = true
 shortcut_keys_enabled = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_tcxo7")
-volume_db = -19.675
+stream = ExtResource("11_kbj0r")
+volume_db = -14.054
 autoplay = true
 
 [node name="Battle01" type="Node" parent="."]
@@ -130,6 +123,23 @@ shape = SubResource("BoxShape3D_0ef48")
 
 [node name="test1" parent="Battle01/Area3D" instance=ExtResource("12_5475d")]
 transform = Transform3D(-0.759271, 0, 0.650774, 0, 1, 0, -0.650774, 0, -0.759271, 0, -0.778748, 0)
+
+[node name="World" type="CSGCombiner3D" parent="."]
+snap = 0.5001
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="World"]
+transform = Transform3D(35.3669, 0, 0, 0, 0.601914, 0, 0, 0, 36.8792, 0, -1.0756, 0)
+material = SubResource("StandardMaterial3D_bxvg7")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.3562, 0.702226, 0.514064)
+size = Vector3(1.74494, 2.89484, 7.54004)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2964, 0.218947, 0)
+size = Vector3(0.302221, 1.74843, 1)
+material = SubResource("StandardMaterial3D_bc805")
 
 [connection signal="idle" from="Player" to="." method="_on_player_idle"]
 [connection signal="walking" from="Player" to="." method="_on_player_walking"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cs2cpcftrud3w"]
+[gd_scene load_steps=8 format=3 uid="uid://cs2cpcftrud3w"]
 
 [ext_resource type="Texture2D" uid="uid://by3uikac1fvfh" path="res://Mats/MENUanim.png" id="1_gt6ce"]
 [ext_resource type="Texture2D" uid="uid://de1343rduubsl" path="res://Mats/temp title.png" id="2_i38w0"]
 [ext_resource type="FontFile" uid="uid://7dyxyagwh2b7" path="res://Mats/ADOBEFANHEITISTD-BOLD.OTF" id="3_gg4af"]
 [ext_resource type="Script" path="res://Scripts/startButton.gd" id="4_i2wxm"]
+[ext_resource type="AudioStream" uid="uid://bg6j8inux8e6u" path="res://sound/the theme song.mp3" id="5_ytq14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_irnnm"]
 texture = ExtResource("1_gt6ce")
@@ -56,5 +57,10 @@ theme_override_fonts/font = ExtResource("3_gg4af")
 theme_override_font_sizes/font_size = 158
 text = "PLAY"
 script = ExtResource("4_i2wxm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ytq14")
+volume_db = -29.045
+autoplay = true
 
 [connection signal="button_down" from="Button" to="Button" method="_on_button_down"]

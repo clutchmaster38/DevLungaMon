@@ -1,3 +1,6 @@
+CSGBox3D
+AudioStreamPlayer
+CSGCombiner3D
 Control
 RichTextLabel
 ReferenceRect
@@ -13,13 +16,11 @@ TileMap
 Sprite2D
 Camera2D
 Camera3D
-CSGBox3D
 CollisionShape3D
 Area3D
 Node
 QodotPlugin
 QodotMap
-AudioStreamPlayer
 AudioStreamPlayer3D
 Sprite3D
 WorldEnvironment

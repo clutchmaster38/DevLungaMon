@@ -1,4 +1,5 @@
-res://battle.tscn
+res://title.tscn
 res://pause.gd
-res://Player.gd
+res://battle.tscn
 res://debug1.tscn
+res://monBattle.gd
