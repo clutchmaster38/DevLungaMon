@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1gfu1u7qcwm4"]
+
+[ext_resource type="Script" path="res://Scripts/Transition.gd" id="1_bxtvo"]
+[ext_resource type="Texture2D" uid="uid://oge6gu1mmxek" path="res://Mats/transit.png" id="2_4yemp"]
+
+[sub_resource type="Animation" id="Animation_62814"]
+resource_name = "scene_exit"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Wipe:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.1, 0, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("AnimationPlayer/Wipe:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="Animation" id="Animation_3wwbh"]
+resource_name = "scene_enter"
+length = 0.6
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Wipe:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -20, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.1, 0, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("AnimationPlayer/Wipe:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ee0bi"]
+_data = {
+"scene_enter": SubResource("Animation_3wwbh"),
+"scene_exit": SubResource("Animation_62814")
+}
+
+[node name="Transitition" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bxtvo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ee0bi")
+}
+
+[node name="Wipe" type="Sprite2D" parent="AnimationPlayer"]
+position = Vector2(3793, 535)
+scale = Vector2(188.2, 109)
+texture = ExtResource("2_4yemp")

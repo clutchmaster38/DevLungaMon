@@ -13,19 +13,25 @@ config_version=5
 config/name="Official Lunga Mon"
 run/main_scene="res://title.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://Scripts/Global.gd"
-Tranisitions="*res://Scripts/tranisitions.gd"
 PlayerOwn="*res://Scripts/player_own.gd"
 MoveDex="*res://Scripts/moveDex.gd"
+Transitition="*res://transitition.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
+
+[editor]
+
+movie_writer/movie_file="C:/Users/bacon/Documents/Game Movies/.avi"
 
 [editor_plugins]
 

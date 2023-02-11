@@ -1,7 +1,11 @@
-CSGBox3D
-AudioStreamPlayer
 CSGCombiner3D
+CollisionShape3D
+Area3D
+CSGBox3D
+AnimationPlayer
+Sprite2D
 Control
+AudioStreamPlayer
 RichTextLabel
 ReferenceRect
 VBoxContainer
@@ -13,11 +17,8 @@ AspectRatioContainer
 CanvasLayer
 AnimatedSprite2D
 TileMap
-Sprite2D
 Camera2D
 Camera3D
-CollisionShape3D
-Area3D
 Node
 QodotPlugin
 QodotMap

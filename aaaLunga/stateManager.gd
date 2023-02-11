@@ -7,7 +7,7 @@ var current_state
 
 func _ready():
 	_handle_states(playerStates.IDLE)
-		
+	
 func _handle_states(new_state):
 	current_state = new_state
 	
