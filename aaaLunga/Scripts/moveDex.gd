@@ -6,14 +6,14 @@ extends Node
 		"Power" = 50,
 		"Type" = "Rock",
 		"Kind" = "Physical",
-		"Distance" = Vector3(1, 0, 0),
-		"AttVector" = Vector3(1, 0, 0)
+		"Distance" = 1,
+		"AttVector" = 1
 	},
 	"Swift" = {
 		"Power" = 50,
 		"Type" = "Rock",
 		"Kind" = "Physical",
-		"Distance" = Vector3(0, 0, 3),
-		"AttVector" = Vector3(1, 0, 0)
+		"Distance" = 3,
+		"AttVector" = 1
 	}
 }

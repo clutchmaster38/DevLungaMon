@@ -11,11 +11,18 @@ var _snap_vector := Vector3.ZERO
 signal idle
 signal walking
 
+var menuOpen = false
+
+
 @onready var _spring_arm: SpringArm3D = $SpringArm3D
 @onready var _model: Node3D = $Origin
 
 
 func _physics_process(delta: float) -> void:
+	
+	if get_parent().current_state == 3:
+		return
+	
 	if get_parent().current_state != 5:
 		var move_direction := Vector3.ZERO
 		move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -33,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		set_floor_stop_on_slope_enabled(true)
 		move_and_slide()
 		_velocity = velocity
-	
+		
 	if _velocity.length() > 5.0 && get_parent().current_state != 5:
 		emit_signal("walking")
 		var look_direction = Vector2(_velocity.z, _velocity.x)
@@ -49,3 +56,44 @@ func _physics_process(delta: float) -> void:
 	
 func _process(_delta : float) -> void:
 	_spring_arm.position = position
+	if Input.is_action_just_pressed("interact"):
+		print(self.position)
+	if Input.is_action_just_pressed("menu") && get_parent().current_state == 0:
+		get_parent()._handle_states(get_parent().playerStates.MENU)
+		_open_menu()
+	if Input.is_action_just_pressed("menu") && get_parent().current_state == 2:
+		get_parent()._handle_states(get_parent().playerStates.MENU)
+		print(get_parent().current_state)
+		_open_menu()
+	if Input.is_action_just_released("menu") && menuOpen == false:
+		get_parent()._handle_states(get_parent().playerStates.IDLE)
+		_close_menu()
+	if Input.is_action_pressed("escape") && menuOpen == true:
+		get_parent()._handle_states(get_parent().playerStates.IDLE)
+		$PARTY.visible = false
+		for n in $PARTY/Fir/Sec.get_children():
+			n.queue_free()
+		_close_menu()
+		menuOpen = false
+		
+		
+func _open_menu():
+	$MENU.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+func _close_menu():
+	$MENU.visible = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _on_button_pressed():
+	$PARTY.visible = true
+	menuOpen = true
+	get_parent()._handle_states(get_parent().playerStates.MENU)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	var partySize = get_node("/root/PlayerOwn").Party.size()
+	var newbut
+	for i in partySize:
+		newbut = Button.new()
+		get_node("PARTY/Fir/Sec").add_child(newbut)
+		newbut.text = get_node("/root/PlayerOwn").Party["creature" + str(i+1)]["creatureName"]

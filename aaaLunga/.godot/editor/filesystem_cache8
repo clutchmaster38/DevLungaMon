@@ -1,19 +1,20 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1676092304
-battle.tscn::PackedScene::6456302651573038076::1676092304::0::1::::<><>::res://monBattle.gd<>uid://d2qouj1y71ejm<>uid://b2flfywcegtuk
-debug1.tscn::PackedScene::5113672653258101128::1676092304::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>uid://c4lshviajyc8h<>res://pause.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://btw8otdfcbbn5<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>res://Scripts/Battle.gd<>uid://dt66qrcmc8jt8<>uid://b4hktsq4rbub1<>uid://b0xtac7rmc06c<>uid://r7i7d1s8xyfv<>res://door.gd<>uid://cilvj0d17ers
+::res://::1676504927
+battle.tscn::PackedScene::6456302651573038076::1676504927::0::1::::<><>::res://monBattle.gd<>uid://d2qouj1y71ejm<>uid://b2flfywcegtuk
+debug1.tscn::PackedScene::5113672653258101128::1676504927::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>uid://c4lshviajyc8h<>res://pause.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://btw8otdfcbbn5<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>res://Scripts/Battle.gd<>uid://dt66qrcmc8jt8<>uid://b4hktsq4rbub1<>uid://b0xtac7rmc06c<>uid://r7i7d1s8xyfv<>res://door.gd<>uid://cilvj0d17ers
+door.gd::GDScript::-1::1676164921::0::1::::<>Area3D<>::
+export_presets.cfg::TextFile::-1::1676098665::0::1::::<><>::
 icon.svg::CompressedTexture2D::5020595147807741154::1675114767::1675114773::1::::<><>::
 Interact.gd::GDScript::-1::1675744033::0::1::::<>Area3D<>::
-monBattle.gd::GDScript::-1::1676069027::0::1::::<>Node3D<>::
-pause.gd::GDScript::-1::1676069027::0::1::::<>Node<>::
-Player.gd::GDScript::-1::1676069027::0::1::::<>CharacterBody3D<>::
+monBattle.gd::GDScript::-1::1676215157::0::1::::<>Node3D<>::
+pause.gd::GDScript::-1::1676433131::0::1::::<>Node<>::
+Player.gd::GDScript::-1::1676319688::0::1::::<>CharacterBody3D<>::
 README.md::TextFile::-1::1675117182::0::1::::<><>::
-door.gd::GDScript::-1::1676070612::0::1::::<>Area3D<>::
-route1.tscn::PackedScene::331464045182845028::1676094774::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>res://pause.gd<>uid://btw8otdfcbbn5<>res://Interact.gd<>uid://c4lshviajyc8h<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>uid://7dyxyagwh2b7<>uid://dt66qrcmc8jt8<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1<>res://door.gd<>uid://cilvj0d17ers<>uid://r7i7d1s8xyfv<>uid://b0xtac7rmc06c
-transitition.tscn::PackedScene::8996898951013045533::1676092304::0::1::::<><>::res://Scripts/Transition.gd<>uid://oge6gu1mmxek
-SpringArm3D.gd::GDScript::-1::1675461503::0::1::::<>SpringArm3D<>::
-stateManager.gd::GDScript::-1::1676069027::0::1::::<>Node<>::
+route1.tscn::PackedScene::331464045182845028::1676504927::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>res://pause.gd<>uid://btw8otdfcbbn5<>res://Interact.gd<>uid://c4lshviajyc8h<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>uid://7dyxyagwh2b7<>uid://jeq13m6c51p8<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1<>res://door.gd<>uid://cb3vp48a7phcy<>uid://ck247a8ce08nd
+SpringArm3D.gd::GDScript::-1::1676170723::0::1::::<>SpringArm3D<>::
+stateManager.gd::GDScript::-1::1676095267::0::1::::<>Node<>::
 title.tscn::PackedScene::6092127086782009002::1675895056::0::1::::<><>::uid://by3uikac1fvfh<>uid://de1343rduubsl<>uid://7dyxyagwh2b7<>res://Scripts/startButton.gd<>uid://bg6j8inux8e6u
+transitition.tscn::PackedScene::8996898951013045533::1676163011::0::1::::<><>::res://Scripts/Transition.gd<>uid://oge6gu1mmxek
 ::res://addons/::1676065137
 ::res://addons/qodot/::1676064580
 icon.png::CompressedTexture2D::4303817965049754646::1676064567::1676064580::1::::<><>::
@@ -171,22 +172,23 @@ military-panel_emissive.png::CompressedTexture2D::2747755497903641844::167606456
 military-panel_metallic.png::CompressedTexture2D::7577414526983179745::1676064568::1676064580::1::::<><>::
 military-panel_normal.png::CompressedTexture2D::4365929439219684317::1676064568::1676064580::1::::<><>::
 military-panel_roughness.png::CompressedTexture2D::5873868765642727332::1676064568::1676064580::1::::<><>::
-::res://addons/qodot/textures/shaders/::1676064580
+::res://addons/qodot/textures/shaders/::1676098580
 tangent-test.png::CompressedTexture2D::8369999958819788034::1676064568::1676064580::1::::<><>::
-tangent-test.tres::ShaderMaterial::1491877661751243884::1676064580::0::1::::<><>::
+tangent-test.tres::ShaderMaterial::1491877661751243884::1676098580::0::1::::<><>::
 ::res://addons/qodot/textures/special/::1676064580
 clip.png::CompressedTexture2D::8369999958819788034::1676064568::1676064580::1::::<><>::
 skip.png::CompressedTexture2D::3013576122456084822::1676064568::1676064580::1::::<><>::
-::res://Main/::1675564444
-player.tscn::PackedScene::1651150601560104281::1675564444::0::1::::<><>::res://Player.gd<>res://SpringArm3D.gd<>uid://drnsk86bsq2rb<>uid://ruj3ji48b0bd
+::res://Main/::1676504927
+PartyMenu.gd::GDScript::-1::1676184897::0::1::::<>Control<>::
+player.tscn::PackedScene::1651150601560104281::1676504927::0::1::::<><>::res://Player.gd<>res://SpringArm3D.gd<>uid://drnsk86bsq2rb<>uid://ruj3ji48b0bd<>uid://c4lshviajyc8h
 ::res://Maps/::1676094740
 beach1.glb::PackedScene::8279125122714485503::1676074276::1676074281::1::::<><>::uid://cilvj0d17ers<>uid://r7i7d1s8xyfv<>uid://b0xtac7rmc06c
 beach1_4.png::CompressedTexture2D::157598609403552548::1676074280::1676074281::1::::<><>::
 beach1_9.png::CompressedTexture2D::1259813509921385639::1676074280::1676074281::1::::<><>::
 beach1_14.png::CompressedTexture2D::4189776241118836724::1676074280::1676074281::1::::<><>::
-route1_12.png::PackedScene::5532285992397107145::1676094740::1676094740::1::::<><>::uid://cb3vp48a7phcy<>uid://brjkb7am6mfab
+route1.glb::PackedScene::5532285992397107145::1676094713::1676094740::0::::<><>::
 route1_4.png::CompressedTexture2D::4902136206093637808::1676094740::1676094740::1::::<><>::
-route1.glb::::-1::1676094713::1676094740::0::::<><>::
+route1_12.png::PackedScene::5532285992397107145::1676094740::1676094740::1::::<><>::uid://cb3vp48a7phcy<>uid://brjkb7am6mfab
 ::res://Mats/::1676067784
 79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg::CompressedTexture2D::4292519461222805166::1675369025::1675369032::1::::<><>::
 ADOBEFANHEITISTD-BOLD.OTF::FontFile::2253735671628145158::1675416031::1675416031::1::::<><>::
@@ -202,7 +204,7 @@ test.png::CompressedTexture2D::6832132509972691521::1675371760::1675371765::1:::
 text_box.png::CompressedTexture2D::1347720530658920160::1675743163::1675743174::1::::<><>::
 transit.png::CompressedTexture2D::995328652272974286::1676067780::1676067784::1::::<><>::
 water.png::CompressedTexture2D::6978062247561834925::1676066045::1676066062::1::::<><>::
-::res://Models/::1675563534
+::res://Models/::1676338739
 character (1).glb::PackedScene::5019895931049547230::1675130623::1675130625::1::::<><>::uid://drnsk86bsq2rb<>uid://b3mhyex026oxj
 character (1)_8.png::CompressedTexture2D::8380421848767117871::1675130624::1675130625::1::::<><>::
 character (1)_25.png::CompressedTexture2D::4376948963406912087::1675130624::1675130625::1::::<><>::
@@ -211,15 +213,16 @@ test1.glb::PackedScene::4436989864963897028::1675649467::1675649624::1::::<><>::
 test1_3.png::CompressedTexture2D::3392545558973204153::1675649623::1675649623::1::::<><>::
 test2.glb::PackedScene::3077978858824783165::1675656012::1675656012::1::::<><>::
 test2_3.png::CompressedTexture2D::5159346011254931927::1675656012::1675656012::1::::<><>::
-::res://Scripts/::1676070962
+::res://Scripts/::1676501366
 Battle.gd::GDScript::-1::1676069027::0::1::::<>Node<>::
-Global.gd::GDScript::-1::1676069027::0::1::::<>Node<>::
-moveDex.gd::GDScript::-1::1676069027::0::1::::<>Node<>::
-player_own.gd::GDScript::-1::1676069027::0::1::::<>Node<>::
+Global.gd::GDScript::-1::1676500516::0::1::::<>Node<>::
+moveDex.gd::GDScript::-1::1676499042::0::1::::<>Node<>::
+player_own.gd::GDScript::-1::1676185995::0::1::::<>Node<>::
 startButton.gd::GDScript::-1::1676069027::0::1::::<>Button<>::
-Transition.gd::GDScript::-1::1676070962::0::1::::<>Control<>::
-::res://sound/::1676066412
+Transition.gd::GDScript::-1::1676501366::0::1::::<>Control<>::
+::res://sound/::1676505502
 Beach Sounds.ogg::AudioStreamOggVorbis::8558757486591777395::1676066403::1676066412::1::::<><>::
 ftstp.ogg::AudioStreamOggVorbis::1235094838522362561::1675564205::1675564205::1::::<><>::
+Temp Battle.ogg::AudioStreamOggVorbis::7093563700434401822::1676505502::1676505502::1::::<><>::
 the theme song.mp3::AudioStreamMP3::2872155281240913658::1675894999::1675894999::1::::<><>::
 Town1.ogg::AudioStreamOggVorbis::640976496888158839::1676004111::1676004120::1::::<><>::

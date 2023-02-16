@@ -28,6 +28,10 @@ var playerDefense
 var playerPower
 
 @onready var MovePlayer = Vector3.ZERO
+
+var MoveVec
+var AttVec
+
 signal move_picked_player
 @onready var movePickedNumber
 
@@ -42,13 +46,14 @@ var playerTurn
 #switchs to battle
 func switch_scene():
 	overworld = get_node("/root/TestWorld")
-	get_node("/root").remove_child(get_node("/root/TestWorld"))
+	get_node("/root").remove_child(overworld)
 	get_node("/root").add_child(battlescene)
 	
 func end_battle():
 	overworld.remove_child(spawnNode)
-	battlescene.queue_free()
+	battlescene.free()
 	get_node("/root").add_child(overworld)
+	battlescene = preload("res://battle.tscn").instantiate()
 	
 #loads the right creature
 func load_wild_creature():
@@ -106,23 +111,35 @@ func start_battle():
 func _unhandled_input(_event):
 	if inBattle == true && playerTurn == true:
 		if Input.is_action_just_pressed("left"):
-			MovePlayer = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move2"]]["Distance"]
+			MoveVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move2"]]["Distance"]
+			MovePlayer = Vector3(0, 0, -MoveVec)
 			movePickedNumber = "move2"
+			AttVec = Vector3(0, 0, -get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"])
+			
 			emit_signal("move_picked_player")
 			_await_user()
 		if Input.is_action_just_pressed("right"):
-			MovePlayer = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move3"]]["Distance"]
+			MoveVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move3"]]["Distance"]
+			MovePlayer = Vector3(0, 0, MoveVec)
 			movePickedNumber = "move3"
+			AttVec = Vector3(0, 0, get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"])
+			
 			emit_signal("move_picked_player")
 			_await_user()
 		if Input.is_action_just_pressed("forward"):
-			MovePlayer = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move1"]]["Distance"]
+			MoveVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move1"]]["Distance"]
+			MovePlayer = Vector3(MoveVec, 0, 0)
 			movePickedNumber = "move1"
+			AttVec = Vector3(get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"], 0, 0)
+			
 			emit_signal("move_picked_player")
 			_await_user()
 		if Input.is_action_just_pressed("back"):
-			MovePlayer = Vector3(-1, 0, 0)
+			MoveVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move4"]]["Distance"]
+			MovePlayer = Vector3(-MoveVec, 0, 0)
 			movePickedNumber = "move4"
+			AttVec = Vector3(-get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"], 0, 0)
+			
 			emit_signal("move_picked_player")
 			_await_user()
 		
@@ -165,7 +182,8 @@ func player_goes_first():
 		playerGrid = playerGrid + MovePlayer
 		if playerGrid == enemyGrid:
 			playerGrid = playerGrid - MovePlayer
-		if enemyGrid == playerGrid + get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"]:
+			
+		if enemyGrid == playerGrid + AttVec:
 			wildHP -= ((((2 * playerLevel * 1) / 5) * playerPower * (playerAttack / wildDefense)) / 50) + 2
 		playerGrid.x = clamp(playerGrid.x, 1, 4)
 		playerGrid.z = clamp(playerGrid.z, 1, 4)

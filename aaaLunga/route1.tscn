@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b4hktsq4rbub1" path="res://mon/test1.glb" id="13_sogms"]
 [ext_resource type="Script" path="res://door.gd" id="14_x0flc"]
 [ext_resource type="Texture2D" uid="uid://cb3vp48a7phcy" path="res://Maps/route1_4.png" id="15_gytf1"]
-[ext_resource type="Texture2D" uid="uid://brjkb7am6mfab" path="res://Maps/route1_12.png" id="16_xoy7g"]
+[ext_resource type="Texture2D" uid="uid://ck247a8ce08nd" path="res://Maps/route1_12.png" id="16_xoy7g"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qrsnc"]
 panorama = ExtResource("3_atof5")
@@ -339,7 +339,9 @@ transform = Transform3D(-0.759271, 0, 0.650774, 0, 1, 0, -0.650774, 0, -0.759271
 [node name="door" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2487, -0.729393, -15.0569)
 script = ExtResource("14_x0flc")
+current = Vector3(-42.628, 0.176, 0.405)
 next = "res://debug1.tscn"
+rot = 1.58
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door"]
 shape = SubResource("BoxShape3D_4boyh")

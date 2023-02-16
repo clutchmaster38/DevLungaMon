@@ -8,6 +8,9 @@ func _ready() -> void:
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
+	if get_node("/root/TestWorld").current_state == 3:
+		return
+	
 	if event is InputEventMouseMotion && get_parent().get_parent().current_state != 5:
 		rotation_degrees.x -= event.relative.y * mouse_sensitivity
 		rotation_degrees.x = clamp(rotation_degrees.x, -90.0, 30.0)

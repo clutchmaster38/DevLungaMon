@@ -205,6 +205,7 @@ script = ExtResource("1_uv71e")
 
 [node name="Player" parent="." instance=ExtResource("2_ka6ks")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.222751, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n6rcq")
@@ -288,6 +289,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.9089, -0.107371, -0.66535
 script = ExtResource("16_ydtyy")
 current = Vector3(10.614, 0.681, -14.522)
 next = "res://route1.tscn"
+rot = -2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
 shape = SubResource("BoxShape3D_4boyh")

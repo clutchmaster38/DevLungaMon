@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://xr3hd2jrduwv"]
+[gd_scene load_steps=12 format=3 uid="uid://xr3hd2jrduwv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_a8pmo"]
 [ext_resource type="Script" path="res://SpringArm3D.gd" id="2_2jwr2"]
 [ext_resource type="Texture2D" uid="uid://drnsk86bsq2rb" path="res://Models/character (1)_8.png" id="3_3mii6"]
 [ext_resource type="AudioStream" uid="uid://ruj3ji48b0bd" path="res://sound/ftstp.ogg" id="4_y75qr"]
+[ext_resource type="Texture2D" uid="uid://c4lshviajyc8h" path="res://Mats/test.png" id="5_vti0o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dj8ap"]
 resource_name = "Material.003"
@@ -111,6 +112,7 @@ margin = 0.2
 script = ExtResource("2_2jwr2")
 
 [node name="Camera3D" type="Camera3D" parent="SpringArm3D"]
+projection = 2
 
 [node name="Origin" type="Node3D" parent="."]
 
@@ -125,3 +127,88 @@ shape = SubResource("CapsuleShape3D_mu5vi")
 [node name="FtStep" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_y75qr")
 volume_db = -12.19
+
+[node name="MENU" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MENU"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MENU/MarginContainer"]
+scale = Vector2(1.874, 1.874)
+texture = ExtResource("5_vti0o")
+
+[node name="GridContainer" type="GridContainer" parent="MENU"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -109.0
+offset_right = 95.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.678, 1.678)
+columns = 2
+
+[node name="Button" type="Button" parent="MENU/GridContainer"]
+layout_mode = 2
+text = "Party"
+
+[node name="Button2" type="Button" parent="MENU/GridContainer"]
+layout_mode = 2
+text = "Inventory"
+
+[node name="PARTY" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PARTY"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="PARTY/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("5_vti0o")
+
+[node name="Fir" type="MarginContainer" parent="PARTY"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sec" type="GridContainer" parent="PARTY/Fir"]
+layout_mode = 2
+columns = 2
+
+[connection signal="pressed" from="MENU/GridContainer/Button" to="." method="_on_button_pressed"]
