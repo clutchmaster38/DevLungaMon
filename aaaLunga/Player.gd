@@ -49,6 +49,9 @@ func _physics_process(delta: float) -> void:
 			$FtStep.play(0)
 	if _velocity.length() < 0.2 && get_parent().current_state != 5:
 		emit_signal("idle")
+		if $Origin/ping/AnimationPlayer.is_playing() == false:
+			$Origin/ping/AnimationPlayer.play("PingIdle")
+
 	if _velocity.length() < 5.0 && _velocity.length() > 0.2:
 		var _look_direction = Vector2(_velocity.z, _velocity.x)
 		_model.rotation.y = _look_direction.angle()
@@ -58,6 +61,7 @@ func _process(_delta : float) -> void:
 	_spring_arm.position = position
 	if Input.is_action_just_pressed("interact"):
 		print(self.position)
+		get_node("/root/Save")._save()
 	if Input.is_action_just_pressed("menu") && get_parent().current_state == 0:
 		get_parent()._handle_states(get_parent().playerStates.MENU)
 		_open_menu()

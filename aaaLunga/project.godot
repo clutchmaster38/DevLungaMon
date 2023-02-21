@@ -22,6 +22,7 @@ Global="*res://Scripts/Global.gd"
 PlayerOwn="*res://Scripts/player_own.gd"
 MoveDex="*res://Scripts/moveDex.gd"
 Transitition="*res://transitition.tscn"
+Save="*res://Scripts/save.gd"
 
 [display]
 

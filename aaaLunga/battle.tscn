@@ -1,47 +1,68 @@
-[gd_scene load_steps=9 format=3 uid="uid://cx8qmj1hr4vnw"]
+[gd_scene load_steps=13 format=3 uid="uid://cx8qmj1hr4vnw"]
 
 [ext_resource type="Script" path="res://monBattle.gd" id="1_ybxwt"]
-[ext_resource type="Texture2D" uid="uid://d2qouj1y71ejm" path="res://Mats/Gridlines.png" id="2_yt4j4"]
 [ext_resource type="Texture2D" uid="uid://b2flfywcegtuk" path="res://Mats/79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg" id="3_1c2op"]
+[ext_resource type="Texture2D" uid="uid://bvpdrw0aqq2ys" path="res://Mats/NeutSqr.png" id="3_g1nh5"]
 [ext_resource type="AudioStream" uid="uid://bmjop5ubw20ke" path="res://sound/Temp Battle.ogg" id="4_6rl6e"]
+[ext_resource type="Texture2D" uid="uid://c8c3kguaeg0tt" path="res://Mats/grass.png" id="5_rhgpd"]
+[ext_resource type="Texture2D" uid="uid://djyerlbdmo72u" path="res://Mats/battleGUI.png" id="6_h3dlr"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_fua7h"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ewd5x"]
 panorama = ExtResource("3_1c2op")
 
-[sub_resource type="Sky" id="Sky_fpi6a"]
-sky_material = SubResource("PanoramaSkyMaterial_fua7h")
+[sub_resource type="Sky" id="Sky_psw08"]
+sky_material = SubResource("PanoramaSkyMaterial_ewd5x")
 
-[sub_resource type="Environment" id="Environment_xfojf"]
+[sub_resource type="Environment" id="Environment_xc1ly"]
 background_mode = 2
-sky = SubResource("Sky_fpi6a")
+sky = SubResource("Sky_psw08")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjp4c"]
-albedo_texture = ExtResource("2_yt4j4")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6k1e"]
+transparency = 1
+albedo_texture = ExtResource("3_g1nh5")
+uv1_scale = Vector3(4, 4, 4)
+grow_amount = 0.337
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujhjo"]
+albedo_texture = ExtResource("5_rhgpd")
+heightmap_scale = -16.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+uv1_scale = Vector3(100, 100, 100)
+texture_filter = 0
+proximity_fade_distance = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pcgsu"]
+material = SubResource("StandardMaterial3D_ujhjo")
+size = Vector2(100, 100)
 
 [node name="mapBattle" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0887737, 0.0594254, 0.0475473)
 script = ExtResource("1_ybxwt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xfojf")
+environment = SubResource("Environment_xc1ly")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
 size = Vector3(10, 0.1, 10)
-material = SubResource("StandardMaterial3D_sjp4c")
+material = SubResource("StandardMaterial3D_a6k1e")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -1.19249e-08, 0, 1.19249e-08, 1, 1, 4.37114e-08, -5.21253e-16, 0, 9.50536, 0)
 
 [node name="GUI" type="Control" parent="."]
+top_level = true
+texture_filter = 1
 layout_mode = 3
-anchor_right = 0.015
-anchor_bottom = 0.006
-offset_right = 11.2
-offset_bottom = 33.52
+anchors_preset = 0
+offset_top = 55.0
+offset_bottom = 55.0
 
-[node name="EnemyHealth" type="RichTextLabel" parent="GUI"]
+[node name="PlayerHealth" type="RichTextLabel" parent="GUI"]
 layout_mode = 0
 offset_right = 134.0
 offset_bottom = 58.0
@@ -51,3 +72,32 @@ scale = Vector2(7.783, 7.783)
 stream = ExtResource("4_6rl6e")
 volume_db = -14.432
 autoplay = true
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_pcgsu")
+
+[node name="NME" type="Control" parent="."]
+top_level = true
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 55.0
+offset_bottom = 95.0
+grow_horizontal = 0
+
+[node name="EnemyHealth" type="RichTextLabel" parent="NME"]
+layout_mode = 0
+offset_left = -160.0
+offset_right = -26.0
+offset_bottom = 58.0
+scale = Vector2(7.783, 7.783)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(960, 540)
+scale = Vector2(12, 12)
+texture = ExtResource("6_h3dlr")

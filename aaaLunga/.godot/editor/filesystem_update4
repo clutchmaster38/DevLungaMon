@@ -1,8 +1,10 @@
 res://debug1.tscn
 res://pause.gd
-res://route1.tscn
-res://battle.tscn
+res://shaders/waterS.tres
 res://Main/player.tscn
+res://title.tscn
+res://Scripts/fishthink.gd
+res://Fish Maker.gd
+res://Scripts/save.gd
 res://Scripts/Global.gd
-res://Scripts/moveDex.gd
-res://Scripts/Transition.gd
+res://battle.tscn

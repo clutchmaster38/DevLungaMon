@@ -16,10 +16,14 @@ var playerName
 @onready var playersTurn = false
 @onready var enemyTurn = false
 
+
 var wildHP
 var wildLevel
 var wildAttack
 var wildDefense
+var wildMoves
+
+var enemyPower
 
 var playerHP
 var playerLevel
@@ -53,12 +57,14 @@ func end_battle():
 	overworld.remove_child(spawnNode)
 	battlescene.free()
 	get_node("/root").add_child(overworld)
+	get_tree().set_current_scene(overworld)
 	battlescene = preload("res://battle.tscn").instantiate()
 	
 #loads the right creature
 func load_wild_creature():
 	currentWild = spawnNode.creatureName
 	wildLevel = spawnNode.creatureLevel
+	wildMoves = spawnNode.creatureMoves
 	
 #inits the battle
 func start_battle():
@@ -69,6 +75,8 @@ func start_battle():
 	get_node("/root/mapBattle").add_child(enemyMDL)
 	wildName = get_node("/root/mapBattle").monDict[currentWild]["NAME"]
 	wildName = "/root/mapBattle/" + wildName
+	
+	enemyGrid = Vector3(4, 2.7, 4)
 	get_node(wildName).position.x = (enemyGrid.x * 2.5) - 6.25
 	get_node(wildName).position.y = 0.5
 	get_node(wildName).position.z = (enemyGrid.z * 2.5) - 6.25
@@ -79,7 +87,8 @@ func start_battle():
 	
 	wildHP = floor(0.01 * (2 * wildBHP + 14 + floor(0.25 * 60)) * wildLevel) + wildLevel + 10
 	
-	get_node("/root/mapBattle/GUI/EnemyHealth").text = str(wildHP)
+	get_node("/root/mapBattle/NME/EnemyHealth").text = str(wildHP)
+	get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
 	
 	#loads the player
 	playerMon = get_node("/root/PlayerOwn").Party["creature1"]["creatureName"]
@@ -90,11 +99,14 @@ func start_battle():
 	playerName = get_node("/root/mapBattle").monDict[playerMon]["NAME"]
 	playerName = "/root/mapBattle/" + playerName
 	
-	playerHP = get_node("/root/mapBattle").monDict[playerMon]["BHP"]
+	var playerBHP = get_node("/root/mapBattle").monDict[playerMon]["BHP"]
+	
+	playerHP = floor(0.01 * (2 * playerBHP + 14 + floor(0.25 * 60)) * playerLevel) + playerLevel + 10
+	
 	playerAttack = get_node("/root/mapBattle").monDict[playerMon]["BATTACK"]
 	playerDefense = get_node("/root/mapBattle").monDict[playerMon]["BDEFENSE"]
 	
-	
+	playerGrid = Vector3(1, 2.7, 1)
 	get_node(playerName).position.x = (playerGrid.x * 2.5) - 6.25
 	get_node(playerName).position.y = 0.5
 	get_node(playerName).position.z = (playerGrid.z * 2.5) - 6.25
@@ -152,26 +164,44 @@ func _await_user():
 		
 func enemy_goes_first():
 	var enemyMove = randf_range(1, 5)
+	var enemyMoveVec
+	var enemyAttVec
 	enemyMove = int(enemyMove)
 	var moveEnemy
 	print(enemyMove)
 	match enemyMove:
 		1:
-			moveEnemy = Vector3(-1, 0 ,0)
+			enemyMoveVec = get_node("/root/MoveDex").MoveDex[wildMoves["move1"]]["Distance"]
+			moveEnemy = Vector3(0, 0, -enemyMoveVec)
+			enemyAttVec = Vector3(0, 0, -get_node("/root/MoveDex").MoveDex[wildMoves["move1"]]["AttVector"])
+			enemyPower = get_node("/root/MoveDex").MoveDex[wildMoves["move1"]]["Power"]
 		2:
-			moveEnemy = Vector3(0, 0 ,-1)
+			enemyMoveVec = get_node("/root/MoveDex").MoveDex[wildMoves["move2"]]["Distance"]
+			moveEnemy = Vector3(0, 0, enemyMoveVec)
+			enemyAttVec = Vector3(0, 0, get_node("/root/MoveDex").MoveDex[wildMoves["move2"]]["AttVector"])
+			enemyPower = get_node("/root/MoveDex").MoveDex[wildMoves["move2"]]["Power"]
 		3:
-			moveEnemy = Vector3(1, 0 ,0)
+			enemyMoveVec = get_node("/root/MoveDex").MoveDex[wildMoves["move3"]]["Distance"]
+			moveEnemy = Vector3(enemyMoveVec, 0, 0)
+			enemyAttVec = Vector3(get_node("/root/MoveDex").MoveDex[wildMoves["move3"]]["AttVector"], 0, 0)
+			enemyPower = get_node("/root/MoveDex").MoveDex[wildMoves["move3"]]["Power"]
 		4:
-			moveEnemy = Vector3(0, 0 ,1)
+			enemyMoveVec = get_node("/root/MoveDex").MoveDex[wildMoves["move4"]]["Distance"]
+			moveEnemy = Vector3(-enemyMoveVec, 0, 0)
+			enemyAttVec = Vector3(-get_node("/root/MoveDex").MoveDex[wildMoves["move4"]]["AttVector"], 0, 0)
+			
 	enemyGrid = enemyGrid + moveEnemy
 	if enemyGrid == playerGrid:
 		enemyGrid = enemyGrid - moveEnemy
 	enemyGrid.x = clamp(enemyGrid.x, 1, 4)
 	enemyGrid.z = clamp(enemyGrid.z, 1, 4)
+	if playerGrid == enemyGrid + enemyAttVec:
+		playerHP -= ((((2 * wildLevel * 1) / 5) * enemyPower * (wildAttack / playerDefense)) / 50) + 2
 	get_node(wildName).position.x = (enemyGrid.x * 2.5) - 6.25
 	get_node(wildName).position.y = 0.5
 	get_node(wildName).position.z = (enemyGrid.z * 2.5) - 6.25
+	get_node("/root/mapBattle/NME/EnemyHealth").text = str(wildHP)
+	get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
 	player_goes_first()
 	
 func player_goes_first():
@@ -190,10 +220,18 @@ func player_goes_first():
 		get_node(playerName).position.x = (playerGrid.x * 2.5) - 6.25
 		get_node(playerName).position.y = 0.5
 		get_node(playerName).position.z = (playerGrid.z * 2.5) - 6.25
-		get_node("/root/mapBattle/GUI/EnemyHealth").text = str(wildHP)
+		get_node("/root/mapBattle/NME/EnemyHealth").text = str(wildHP)
+		get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
 		playerTurn = false
 		if wildHP <= 0:
 			end_battle()
+			_check_level()
 			return
 		enemy_goes_first()
 
+func _check_level():
+	var newEXP = get_node("/root/PlayerOwn").Party["creature1"]["creatureExp"] + (wildLevel * 13)
+	get_node("/root/PlayerOwn").Party["creature1"]["creatureExp"] = newEXP
+	get_node("/root/PlayerOwn").Party["creature1"]["creatureLevel"] = floor(pow(newEXP, 1/3.0))
+	print(get_node("/root/PlayerOwn").Party["creature1"]["creatureExp"])
+	print(get_node("/root/PlayerOwn").Party["creature1"]["creatureLevel"])

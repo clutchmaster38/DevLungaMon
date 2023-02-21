@@ -4,6 +4,7 @@ extends Node
 	"creature1" = {
 		"creatureName" = "Testagon2",
 		"creatureLevel" = 10,
+		"creatureExp" = 1000,
 		"creatureNature" = "Bold",
 		"creatureMoves" = {
 			"move1" = "Tackle",
