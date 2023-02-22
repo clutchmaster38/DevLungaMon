@@ -1,6 +1,12 @@
-Sprite2D
+CSGBox3D
+NinePatchRect
 Control
+RichTextLabel
+Sprite2D
 MeshInstance3D
+CanvasGroup
+CanvasLayer
+CanvasModulate
 Node3D
 Node
 AudioStreamPlayer
@@ -11,15 +17,11 @@ TextureRect
 CSGCombiner3D
 CollisionShape3D
 Area3D
-CSGBox3D
 AnimationPlayer
-RichTextLabel
 ReferenceRect
 VBoxContainer
-NinePatchRect
 ColorRect
 AspectRatioContainer
-CanvasLayer
 AnimatedSprite2D
 TileMap
 Camera2D
@@ -28,5 +30,3 @@ QodotPlugin
 QodotMap
 AudioStreamPlayer3D
 Sprite3D
-WorldEnvironment
-StaticBody3D

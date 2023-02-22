@@ -75,6 +75,7 @@ func _process(_delta : float) -> void:
 	if Input.is_action_pressed("escape") && menuOpen == true:
 		get_parent()._handle_states(get_parent().playerStates.IDLE)
 		$PARTY.visible = false
+		$DEBUG.visible = false
 		for n in $PARTY/Fir/Sec.get_children():
 			n.queue_free()
 		_close_menu()
@@ -101,3 +102,13 @@ func _on_button_pressed():
 		newbut = Button.new()
 		get_node("PARTY/Fir/Sec").add_child(newbut)
 		newbut.text = get_node("/root/PlayerOwn").Party["creature" + str(i+1)]["creatureName"]
+		newbut.text += "\n"
+		newbut.text += "Level " + str(get_node("/root/PlayerOwn").Party["creature" + str(i+1)]["creatureLevel"])
+
+
+
+func _on_button_DEBUG_pressed():
+	$DEBUG.visible = true
+	menuOpen = true
+	get_parent()._handle_states(get_parent().playerStates.MENU)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

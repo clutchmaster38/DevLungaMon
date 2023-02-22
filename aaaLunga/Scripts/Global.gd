@@ -128,32 +128,59 @@ func _unhandled_input(_event):
 			movePickedNumber = "move2"
 			AttVec = Vector3(0, 0, -get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"])
 			
-			emit_signal("move_picked_player")
-			_await_user()
+			get_node("/root/mapBattle/HitMarker").visible = true
+			get_node("/root/mapBattle/HitMarker").position.x = ((clamp(playerGrid.x + AttVec.x + MovePlayer.x, 1, 4)) * 2.5) - 6.25
+			get_node("/root/mapBattle/HitMarker").position.z = ((clamp(playerGrid.z + AttVec.z + MovePlayer.z, 1, 4)) * 2.5) - 6.25
+			if (get_node(wildName).position.z < get_node(playerName).position.z && get_node(wildName).position.z > get_node("/root/mapBattle/HitMarker").position.z):
+				if get_node(wildName).position.x == get_node("/root/mapBattle/HitMarker").position.x:
+					get_node("/root/mapBattle/HitMarker").position.z = get_node(wildName).position.z
+
 		if Input.is_action_just_pressed("right"):
 			MoveVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move3"]]["Distance"]
 			MovePlayer = Vector3(0, 0, MoveVec)
 			movePickedNumber = "move3"
 			AttVec = Vector3(0, 0, get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"])
 			
-			emit_signal("move_picked_player")
-			_await_user()
+			get_node("/root/mapBattle/HitMarker").visible = true
+				
+			get_node("/root/mapBattle/HitMarker").position.x = ((clamp(playerGrid.x + AttVec.x + MovePlayer.x, 1, 4)) * 2.5) - 6.25
+			get_node("/root/mapBattle/HitMarker").position.z = ((clamp(playerGrid.z + AttVec.z + MovePlayer.z, 1, 4)) * 2.5) - 6.25
+			if (get_node(wildName).position.z > get_node(playerName).position.z && get_node(wildName).position.z < get_node("/root/mapBattle/HitMarker").position.z):
+				if get_node(wildName).position.x == get_node("/root/mapBattle/HitMarker").position.x:
+					get_node("/root/mapBattle/HitMarker").position.z = get_node(wildName).position.z
+			
+
 		if Input.is_action_just_pressed("forward"):
 			MoveVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move1"]]["Distance"]
 			MovePlayer = Vector3(MoveVec, 0, 0)
 			movePickedNumber = "move1"
 			AttVec = Vector3(get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"], 0, 0)
 			
-			emit_signal("move_picked_player")
-			_await_user()
+			get_node("/root/mapBattle/HitMarker").visible = true
+			
+			get_node("/root/mapBattle/HitMarker").position.x = ((clamp(playerGrid.x + AttVec.x + MovePlayer.x, 1, 4)) * 2.5) - 6.25
+			get_node("/root/mapBattle/HitMarker").position.z = ((clamp(playerGrid.z + AttVec.z + MovePlayer.z, 1, 4)) * 2.5) - 6.25
+			if (get_node(wildName).position.x > get_node(playerName).position.x && get_node(wildName).position.x < get_node("/root/mapBattle/HitMarker").position.x):
+				if get_node(wildName).position.z == get_node("/root/mapBattle/HitMarker").position.z:
+					get_node("/root/mapBattle/HitMarker").position.x = get_node(wildName).position.x
+
 		if Input.is_action_just_pressed("back"):
 			MoveVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move4"]]["Distance"]
 			MovePlayer = Vector3(-MoveVec, 0, 0)
 			movePickedNumber = "move4"
 			AttVec = Vector3(-get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"][movePickedNumber]]["AttVector"], 0, 0)
 			
+			get_node("/root/mapBattle/HitMarker").visible = true
+			get_node("/root/mapBattle/HitMarker").position.x = ((clamp(playerGrid.x + AttVec.x + MovePlayer.x, 1, 4)) * 2.5) - 6.25
+			get_node("/root/mapBattle/HitMarker").position.z = ((clamp(playerGrid.z + AttVec.z + MovePlayer.z, 1, 4)) * 2.5) - 6.25
+			if (get_node(wildName).position.x < get_node(playerName).position.x && get_node(wildName).position.x > get_node("/root/mapBattle/HitMarker").position.x):
+				if get_node(wildName).position.z == get_node("/root/mapBattle/HitMarker").position.z:
+					get_node("/root/mapBattle/HitMarker").position.x = get_node(wildName).position.x
+
+
+		if Input.is_action_just_pressed("select") && movePickedNumber != null:
 			emit_signal("move_picked_player")
-			_await_user()
+
 		
 		
 		
@@ -163,6 +190,8 @@ func _await_user():
 		
 		
 func enemy_goes_first():
+	get_node("/root/mapBattle/HitMarker").visible = false
+	movePickedNumber = null
 	var enemyMove = randf_range(1, 5)
 	var enemyMoveVec
 	var enemyAttVec

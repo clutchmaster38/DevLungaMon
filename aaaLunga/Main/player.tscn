@@ -1,10 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://xr3hd2jrduwv"]
+[gd_scene load_steps=15 format=3 uid="uid://xr3hd2jrduwv"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_a8pmo"]
 [ext_resource type="Script" path="res://SpringArm3D.gd" id="2_2jwr2"]
 [ext_resource type="Texture2D" uid="uid://c6hy7f43vju1n" path="res://Models/ping (2)_6.png" id="3_7ng4n"]
 [ext_resource type="AudioStream" uid="uid://ruj3ji48b0bd" path="res://sound/ftstp.ogg" id="4_y75qr"]
+[ext_resource type="Texture2D" uid="uid://cobii0bkkkrm2" path="res://Mats/menu.png" id="5_6gs5j"]
 [ext_resource type="Texture2D" uid="uid://c4lshviajyc8h" path="res://Mats/test.png" id="5_vti0o"]
+[ext_resource type="Texture2D" uid="uid://bxq2s5kcdkeu3" path="res://Mats/devmenu.png" id="6_ne860"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fdvc5"]
 resource_name = "pingmat"
@@ -606,7 +608,7 @@ grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MENU/MarginContainer"]
 scale = Vector2(1.874, 1.874)
-texture = ExtResource("5_vti0o")
+texture = ExtResource("5_6gs5j")
 
 [node name="GridContainer" type="GridContainer" parent="MENU"]
 layout_mode = 1
@@ -630,7 +632,7 @@ text = "Party"
 
 [node name="Button2" type="Button" parent="MENU/GridContainer"]
 layout_mode = 2
-text = "Inventory"
+text = "DEBUG"
 
 [node name="PARTY" type="Control" parent="."]
 visible = false
@@ -667,4 +669,30 @@ grow_vertical = 2
 layout_mode = 2
 columns = 2
 
+[node name="DEBUG" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1728.0
+offset_bottom = -972.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DEBUG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ne860")
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
 [connection signal="pressed" from="MENU/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MENU/GridContainer/Button2" to="." method="_on_button_DEBUG_pressed"]

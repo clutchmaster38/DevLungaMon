@@ -8,3 +8,8 @@ res://Fish Maker.gd
 res://Scripts/save.gd
 res://Scripts/Global.gd
 res://battle.tscn
+res://Main/CAMERA.gdshader
+res://Main/cacacaman.gdshader
+res://Main/player.tres
+res://route1.tscn
+res://Player.gd
