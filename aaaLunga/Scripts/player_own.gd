@@ -2,7 +2,7 @@ extends Node
 
 @onready var Party = {
 	"creature1" = {
-		"creatureName" = "Testagon2",
+		"creatureName" = "Testagon",
 		"creatureLevel" = 10,
 		"creatureExp" = 1000,
 		"creatureNature" = "Bold",
@@ -14,6 +14,50 @@ extends Node
 		}
 	},
 	"creature2" = {
+		"creatureName" = "Testagon2",
+		"creatureLevel" = 10,
+		"creatureNature" = "Bold",
+		"creatureMoves" = {
+			"move1" = "Tackle",
+			"move2" = "Swift",
+			"move3" = "Tackle",
+			"move4" = "Tackle"
+		}
+	},
+	"creature3" = {
+		"creatureName" = "Testagon2",
+		"creatureLevel" = 10,
+		"creatureNature" = "Bold",
+		"creatureMoves" = {
+			"move1" = "Tackle",
+			"move2" = "Swift",
+			"move3" = "Tackle",
+			"move4" = "Tackle"
+		}
+	},
+	"creature4" = {
+		"creatureName" = "Testagon2",
+		"creatureLevel" = 10,
+		"creatureNature" = "Bold",
+		"creatureMoves" = {
+			"move1" = "Tackle",
+			"move2" = "Swift",
+			"move3" = "Tackle",
+			"move4" = "Tackle"
+		}
+	},
+	"creature5" = {
+		"creatureName" = "Testagon2",
+		"creatureLevel" = 10,
+		"creatureNature" = "Bold",
+		"creatureMoves" = {
+			"move1" = "Tackle",
+			"move2" = "Swift",
+			"move3" = "Tackle",
+			"move4" = "Tackle"
+		}
+	},
+	"creature6" = {
 		"creatureName" = "Testagon2",
 		"creatureLevel" = 10,
 		"creatureNature" = "Bold",

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://08x2a2x2lce5"]
+
+[ext_resource type="Texture2D" uid="uid://c7nl2e87qcje3" path="res://Mats/OffMenu.png" id="1_ksjki"]
+[ext_resource type="FontFile" uid="uid://ckbtx85ky2u0j" path="res://Mats/VFD font.ttf" id="1_t3p3i"]
+
+[node name="ON" type="Sprite2D"]
+position = Vector2(-59.5, -84)
+texture = ExtResource("1_ksjki")
+
+[node name="BUTTON" type="RichTextLabel" parent="."]
+anchors_preset = -1
+anchor_left = 0.578
+anchor_top = 0.12
+anchor_right = 0.948
+anchor_bottom = 0.231
+offset_left = -63.984
+offset_top = -55.0
+offset_right = -54.344
+offset_bottom = -5.1
+theme_override_fonts/normal_font = ExtResource("1_t3p3i")
+theme_override_font_sizes/normal_font_size = 8
+text = "
+TURKEY"

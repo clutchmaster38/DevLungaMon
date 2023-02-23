@@ -28,7 +28,6 @@ func _load():
 	if file == null:
 		return
 	saveDict = file.get_var()
-	print(saveDict)
 	if FileAccess.file_exists("user://save.dat"):
 		call_deferred("playerSpot")
 

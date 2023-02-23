@@ -13,3 +13,6 @@ res://Main/cacacaman.gdshader
 res://Main/player.tres
 res://route1.tscn
 res://Player.gd
+res://Main/PartyMenu.gd
+res://Main/partySel.tscn
+res://Scripts/player_own.gd

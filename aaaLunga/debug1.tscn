@@ -30,6 +30,7 @@ panorama = ExtResource("3_5b0xh")
 
 [sub_resource type="Sky" id="Sky_adywd"]
 sky_material = SubResource("PanoramaSkyMaterial_qrsnc")
+radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_n6rcq"]
 background_mode = 2

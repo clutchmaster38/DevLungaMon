@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cx8qmj1hr4vnw"]
+[gd_scene load_steps=17 format=3 uid="uid://cx8qmj1hr4vnw"]
 
 [ext_resource type="Script" path="res://monBattle.gd" id="1_ybxwt"]
 [ext_resource type="Texture2D" uid="uid://b2flfywcegtuk" path="res://Mats/79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg" id="3_1c2op"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://djyerlbdmo72u" path="res://Mats/battleGUI.png" id="6_h3dlr"]
 [ext_resource type="Texture2D" uid="uid://cfd6g3af7tlky" path="res://Mats/joypad.png" id="7_w0pcx"]
 [ext_resource type="Texture2D" uid="uid://dw77ejhh6hj6s" path="res://Mats/hitmark.png" id="8_rbexa"]
+[ext_resource type="AudioStream" uid="uid://b7a0fv0tt8pxe" path="res://sound/battlehit.mp3" id="9_njhso"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ewd5x"]
 panorama = ExtResource("3_1c2op")
@@ -74,7 +75,7 @@ offset_right = 134.0
 offset_bottom = 58.0
 scale = Vector2(7.783, 7.783)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_6rl6e")
 volume_db = -14.432
 autoplay = true
@@ -108,19 +109,66 @@ position = Vector2(960, 540)
 scale = Vector2(12, 12)
 texture = ExtResource("6_h3dlr")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="joyPad" type="Sprite2D" parent="."]
 position = Vector2(317, 798)
 scale = Vector2(7, 7)
 texture = ExtResource("7_w0pcx")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Sprite2D2"]
-offset_left = -18.436
-offset_top = -35.702
-offset_right = 21.564
-offset_bottom = 4.298
+[node name="Top" type="RichTextLabel" parent="joyPad"]
+anchors_preset = -1
+anchor_left = -0.135
+anchor_top = -0.252
+anchor_right = 1.0
+offset_left = -8.23571
+offset_top = -20.188
+offset_right = 72.7143
+offset_bottom = 12.0
+scale = Vector2(0.642, 0.642)
+text = "TEST"
+
+[node name="Bottom" type="RichTextLabel" parent="joyPad"]
+anchors_preset = -1
+anchor_left = -0.135
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.352
+offset_left = -6.94999
+offset_top = -17.4286
+offset_right = 74.0
+offset_bottom = 11.6594
+scale = Vector2(0.642, 0.642)
+text = "TEST"
+
+[node name="Left" type="RichTextLabel" parent="joyPad"]
+anchors_preset = -1
+anchor_left = -0.829
+anchor_top = 0.348
+anchor_bottom = 0.647
+offset_left = -14.9871
+offset_top = -19.0737
+offset_right = 75.1429
+offset_bottom = 11.6573
+scale = Vector2(0.642, 0.642)
+text = "TEST"
+
+[node name="Right" type="RichTextLabel" parent="joyPad"]
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.348
+anchor_right = 1.773
+anchor_bottom = 0.656
+offset_left = -14.0
+offset_top = -18.788
+offset_right = 77.81
+offset_bottom = 11.664
+scale = Vector2(0.642, 0.642)
 text = "TEST"
 
 [node name="HitMarker" type="CSGBox3D" parent="."]
 visible = false
 size = Vector3(2.5, 0.2, 2.5)
 material = SubResource("StandardMaterial3D_k4nug")
+
+[node name="HIT" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_njhso")
+volume_db = -7.496

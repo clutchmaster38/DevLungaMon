@@ -103,6 +103,11 @@ func start_battle():
 	
 	playerHP = floor(0.01 * (2 * playerBHP + 14 + floor(0.25 * 60)) * playerLevel) + playerLevel + 10
 	
+	get_node("/root/mapBattle/joyPad/Top").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move1"]
+	get_node("/root/mapBattle/joyPad/Bottom").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move4"]
+	get_node("/root/mapBattle/joyPad/Left").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move2"]
+	get_node("/root/mapBattle/joyPad/Right").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move3"]
+	
 	playerAttack = get_node("/root/mapBattle").monDict[playerMon]["BATTACK"]
 	playerDefense = get_node("/root/mapBattle").monDict[playerMon]["BDEFENSE"]
 	
@@ -197,7 +202,6 @@ func enemy_goes_first():
 	var enemyAttVec
 	enemyMove = int(enemyMove)
 	var moveEnemy
-	print(enemyMove)
 	match enemyMove:
 		1:
 			enemyMoveVec = get_node("/root/MoveDex").MoveDex[wildMoves["move1"]]["Distance"]
@@ -232,7 +236,6 @@ func enemy_goes_first():
 	get_node("/root/mapBattle/NME/EnemyHealth").text = str(wildHP)
 	get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
 	player_goes_first()
-	
 func player_goes_first():
 	playerTurn = true
 	var confirmed = await _await_user()
@@ -244,6 +247,7 @@ func player_goes_first():
 			
 		if enemyGrid == playerGrid + AttVec:
 			wildHP -= ((((2 * playerLevel * 1) / 5) * playerPower * (playerAttack / wildDefense)) / 50) + 2
+			get_node("/root/mapBattle/HIT").play()
 		playerGrid.x = clamp(playerGrid.x, 1, 4)
 		playerGrid.z = clamp(playerGrid.z, 1, 4)
 		get_node(playerName).position.x = (playerGrid.x * 2.5) - 6.25
@@ -262,5 +266,3 @@ func _check_level():
 	var newEXP = get_node("/root/PlayerOwn").Party["creature1"]["creatureExp"] + (wildLevel * 13)
 	get_node("/root/PlayerOwn").Party["creature1"]["creatureExp"] = newEXP
 	get_node("/root/PlayerOwn").Party["creature1"]["creatureLevel"] = floor(pow(newEXP, 1/3.0))
-	print(get_node("/root/PlayerOwn").Party["creature1"]["creatureExp"])
-	print(get_node("/root/PlayerOwn").Party["creature1"]["creatureLevel"])
