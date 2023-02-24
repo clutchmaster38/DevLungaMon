@@ -1,7 +1,61 @@
-[gd_scene load_steps=3 format=3 uid="uid://08x2a2x2lce5"]
+[gd_scene load_steps=11 format=3 uid="uid://08x2a2x2lce5"]
 
 [ext_resource type="Texture2D" uid="uid://c7nl2e87qcje3" path="res://Mats/OffMenu.png" id="1_ksjki"]
-[ext_resource type="FontFile" uid="uid://ckbtx85ky2u0j" path="res://Mats/VFD font.ttf" id="1_t3p3i"]
+[ext_resource type="FontFile" uid="uid://crdh567jnob3q" path="res://Mats/VFD font (1).ttf" id="2_d4kwv"]
+[ext_resource type="Texture2D" uid="uid://bi1ro534tq7dx" path="res://Mats/SelMen.png" id="3_pf5ra"]
+[ext_resource type="Texture2D" uid="uid://4uhmysf2m8jj" path="res://Mats/static.png" id="3_yj1tc"]
+[ext_resource type="Texture2D" uid="uid://c8i1bnoawyxt4" path="res://Mats/MonPortraits/Snurkey.png" id="4_axigo"]
+[ext_resource type="Texture2D" uid="uid://c1fyj4hx1cn5l" path="res://Mats/VUmeter.png" id="6_o6f2d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ew6cx"]
+atlas = ExtResource("3_yj1tc")
+region = Rect2(0, 0, 57, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkl3j"]
+atlas = ExtResource("3_yj1tc")
+region = Rect2(57, 0, 57, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8l44"]
+atlas = ExtResource("3_yj1tc")
+region = Rect2(114, 0, 57, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ojw0j"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pf5ra")
+}],
+"loop": true,
+"name": &"sel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_axigo")
+}],
+"loop": true,
+"name": &"snurkey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ew6cx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkl3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8l44")
+}],
+"loop": true,
+"name": &"static",
+"speed": 20.0
+}]
 
 [node name="ON" type="Sprite2D"]
 position = Vector2(-59.5, -84)
@@ -17,7 +71,48 @@ offset_left = -63.984
 offset_top = -55.0
 offset_right = -54.344
 offset_bottom = -5.1
-theme_override_fonts/normal_font = ExtResource("1_t3p3i")
+theme_override_fonts/normal_font = ExtResource("2_d4kwv")
 theme_override_font_sizes/normal_font_size = 8
 text = "
 TURKEY"
+
+[node name="STATIC" type="AnimatedSprite2D" parent="."]
+position = Vector2(-20.5, -18)
+sprite_frames = SubResource("SpriteFrames_ojw0j")
+animation = &"snurkey"
+
+[node name="VU" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(-12.5, 12)
+texture = ExtResource("6_o6f2d")
+
+[node name="ColorRect" type="ColorRect" parent="VU"]
+z_index = 3
+offset_left = 36.0
+offset_top = -6.0
+offset_right = 37.0
+offset_bottom = 5.0
+color = Color(0.0509804, 1, 0, 1)
+
+[node name="HEALTH VU" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HEALTH" type="RichTextLabel" parent="HEALTH VU"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.723
+anchor_top = 0.56
+anchor_right = 0.895
+anchor_bottom = 0.67
+offset_left = -0.42
+offset_top = -21.4
+offset_right = 34.564
+offset_bottom = 28.6
+theme_override_colors/default_color = Color(1, 0.556863, 0.556863, 1)
+theme_override_fonts/normal_font = ExtResource("2_d4kwv")
+theme_override_font_sizes/normal_font_size = 8
+text = "
+100"

@@ -1,18 +1,9 @@
-res://debug1.tscn
+res://Main/partySel.tscn
 res://pause.gd
 res://shaders/waterS.tres
+res://debug1.tscn
 res://Main/player.tscn
-res://title.tscn
-res://Scripts/fishthink.gd
-res://Fish Maker.gd
-res://Scripts/save.gd
-res://Scripts/Global.gd
-res://battle.tscn
-res://Main/CAMERA.gdshader
-res://Main/cacacaman.gdshader
-res://Main/player.tres
-res://route1.tscn
-res://Player.gd
-res://Main/PartyMenu.gd
-res://Main/partySel.tscn
 res://Scripts/player_own.gd
+res://monBattle.gd
+res://Scripts/Global.gd
+res://Scripts/save.gd

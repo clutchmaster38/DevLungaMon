@@ -74,6 +74,7 @@ libraries = {
 }
 
 [node name="Wipe" type="Sprite2D" parent="AnimationPlayer"]
-position = Vector2(3793, 535)
-scale = Vector2(188.2, 109)
+texture_filter = 6
+position = Vector2(4009, 740.5)
+scale = Vector2(195.4, 150.1)
 texture = ExtResource("2_4yemp")

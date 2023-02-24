@@ -80,6 +80,7 @@ func _process(_delta : float) -> void:
 	if Input.is_action_pressed("escape") && menuOpen == true:
 		get_parent()._handle_states(get_parent().playerStates.IDLE)
 		$PARTY.visible = false
+		menuCounter = Vector2(1,1)
 		$DEBUG.visible = false
 		for n in $PARTY/VFD.get_children():
 			n.queue_free()
@@ -106,42 +107,70 @@ func _process(_delta : float) -> void:
 		match menuCounter:
 			Vector2(1,1):
 				for i in $PARTY/VFD.get_children():
-					i.texture = OffTexture
-					i.z_index = 0
+					if i != $PARTY/VFD.get_child(0):
+						i.texture = OffTexture
+						i.z_index = 0
+						i.get_child(1).play("static")
 				$PARTY/VFD.get_child(0).texture = OnTexture
 				$PARTY/VFD.get_child(0).z_index = 3
+				$PARTY/VFD.get_child(0).get_child(1).play("snurkey")
 				if isTicking == false:
-					_on_menu_tick()
+					_on_menu_tick(0)
 			Vector2(1,2):
 				for i in $PARTY/VFD.get_children():
-					i.texture = OffTexture
-					i.z_index = 0
+					if i != $PARTY/VFD.get_child(1):
+						i.texture = OffTexture
+						i.z_index = 0
+						i.get_child(1).play("static")
 				$PARTY/VFD.get_child(1).texture = OnTexture
 				$PARTY/VFD.get_child(1).z_index = 3
+				$PARTY/VFD.get_child(1).get_child(1).play("sel")
+				if isTicking == false:
+					_on_menu_tick(1)
 			Vector2(2,1):
 				for i in $PARTY/VFD.get_children():
-					i.texture = OffTexture
-					i.z_index = 0
+					if i != $PARTY/VFD.get_child(2):
+						i.texture = OffTexture
+						i.z_index = 0
+						i.get_child(1).play("static")
 				$PARTY/VFD.get_child(2).texture = OnTexture
 				$PARTY/VFD.get_child(2).z_index = 3
+				$PARTY/VFD.get_child(2).get_child(1).play("sel")
+				if isTicking == false:
+					_on_menu_tick(2)
 			Vector2(2,2):
 				for i in $PARTY/VFD.get_children():
-					i.texture = OffTexture
-					i.z_index = 0
+					if i != $PARTY/VFD.get_child(3):
+						i.texture = OffTexture
+						i.z_index = 0
+						i.get_child(1).play("static")
 				$PARTY/VFD.get_child(3).texture = OnTexture
 				$PARTY/VFD.get_child(3).z_index = 3
+				$PARTY/VFD.get_child(3).get_child(1).play("sel")
+				if isTicking == false:
+					_on_menu_tick(3)
 			Vector2(3,1):
 				for i in $PARTY/VFD.get_children():
-					i.texture = OffTexture
-					i.z_index = 0
+					if i != $PARTY/VFD.get_child(4):
+						i.texture = OffTexture
+						i.z_index = 0
+						i.get_child(1).play("static")
 				$PARTY/VFD.get_child(4).texture = OnTexture
 				$PARTY/VFD.get_child(4).z_index = 3
+				$PARTY/VFD.get_child(4).get_child(1).play("sel")
+				if isTicking == false:
+					_on_menu_tick(4)
 			Vector2(3,2):
 				for i in $PARTY/VFD.get_children():
-					i.texture = OffTexture
-					i.z_index = 0
+					if i != $PARTY/VFD.get_child(5):
+						i.texture = OffTexture
+						i.z_index = 0
+						i.get_child(1).play("static")
 				$PARTY/VFD.get_child(5).texture = OnTexture
 				$PARTY/VFD.get_child(5).z_index = 3
+				$PARTY/VFD.get_child(5).get_child(1).play("sel")
+				if isTicking == false:
+					_on_menu_tick(5)
 		
 func _open_menu():
 	$MENU.visible = true
@@ -163,6 +192,7 @@ func _on_button_pressed():
 	for i in partySize:
 		var newbut = load("res://Main/partySel.tscn").instantiate()
 		get_node("PARTY/VFD").add_child(newbut)
+		newbut.get_child(1).play("static")
 		match i:
 			0:
 				newbut.position = Vector2(-59.5, -84)
@@ -190,25 +220,24 @@ func _on_button_DEBUG_pressed():
 	get_parent()._handle_states(get_parent().playerStates.MENU)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-func _on_menu_tick():
+func _on_menu_tick(partyPlace):
 	menuChanged = false
 	isTicking = true
-	ticker_text = get_node("/root/PlayerOwn").Party["creature1"]["creatureName"] + "   "
+	var creatureName = "creature" + str(partyPlace + 1)
+	ticker_text = get_node("/root/PlayerOwn").Party[creatureName]["creatureName"] + "   "
 	ticker_text = ticker_text.to_upper()
 	for l in ticker_text.length():
 		if menuChanged == true:
+			$PARTY/VFD.get_child(partyPlace).get_child(0).text = "\n" + ticker_text
 			isTicking = false
 			return
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		if menuOpen == false:
 			return
-		$PARTY/VFD.get_child(0).get_child(0).text = "\n" + ticker_text.substr(l, 6)
+		$PARTY/VFD.get_child(partyPlace).get_child(0).text = "\n" + ticker_text.substr(l, 6)
 		
 		if l + 6 > ticker_text.length():
-			$PARTY/VFD.get_child(0).get_child(0).text += ticker_text.substr(0, l + 6 - ticker_text.length())
+			$PARTY/VFD.get_child(partyPlace).get_child(0).text += ticker_text.substr(0, l + 6 - ticker_text.length())
 		
-		print(l)
-		print("Menu Change? is " + str(menuChanged))
-		print("is Ticking ? is" + str(isTicking))
 	isTicking = false
 	return

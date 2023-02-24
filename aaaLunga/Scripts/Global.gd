@@ -88,7 +88,6 @@ func start_battle():
 	wildHP = floor(0.01 * (2 * wildBHP + 14 + floor(0.25 * 60)) * wildLevel) + wildLevel + 10
 	
 	get_node("/root/mapBattle/NME/EnemyHealth").text = str(wildHP)
-	get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
 	
 	#loads the player
 	playerMon = get_node("/root/PlayerOwn").Party["creature1"]["creatureName"]
@@ -102,6 +101,8 @@ func start_battle():
 	var playerBHP = get_node("/root/mapBattle").monDict[playerMon]["BHP"]
 	
 	playerHP = floor(0.01 * (2 * playerBHP + 14 + floor(0.25 * 60)) * playerLevel) + playerLevel + 10
+	
+	get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
 	
 	get_node("/root/mapBattle/joyPad/Top").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move1"]
 	get_node("/root/mapBattle/joyPad/Bottom").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move4"]

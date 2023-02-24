@@ -20,8 +20,10 @@ func _save():
 		playerParty = get_node("/root/PlayerOwn").Party
 	}
 	
+
 	file.store_var(saveDict)
 	file = null
+	print(saveDict["playerParty"])
 	
 func _load():
 	var file = FileAccess.open("user://save.dat", FileAccess.READ)
@@ -33,5 +35,6 @@ func _load():
 
 func playerSpot():
 	get_node("/root/TestWorld/Player").global_position = saveDict["playerPos"]
-	if playerParty != null:
-		get_node("/root/PlayerOwn").Party = playerParty
+	get_node("/root/PlayerOwn").Party = saveDict["playerParty"]
+	if saveDict["playerParty"] == null:
+		get_node("/root/PlayerOwn").Party = get_node("/root/PlayerOwn").DebugParty

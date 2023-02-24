@@ -647,15 +647,12 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.0196078, 0.0509804, 0.0196078, 1)
+color = Color(0.0313726, 0.0509804, 0.0313726, 1)
 
 [node name="VFD" type="Sprite2D" parent="PARTY"]
 position = Vector2(942, 541)
 scale = Vector2(4, 4)
 texture = ExtResource("7_0wiia")
-
-[node name="Timer" type="Timer" parent="PARTY"]
-wait_time = 0.168
 
 [node name="DEBUG" type="Control" parent="."]
 visible = false

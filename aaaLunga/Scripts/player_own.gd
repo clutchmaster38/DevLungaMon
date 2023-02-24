@@ -1,6 +1,6 @@
 extends Node
 
-@onready var Party = {
+@export var Party = {
 	"creature1" = {
 		"creatureName" = "Testagon",
 		"creatureLevel" = 10,
@@ -60,6 +60,21 @@ extends Node
 	"creature6" = {
 		"creatureName" = "Testagon2",
 		"creatureLevel" = 10,
+		"creatureNature" = "Bold",
+		"creatureMoves" = {
+			"move1" = "Tackle",
+			"move2" = "Swift",
+			"move3" = "Tackle",
+			"move4" = "Tackle"
+		}
+	}
+}
+
+@export @onready var DebugParty = {
+	"creature1" = {
+		"creatureName" = "Testagon",
+		"creatureLevel" = 10,
+		"creatureExp" = 1000,
 		"creatureNature" = "Bold",
 		"creatureMoves" = {
 			"move1" = "Tackle",

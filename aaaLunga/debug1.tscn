@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://ce4dpamaut6ye"]
+[gd_scene load_steps=63 format=3 uid="uid://ce4dpamaut6ye"]
 
 [ext_resource type="Script" path="res://stateManager.gd" id="1_uv71e"]
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_ka6ks"]
@@ -23,7 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://cdxememima6kf" path="res://Maps/beach house_14.png" id="20_e08eh"]
 [ext_resource type="Texture2D" uid="uid://cwrtom2oma5vf" path="res://Maps/beach house_23.png" id="21_vual6"]
 [ext_resource type="Script" path="res://Fish Maker.gd" id="22_4b42h"]
-[ext_resource type="PackedScene" path="res://Models/rock.glb" id="24_vibtg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qrsnc"]
 panorama = ExtResource("3_5b0xh")
@@ -572,15 +571,6 @@ shape = SubResource("ConcavePolygonShape3D_3fkxy")
 [node name="Fish Maker" type="Node3D" parent="."]
 transform = Transform3D(2.848, 0, 0, 0, 2.848, 0, 0, 0, 2.848, 0, -5.1271, -52.4365)
 script = ExtResource("22_4b42h")
-
-[node name="rock" parent="." instance=ExtResource("24_vibtg")]
-transform = Transform3D(2.148, 0, 0, 0, 2.148, 0, 0, 0, 2.148, 44.314, -1.17224, -23.8456)
-
-[node name="rock2" parent="." instance=ExtResource("24_vibtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.6504, -1.50508, -25.5098)
-
-[node name="rock3" parent="." instance=ExtResource("24_vibtg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.2929, -0.824121, -22.0778)
 
 [connection signal="idle" from="Player" to="." method="_on_player_idle"]
 [connection signal="walking" from="Player" to="." method="_on_player_walking"]
