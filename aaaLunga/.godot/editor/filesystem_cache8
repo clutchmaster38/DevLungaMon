@@ -1,19 +1,21 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1677221896
-battle.tscn::PackedScene::6456302651573038076::1677130622::0::1::::<><>::res://monBattle.gd<>uid://b2flfywcegtuk<>uid://bvpdrw0aqq2ys<>uid://bmjop5ubw20ke<>uid://c8c3kguaeg0tt<>uid://djyerlbdmo72u<>uid://cfd6g3af7tlky<>uid://dw77ejhh6hj6s<>uid://b7a0fv0tt8pxe
-debug1.tscn::PackedScene::5113672653258101128::1677221896::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>uid://c4lshviajyc8h<>res://pause.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://btw8otdfcbbn5<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>res://Scripts/Battle.gd<>uid://dt66qrcmc8jt8<>uid://b4hktsq4rbub1<>uid://b0xtac7rmc06c<>uid://doe30a0v2i4lb<>res://door.gd<>uid://cilvj0d17ers<>uid://dfgtgdntqxl2p<>uid://bvhv28efgrs5l<>uid://v24860pj4o2q<>uid://cdxememima6kf<>uid://cwrtom2oma5vf<>res://Fish Maker.gd
+::res://::1678147161
+battle.tscn::PackedScene::6456302651573038076::1678147123::0::1::::<><>::res://monBattle.gd<>uid://b2flfywcegtuk<>uid://bvpdrw0aqq2ys<>uid://ikbefryque43<>uid://c8c3kguaeg0tt<>uid://djyerlbdmo72u<>uid://cfd6g3af7tlky<>uid://dw77ejhh6hj6s<>uid://b7a0fv0tt8pxe<>uid://bxyqifbwwl5dt<>uid://ruj3ji48b0bd
+debug1.tscn::PackedScene::5113672653258101128::1678147123::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://c3f1lmj0ps7sh<>uid://c4lshviajyc8h<>res://timeWorld.gd<>res://pause.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://btw8otdfcbbn5<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>res://Scripts/Battle.gd<>uid://dt66qrcmc8jt8<>uid://b4hktsq4rbub1<>uid://b0xtac7rmc06c<>uid://doe30a0v2i4lb<>res://door.gd<>uid://cilvj0d17ers<>uid://dfgtgdntqxl2p<>uid://bvhv28efgrs5l<>uid://v24860pj4o2q<>uid://cdxememima6kf<>uid://cwrtom2oma5vf<>res://Fish Maker.gd
 door.gd::GDScript::-1::1676164921::0::1::::<>Area3D<>::
 export_presets.cfg::TextFile::-1::1676098665::0::1::::<><>::
 Fish Maker.gd::GDScript::-1::1676954026::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::5020595147807741154::1675114767::1675114773::1::::<><>::
 Interact.gd::GDScript::-1::1675744033::0::1::::<>Area3D<>::
-monBattle.gd::GDScript::-1::1677189037::0::1::::<>Node3D<>::
-pause.gd::GDScript::-1::1677221829::0::1::::<>Node<>::
-Player.gd::GDScript::-1::1677200287::0::1::::<>CharacterBody3D<>::
+monBattle.gd::GDScript::-1::1677892714::0::1::::<>Node3D<>::
+pause.gd::GDScript::-1::1678064491::0::1::::<>Node<>::
+Player.gd::GDScript::-1::1677864042::0::1::::<>CharacterBody3D<>::
 README.md::TextFile::-1::1675117182::0::1::::<><>::
-route1.tscn::PackedScene::331464045182845028::1677096088::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>res://pause.gd<>uid://btw8otdfcbbn5<>res://Interact.gd<>uid://c4lshviajyc8h<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>uid://7dyxyagwh2b7<>uid://jeq13m6c51p8<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1<>res://door.gd<>uid://cb3vp48a7phcy<>uid://ck247a8ce08nd
+route1.tscn::PackedScene::331464045182845028::1677862733::0::1::::<><>::res://stateManager.gd<>uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>res://pause.gd<>uid://btw8otdfcbbn5<>res://Interact.gd<>uid://c4lshviajyc8h<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>uid://7dyxyagwh2b7<>uid://jeq13m6c51p8<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1<>res://door.gd<>uid://cb3vp48a7phcy<>uid://ck247a8ce08nd
+skybox.tres::VisualShader::6750049808906406859::1678137518::0::1::::<><>::uid://b2flfywcegtuk<>uid://dk7478dlm35f
 SpringArm3D.gd::GDScript::-1::1676528603::0::1::::<>SpringArm3D<>::
-stateManager.gd::GDScript::-1::1676095267::0::1::::<>Node<>::
+stateManager.gd::GDScript::-1::1678068444::0::1::::<>Node<>::
+timeWorld.gd::GDScript::-1::1678147123::0::1::::<>WorldEnvironment<>::
 title.tscn::PackedScene::6092127086782009002::1677188821::0::1::::<><>::uid://by3uikac1fvfh<>uid://de1343rduubsl<>uid://7dyxyagwh2b7<>res://Scripts/startButton.gd<>uid://bg6j8inux8e6u
 transitition.tscn::PackedScene::8996898951013045533::1677201493::0::1::::<><>::res://Scripts/Transition.gd<>uid://oge6gu1mmxek
 ::res://addons/::1676065137
@@ -179,12 +181,12 @@ tangent-test.tres::ShaderMaterial::1491877661751243884::1676098580::0::1::::<><>
 ::res://addons/qodot/textures/special/::1676064580
 clip.png::CompressedTexture2D::8369999958819788034::1676064568::1676064580::1::::<><>::
 skip.png::CompressedTexture2D::3013576122456084822::1676064568::1676064580::1::::<><>::
-::res://Main/::1677221896
+::res://Main/::1678147123
 cacacaman.gdshader::Shader::-1::1677188931::0::1::::<><>::
 PartyMenu.gd::GDScript::-1::1677128044::0::1::::<>Control<>::
-partySel.tscn::PackedScene::1824290306895092950::1677221896::0::1::::<><>::uid://c7nl2e87qcje3<>uid://crdh567jnob3q<>uid://bi1ro534tq7dx<>uid://4uhmysf2m8jj<>uid://c8i1bnoawyxt4<>uid://c1fyj4hx1cn5l
+partySel.tscn::PackedScene::1824290306895092950::1677827097::0::1::::<><>::uid://c7nl2e87qcje3<>uid://crdh567jnob3q<>uid://bi1ro534tq7dx<>uid://4uhmysf2m8jj<>uid://c8i1bnoawyxt4<>uid://c1fyj4hx1cn5l
 player.tres::VisualShader::8648359938147624677::1676950130::0::1::::<><>::
-player.tscn::PackedScene::1651150601560104281::1677221896::0::1::::<><>::res://Player.gd<>res://SpringArm3D.gd<>uid://c6hy7f43vju1n<>uid://ruj3ji48b0bd<>uid://cobii0bkkkrm2<>uid://bxq2s5kcdkeu3<>uid://c75gp2qyb2ane
+player.tscn::PackedScene::1651150601560104281::1678147123::0::1::::<><>::res://Player.gd<>res://SpringArm3D.gd<>uid://c6hy7f43vju1n<>uid://ruj3ji48b0bd<>uid://cobii0bkkkrm2<>uid://bxq2s5kcdkeu3<>uid://c75gp2qyb2ane
 ::res://Maps/::1676600739
 beach1.glb::PackedScene::8279125122714485503::1676074276::1676074281::1::::<><>::uid://cilvj0d17ers<>uid://r7i7d1s8xyfv<>uid://b0xtac7rmc06c
 beach1_4.png::CompressedTexture2D::157598609403552548::1676074280::1676074281::1::::<><>::
@@ -198,8 +200,8 @@ beach house_23.png::CompressedTexture2D::6353269645861250439::1676600739::167660
 route1.glb::PackedScene::5532285992397107145::1676094713::1676094740::0::::<><>::
 route1_4.png::CompressedTexture2D::4902136206093637808::1676094740::1676094740::1::::<><>::
 route1_12.png::PackedScene::5532285992397107145::1676094740::1676094740::1::::<><>::uid://cb3vp48a7phcy<>uid://brjkb7am6mfab
-::res://Mats/::1677221559
-79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg::CompressedTexture2D::4292519461222805166::1675369025::1675369032::1::::<><>::
+::res://Mats/::1678071001
+79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg::CompressedTexture2D::4292519461222805166::1678070998::1678071001::1::::<><>::
 ADOBEFANHEITISTD-BOLD.OTF::FontFile::2253735671628145158::1675416031::1675416031::1::::<><>::
 battleGUI.png::CompressedTexture2D::7840780515841064826::1676945257::1676945258::1::::<><>::
 BGmenu.png::CompressedTexture2D::5366575006096254823::1675714697::1675714701::1::::<><>::
@@ -220,6 +222,7 @@ PauseM.png::CompressedTexture2D::3767454688088949988::1674773202::1675389938::1:
 pkmnrs.ttf::FontFile::5412394416559252293::1675893141::1675893175::1::::<><>::
 sand.png::CompressedTexture2D::7523757051957895849::1676066034::1676066092::1::::<><>::
 SelMen.png::CompressedTexture2D::3002664064693324365::1677198460::1677198464::1::::<><>::
+SKYTIME.png::CompressedTexture2D::233206772123725089::1678066890::1678066972::1::::<><>::
 static.png::CompressedTexture2D::2077211757691009903::1677197797::1677197799::1::::<><>::
 temp title.png::CompressedTexture2D::7495444608136989811::1675717219::1675717220::1::::<><>::
 test.png::CompressedTexture2D::6832132509972691521::1675371760::1675371765::1::::<><>::
@@ -231,31 +234,34 @@ VUmeter.png::CompressedTexture2D::6609548005787521419::1677215575::1677215577::1
 water.png::CompressedTexture2D::6978062247561834925::1676066045::1676066062::1::::<><>::
 ::res://Mats/MonPortraits/::1677199660
 Snurkey.png::CompressedTexture2D::7107169361540765599::1677199658::1677199660::1::::<><>::
-::res://Models/::1676866875
+::res://Models/::1677892458
 ping (2).glb::PackedScene::2292020292265459393::1676629235::1676629235::1::::<><>::uid://c6hy7f43vju1n
 ping (2)_6.png::CompressedTexture2D::6964660826391687721::1676629235::1676629235::1::::<><>::
 rock.glb::PackedScene::5524953503882939182::1676866875::1676866875::0::::<><>::
 rock_4.png::PackedScene::5524953503882939182::1676866875::1676866875::1::::<><>::uid://ffy8o7crjs0u
-::res://mon/::1675656012
+::res://mon/::1677892904
+snurkey.gltf::PackedScene::7011276540125194339::1677890916::1677892904::1::::<><>::
 test1.glb::PackedScene::4436989864963897028::1675649467::1675649624::1::::<><>::
 test1_3.png::CompressedTexture2D::3392545558973204153::1675649623::1675649623::1::::<><>::
 test2.glb::PackedScene::3077978858824783165::1675656012::1675656012::1::::<><>::
 test2_3.png::CompressedTexture2D::5159346011254931927::1675656012::1675656012::1::::<><>::
-::res://Scripts/::1677189037
-Battle.gd::GDScript::-1::1676531202::0::1::::<>Node<>::
+::res://Scripts/::1678081110
+BatLogic.gd::GDScript::-1::1678081110::0::1::::<>Node<>::
+Battle.gd::GDScript::-1::1677863379::0::1::::<>Node<>::
 fishthink.gd::GDScript::-1::1676775309::0::1::::<>Node3D<>::
-Global.gd::GDScript::-1::1677120002::0::1::::<>Node<>::
 moveDex.gd::GDScript::-1::1676499042::0::1::::<>Node<>::
-player_own.gd::GDScript::-1::1677189037::0::1::::<>Node<>::
-save.gd::GDScript::-1::1677175341::0::1::::<>Node<>::
+player_own.gd::GDScript::-1::1677892839::0::1::::<>Node<>::
+save.gd::GDScript::-1::1677225719::0::1::::<>Node<>::
 startButton.gd::GDScript::-1::1676773093::0::1::::<>Button<>::
 Transition.gd::GDScript::-1::1676528248::0::1::::<>Control<>::
-::res://shaders/::1677221829
-waterS.tres::VisualShader::8151908133283762747::1677221829::0::1::::<><>::
-::res://sound/::1677119789
+::res://shaders/::1678064491
+waterS.tres::VisualShader::8151908133283762747::1678064491::0::1::::<><>::
+::res://sound/::1677872014
 battlehit.mp3::AudioStreamMP3::4633991676399265446::1677119732::1677119789::1::::<><>::
 Beach Sounds.ogg::AudioStreamOggVorbis::8558757486591777395::1676066403::1676066412::1::::<><>::
+Denied.ogg::AudioStreamOggVorbis::4051295176891784105::1677866883::1677866890::1::::<><>::
 ftstp.ogg::AudioStreamOggVorbis::1235094838522362561::1675564205::1675564205::1::::<><>::
+new battle song.mp3::AudioStreamMP3::582222676804291942::1677871975::1677872014::1::::<><>::
 Temp Battle.ogg::AudioStreamOggVorbis::3248144638615849492::1676505502::1676505541::1::::<><>::
 the theme song.mp3::AudioStreamMP3::2872155281240913658::1675894999::1675894999::1::::<><>::
 Town1.ogg::AudioStreamOggVorbis::640976496888158839::1676004111::1676004120::1::::<><>::

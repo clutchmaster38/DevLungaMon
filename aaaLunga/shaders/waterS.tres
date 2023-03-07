@@ -39,8 +39,8 @@ fractal_type = 0
 cellular_jitter = 1.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_10iuv"]
-width = 128
-height = 128
+width = 64
+height = 64
 seamless = true
 color_ramp = SubResource("Gradient_to45j")
 noise = SubResource("FastNoiseLite_x4gk6")
@@ -257,7 +257,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-332.356, -78.3999)
+graph_offset = Vector2(-716.577, 134.986)
 nodes/vertex/2/node = SubResource("VisualShaderNodeVectorOp_2thp1")
 nodes/vertex/2/position = Vector2(60, 180)
 nodes/vertex/3/node = SubResource("VisualShaderNodeTexture_3vrus")

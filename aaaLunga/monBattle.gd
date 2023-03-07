@@ -22,14 +22,20 @@ extends Node3D
 		"BSPAT" : 55,
 		"BSPDF" : 65,
 		"BSPEED" : 45
+		},
+		"Snurkey" = {
+		"MODEL" : "res://mon/snurkey.gltf",
+		"NAME" : "/Snurkey",
+		"BHP" : 80,
+		"BATTACK" : 50,
+		"BDEFENSE" : 130,
+		"BSPAT" : 55,
+		"BSPDF" : 65,
+		"BSPEED" : 45
 		}
 }
 
 
-
-#BATTLE LOGIC
-func _ready():
-	get_node("/root/Global").start_battle()
 
 
 

@@ -1,3 +1,7 @@
+Node3D
+DirectionalLight3D
+DirectionalLight2D
+AudioStreamPlayer
 ColorRect
 Control
 Sprite2D
@@ -6,7 +10,6 @@ Timer
 RichTextLabel
 TextureRect
 GridContainer
-AudioStreamPlayer
 TextEdit
 CSGBox3D
 NinePatchRect
@@ -14,7 +17,6 @@ MeshInstance3D
 CanvasGroup
 CanvasLayer
 CanvasModulate
-Node3D
 Node
 Button
 MarginContainer
@@ -28,5 +30,3 @@ AspectRatioContainer
 TileMap
 Camera2D
 Camera3D
-QodotPlugin
-QodotMap

@@ -647,7 +647,7 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-color = Color(0.0313726, 0.0509804, 0.0313726, 1)
+color = Color(0.0509804, 0.0784314, 0.0509804, 0.988235)
 
 [node name="VFD" type="Sprite2D" parent="PARTY"]
 position = Vector2(942, 541)

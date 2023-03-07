@@ -2,7 +2,7 @@ extends Node
 
 @export var Party = {
 	"creature1" = {
-		"creatureName" = "Testagon",
+		"creatureName" = "Snurkey",
 		"creatureLevel" = 10,
 		"creatureExp" = 1000,
 		"creatureNature" = "Bold",

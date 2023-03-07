@@ -66,8 +66,8 @@ func _physics_process(delta: float) -> void:
 	
 func _process(_delta : float) -> void:
 	_spring_arm.position = position
-	if Input.is_action_just_pressed("interact"):
-		get_node("/root/Save")._save()
+	if Input.is_action_just_pressed("interact") && get_node("/root/BatLogic").inBattle == false:
+		get_node("/root/Save").call_deferred("_save")
 	if Input.is_action_just_pressed("menu") && get_parent().current_state == 0:
 		get_parent()._handle_states(get_parent().playerStates.MENU)
 		_open_menu()
@@ -77,7 +77,7 @@ func _process(_delta : float) -> void:
 	if Input.is_action_just_released("menu") && menuOpen == false:
 		get_parent()._handle_states(get_parent().playerStates.IDLE)
 		call_deferred("_close_menu")
-	if Input.is_action_pressed("escape") && menuOpen == true:
+	if Input.is_action_just_pressed("menu") && menuOpen == true:
 		get_parent()._handle_states(get_parent().playerStates.IDLE)
 		$PARTY.visible = false
 		menuCounter = Vector2(1,1)
@@ -208,6 +208,8 @@ func _on_button_pressed():
 				newbut.position = Vector2(59.5, 84)
 		newbut.get_node("BUTTON").text = "\n"
 		newbut.get_node("BUTTON").text += get_node("/root/PlayerOwn").Party["creature" + str(i+1)]["creatureName"]
+		newbut.get_node("HEALTH VU/Level").text = "\n"
+		newbut.get_node("HEALTH VU/Level").text += str(get_node("/root/PlayerOwn").Party["creature" + str(i+1)]["creatureLevel"]).pad_zeros(3)
 		newbut.get_node("BUTTON").text = newbut.get_node("BUTTON").text.to_upper()
 		newbut.get_node("BUTTON").visible_characters = 7
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=63 format=3 uid="uid://ce4dpamaut6ye"]
+[gd_scene load_steps=64 format=3 uid="uid://ce4dpamaut6ye"]
 
 [ext_resource type="Script" path="res://stateManager.gd" id="1_uv71e"]
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_ka6ks"]
-[ext_resource type="Texture2D" uid="uid://b2flfywcegtuk" path="res://Mats/79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg" id="3_5b0xh"]
+[ext_resource type="Shader" uid="uid://c3f1lmj0ps7sh" path="res://skybox.tres" id="3_667hx"]
 [ext_resource type="Texture2D" uid="uid://c4lshviajyc8h" path="res://Mats/test.png" id="3_8716t"]
+[ext_resource type="Script" path="res://timeWorld.gd" id="4_hg2q4"]
 [ext_resource type="Script" path="res://pause.gd" id="5_y73ct"]
 [ext_resource type="Script" path="res://Interact.gd" id="7_eomde"]
 [ext_resource type="FontFile" uid="uid://7dyxyagwh2b7" path="res://Mats/ADOBEFANHEITISTD-BOLD.OTF" id="8_new6x"]
@@ -24,15 +25,17 @@
 [ext_resource type="Texture2D" uid="uid://cwrtom2oma5vf" path="res://Maps/beach house_23.png" id="21_vual6"]
 [ext_resource type="Script" path="res://Fish Maker.gd" id="22_4b42h"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qrsnc"]
-panorama = ExtResource("3_5b0xh")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p63uj"]
+shader = ExtResource("3_667hx")
+shader_parameter/timeh = null
 
 [sub_resource type="Sky" id="Sky_adywd"]
-sky_material = SubResource("PanoramaSkyMaterial_qrsnc")
+sky_material = SubResource("ShaderMaterial_p63uj")
 radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_n6rcq"]
 background_mode = 2
+background_energy_multiplier = 1.5
 sky = SubResource("Sky_adywd")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
@@ -399,6 +402,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.222751, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n6rcq")
+script = ExtResource("4_hg2q4")
 
 [node name="Pause" type="Node" parent="."]
 process_mode = 3
@@ -432,11 +436,11 @@ offset_top = -360.0
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("10_5oxer")
-region_rect = Rect2(-7, -8, 371, 239)
-patch_margin_left = 65
-patch_margin_top = 56
-patch_margin_right = 65
-patch_margin_bottom = 56
+region_rect = Rect2(3.24222, 1.65181, 353.118, 221.638)
+patch_margin_left = 56
+patch_margin_top = 46
+patch_margin_right = 56
+patch_margin_bottom = 49
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Sign/NinePatchRect"]
 layout_mode = 1
@@ -463,7 +467,10 @@ autoplay = true
 [node name="Battle01" type="Node" parent="."]
 script = ExtResource("11_g2cn7")
 creatureName = "Testagon"
-creatureLevel = 14.0
+move1 = "Tackle"
+move2 = "Tackle"
+move3 = "Tackle"
+move4 = "Tackle"
 
 [node name="Area3D" type="Area3D" parent="Battle01"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.98642, 0, 0)
@@ -572,8 +579,6 @@ shape = SubResource("ConcavePolygonShape3D_3fkxy")
 transform = Transform3D(2.848, 0, 0, 0, 2.848, 0, 0, 0, 2.848, 0, -5.1271, -52.4365)
 script = ExtResource("22_4b42h")
 
-[connection signal="idle" from="Player" to="." method="_on_player_idle"]
-[connection signal="walking" from="Player" to="." method="_on_player_walking"]
 [connection signal="body_entered" from="Sign" to="Sign" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign" to="Sign" method="_on_body_exited"]
 [connection signal="body_entered" from="Battle01/Area3D" to="Battle01" method="_on_area_3d_body_entered"]

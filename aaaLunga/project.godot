@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://Scripts/Global.gd"
+BatLogic="*res://Scripts/BatLogic.gd"
 PlayerOwn="*res://Scripts/player_own.gd"
 MoveDex="*res://Scripts/moveDex.gd"
 Transitition="*res://transitition.tscn"

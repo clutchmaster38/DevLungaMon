@@ -1,9 +1,7 @@
-res://Main/partySel.tscn
-res://pause.gd
-res://shaders/waterS.tres
 res://debug1.tscn
+res://pause.gd
+res://skybox.tres
+res://shaders/waterS.tres
+res://timeWorld.gd
 res://Main/player.tscn
-res://Scripts/player_own.gd
-res://monBattle.gd
-res://Scripts/Global.gd
-res://Scripts/save.gd
+res://battle.tscn

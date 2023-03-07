@@ -100,7 +100,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="HEALTH" type="RichTextLabel" parent="HEALTH VU"]
+[node name="Level" type="RichTextLabel" parent="HEALTH VU"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.723

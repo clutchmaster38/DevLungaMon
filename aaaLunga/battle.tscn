@@ -1,34 +1,36 @@
-[gd_scene load_steps=17 format=3 uid="uid://cx8qmj1hr4vnw"]
+[gd_scene load_steps=19 format=3 uid="uid://cx8qmj1hr4vnw"]
 
 [ext_resource type="Script" path="res://monBattle.gd" id="1_ybxwt"]
 [ext_resource type="Texture2D" uid="uid://b2flfywcegtuk" path="res://Mats/79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg" id="3_1c2op"]
 [ext_resource type="Texture2D" uid="uid://bvpdrw0aqq2ys" path="res://Mats/NeutSqr.png" id="3_g1nh5"]
-[ext_resource type="AudioStream" uid="uid://bmjop5ubw20ke" path="res://sound/Temp Battle.ogg" id="4_6rl6e"]
+[ext_resource type="AudioStream" uid="uid://ikbefryque43" path="res://sound/new battle song.mp3" id="4_x81l8"]
 [ext_resource type="Texture2D" uid="uid://c8c3kguaeg0tt" path="res://Mats/grass.png" id="5_rhgpd"]
 [ext_resource type="Texture2D" uid="uid://djyerlbdmo72u" path="res://Mats/battleGUI.png" id="6_h3dlr"]
 [ext_resource type="Texture2D" uid="uid://cfd6g3af7tlky" path="res://Mats/joypad.png" id="7_w0pcx"]
 [ext_resource type="Texture2D" uid="uid://dw77ejhh6hj6s" path="res://Mats/hitmark.png" id="8_rbexa"]
 [ext_resource type="AudioStream" uid="uid://b7a0fv0tt8pxe" path="res://sound/battlehit.mp3" id="9_njhso"]
+[ext_resource type="AudioStream" uid="uid://bxyqifbwwl5dt" path="res://sound/Denied.ogg" id="10_r1jbj"]
+[ext_resource type="AudioStream" uid="uid://ruj3ji48b0bd" path="res://sound/ftstp.ogg" id="11_myf4q"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ewd5x"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_aou1b"]
 panorama = ExtResource("3_1c2op")
 
-[sub_resource type="Sky" id="Sky_psw08"]
-sky_material = SubResource("PanoramaSkyMaterial_ewd5x")
+[sub_resource type="Sky" id="Sky_xeowu"]
+sky_material = SubResource("PanoramaSkyMaterial_aou1b")
 
-[sub_resource type="Environment" id="Environment_xc1ly"]
+[sub_resource type="Environment" id="Environment_voa8a"]
 background_mode = 2
-sky = SubResource("Sky_psw08")
+sky = SubResource("Sky_xeowu")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6k1e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuklr"]
 transparency = 1
 albedo_texture = ExtResource("3_g1nh5")
 uv1_scale = Vector3(4, 4, 4)
 grow_amount = 0.337
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujhjo"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqlwl"]
 albedo_texture = ExtResource("5_rhgpd")
 heightmap_scale = -16.0
 heightmap_deep_parallax = true
@@ -38,11 +40,11 @@ uv1_scale = Vector3(100, 100, 100)
 texture_filter = 0
 proximity_fade_distance = 0.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_pcgsu"]
-material = SubResource("StandardMaterial3D_ujhjo")
+[sub_resource type="PlaneMesh" id="PlaneMesh_6bbdg"]
+material = SubResource("StandardMaterial3D_dqlwl")
 size = Vector2(100, 100)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4nug"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jg8j"]
 transparency = 1
 albedo_texture = ExtResource("8_rbexa")
 
@@ -51,12 +53,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0887737, 0.0594254, 0.04754
 script = ExtResource("1_ybxwt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_xc1ly")
+environment = SubResource("Environment_voa8a")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
 size = Vector3(10, 0.1, 10)
-material = SubResource("StandardMaterial3D_a6k1e")
+material = SubResource("StandardMaterial3D_tuklr")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -1.19249e-08, 0, 1.19249e-08, 1, 1, 4.37114e-08, -5.21253e-16, 0, 9.50536, 0)
@@ -76,12 +78,12 @@ offset_bottom = 58.0
 scale = Vector2(7.783, 7.783)
 
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_6rl6e")
+stream = ExtResource("4_x81l8")
 volume_db = -14.432
 autoplay = true
 
 [node name="Plane" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_pcgsu")
+mesh = SubResource("PlaneMesh_6bbdg")
 
 [node name="NME" type="Control" parent="."]
 top_level = true
@@ -167,8 +169,17 @@ text = "TEST"
 [node name="HitMarker" type="CSGBox3D" parent="."]
 visible = false
 size = Vector3(2.5, 0.2, 2.5)
-material = SubResource("StandardMaterial3D_k4nug")
+material = SubResource("StandardMaterial3D_6jg8j")
 
 [node name="HIT" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_njhso")
 volume_db = -7.496
+
+[node name="BLOCKED" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_r1jbj")
+volume_db = -6.559
+pitch_scale = 1.28
+
+[node name="FtStep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_myf4q")
+volume_db = -4.685
