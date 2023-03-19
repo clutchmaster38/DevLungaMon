@@ -1,0 +1,27 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://cco6nou00jm4a"]
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_o2qcd"]
+constant = 0.031
+
+[resource]
+code = "shader_type canvas_item;
+
+
+
+void fragment() {
+// FloatConstant:2
+	float n_out2p0 = 0.031000;
+
+
+// Output:0
+	COLOR.a = n_out2p0;
+
+
+}
+"
+graph_offset = Vector2(-201.753, -13.0848)
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeFloatConstant_o2qcd")
+nodes/fragment/2/position = Vector2(80, 160)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 1)

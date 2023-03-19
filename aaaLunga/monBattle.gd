@@ -23,7 +23,7 @@ extends Node3D
 		"BSPDF" : 65,
 		"BSPEED" : 45
 		},
-		"Snurkey" = {
+	"Snurkey" = {
 		"MODEL" : "res://mon/snurkey.gltf",
 		"NAME" : "/Snurkey",
 		"BHP" : 80,

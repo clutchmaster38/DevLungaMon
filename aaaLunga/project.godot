@@ -19,10 +19,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 BatLogic="*res://Scripts/BatLogic.gd"
-PlayerOwn="*res://Scripts/player_own.gd"
 MoveDex="*res://Scripts/moveDex.gd"
 Transitition="*res://transitition.tscn"
 Save="*res://Scripts/save.gd"
+PlayerParty="*res://Scripts/main/party.gd"
+Dex="*res://monBattle.gd"
+PlayerItems="*res://Scripts/main/player_items.gd"
 
 [display]
 

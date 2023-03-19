@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cx8qmj1hr4vnw"]
+[gd_scene load_steps=21 format=3 uid="uid://cx8qmj1hr4vnw"]
 
 [ext_resource type="Script" path="res://monBattle.gd" id="1_ybxwt"]
 [ext_resource type="Texture2D" uid="uid://b2flfywcegtuk" path="res://Mats/79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg" id="3_1c2op"]
 [ext_resource type="Texture2D" uid="uid://bvpdrw0aqq2ys" path="res://Mats/NeutSqr.png" id="3_g1nh5"]
+[ext_resource type="Texture2D" uid="uid://t4etdg6rj5f" path="res://Mats/BattleGraphics/barEmp.png" id="4_g4ue6"]
 [ext_resource type="AudioStream" uid="uid://ikbefryque43" path="res://sound/new battle song.mp3" id="4_x81l8"]
+[ext_resource type="Texture2D" uid="uid://dhi2rd16ip84f" path="res://Mats/BattleGraphics/barFill.png" id="5_nj63h"]
 [ext_resource type="Texture2D" uid="uid://c8c3kguaeg0tt" path="res://Mats/grass.png" id="5_rhgpd"]
 [ext_resource type="Texture2D" uid="uid://djyerlbdmo72u" path="res://Mats/battleGUI.png" id="6_h3dlr"]
 [ext_resource type="Texture2D" uid="uid://cfd6g3af7tlky" path="res://Mats/joypad.png" id="7_w0pcx"]
@@ -12,25 +14,25 @@
 [ext_resource type="AudioStream" uid="uid://bxyqifbwwl5dt" path="res://sound/Denied.ogg" id="10_r1jbj"]
 [ext_resource type="AudioStream" uid="uid://ruj3ji48b0bd" path="res://sound/ftstp.ogg" id="11_myf4q"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_aou1b"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_1o6w5"]
 panorama = ExtResource("3_1c2op")
 
-[sub_resource type="Sky" id="Sky_xeowu"]
-sky_material = SubResource("PanoramaSkyMaterial_aou1b")
+[sub_resource type="Sky" id="Sky_77aue"]
+sky_material = SubResource("PanoramaSkyMaterial_1o6w5")
 
-[sub_resource type="Environment" id="Environment_voa8a"]
+[sub_resource type="Environment" id="Environment_cx2yr"]
 background_mode = 2
-sky = SubResource("Sky_xeowu")
+sky = SubResource("Sky_77aue")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuklr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3kodu"]
 transparency = 1
 albedo_texture = ExtResource("3_g1nh5")
 uv1_scale = Vector3(4, 4, 4)
 grow_amount = 0.337
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqlwl"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wvlif"]
 albedo_texture = ExtResource("5_rhgpd")
 heightmap_scale = -16.0
 heightmap_deep_parallax = true
@@ -40,11 +42,11 @@ uv1_scale = Vector3(100, 100, 100)
 texture_filter = 0
 proximity_fade_distance = 0.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_6bbdg"]
-material = SubResource("StandardMaterial3D_dqlwl")
+[sub_resource type="PlaneMesh" id="PlaneMesh_8bfw0"]
+material = SubResource("StandardMaterial3D_wvlif")
 size = Vector2(100, 100)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jg8j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hqg2d"]
 transparency = 1
 albedo_texture = ExtResource("8_rbexa")
 
@@ -53,12 +55,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0887737, 0.0594254, 0.04754
 script = ExtResource("1_ybxwt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_voa8a")
+environment = SubResource("Environment_cx2yr")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, -1, 0, 0, 0, -1, 0, 0, 0)
 size = Vector3(10, 0.1, 10)
-material = SubResource("StandardMaterial3D_tuklr")
+material = SubResource("StandardMaterial3D_3kodu")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -1.19249e-08, 0, 1.19249e-08, 1, 1, 4.37114e-08, -5.21253e-16, 0, 9.50536, 0)
@@ -77,13 +79,24 @@ offset_right = 134.0
 offset_bottom = 58.0
 scale = Vector2(7.783, 7.783)
 
+[node name="PlayerBar" type="TextureProgressBar" parent="GUI"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 90.0
+offset_bottom = 30.0
+scale = Vector2(7, 7)
+value = 100.0
+texture_under = ExtResource("4_g4ue6")
+texture_progress = ExtResource("5_nj63h")
+
 [node name="BattleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_x81l8")
 volume_db = -14.432
 autoplay = true
 
 [node name="Plane" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_6bbdg")
+mesh = SubResource("PlaneMesh_8bfw0")
 
 [node name="NME" type="Control" parent="."]
 top_level = true
@@ -103,6 +116,17 @@ offset_left = -160.0
 offset_right = -26.0
 offset_bottom = 58.0
 scale = Vector2(7.783, 7.783)
+
+[node name="EnemyBar" type="TextureProgressBar" parent="NME"]
+layout_mode = 0
+offset_left = -530.95
+offset_top = 20.0
+offset_right = -450.95
+offset_bottom = 30.0
+scale = Vector2(7, 7)
+value = 100.0
+texture_under = ExtResource("4_g4ue6")
+texture_progress = ExtResource("5_nj63h")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
@@ -169,7 +193,7 @@ text = "TEST"
 [node name="HitMarker" type="CSGBox3D" parent="."]
 visible = false
 size = Vector3(2.5, 0.2, 2.5)
-material = SubResource("StandardMaterial3D_6jg8j")
+material = SubResource("StandardMaterial3D_hqg2d")
 
 [node name="HIT" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_njhso")

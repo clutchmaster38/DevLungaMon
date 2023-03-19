@@ -1,14 +1,11 @@
-[gd_scene load_steps=64 format=3 uid="uid://ce4dpamaut6ye"]
+[gd_scene load_steps=63 format=3 uid="uid://ce4dpamaut6ye"]
 
-[ext_resource type="Script" path="res://stateManager.gd" id="1_uv71e"]
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_ka6ks"]
 [ext_resource type="Shader" uid="uid://c3f1lmj0ps7sh" path="res://skybox.tres" id="3_667hx"]
 [ext_resource type="Texture2D" uid="uid://c4lshviajyc8h" path="res://Mats/test.png" id="3_8716t"]
 [ext_resource type="Script" path="res://timeWorld.gd" id="4_hg2q4"]
-[ext_resource type="Script" path="res://pause.gd" id="5_y73ct"]
 [ext_resource type="Script" path="res://Interact.gd" id="7_eomde"]
 [ext_resource type="FontFile" uid="uid://7dyxyagwh2b7" path="res://Mats/ADOBEFANHEITISTD-BOLD.OTF" id="8_new6x"]
-[ext_resource type="Texture2D" uid="uid://btw8otdfcbbn5" path="res://Mats/PauseM.png" id="9_1l22d"]
 [ext_resource type="Texture2D" uid="uid://tg3033kdemxs" path="res://Mats/text_box.png" id="10_5oxer"]
 [ext_resource type="FontFile" uid="uid://cjd2l0e5dwugj" path="res://Mats/pkmnrs.ttf" id="10_jem1k"]
 [ext_resource type="Script" path="res://Scripts/Battle.gd" id="11_g2cn7"]
@@ -24,21 +21,28 @@
 [ext_resource type="Texture2D" uid="uid://cdxememima6kf" path="res://Maps/beach house_14.png" id="20_e08eh"]
 [ext_resource type="Texture2D" uid="uid://cwrtom2oma5vf" path="res://Maps/beach house_23.png" id="21_vual6"]
 [ext_resource type="Script" path="res://Fish Maker.gd" id="22_4b42h"]
+[ext_resource type="Texture2D" uid="uid://bln24m5do7clc" path="res://Mats/tempMoon.png" id="25_5jhf1"]
+[ext_resource type="Script" path="res://Star Object.gd" id="26_m32b5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p63uj"]
 shader = ExtResource("3_667hx")
-shader_parameter/timeh = null
+shader_parameter/timeh = 0.682
 
-[sub_resource type="Sky" id="Sky_adywd"]
+[sub_resource type="Sky" id="Sky_ysdet"]
 sky_material = SubResource("ShaderMaterial_p63uj")
 radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_n6rcq"]
 background_mode = 2
 background_energy_multiplier = 1.5
-sky = SubResource("Sky_adywd")
+sky = SubResource("Sky_ysdet")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
+volumetric_fog_density = 0.0084
+volumetric_fog_detail_spread = 3.605
+volumetric_fog_ambient_inject = 0.73
+adjustment_contrast = 1.39
+adjustment_saturation = 1.06
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noy3m"]
 albedo_texture = ExtResource("3_8716t")
@@ -100,7 +104,7 @@ shader = ExtResource("16_l3a1b")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_eibkw"]
 material = SubResource("ShaderMaterial_lvh7v")
-size = Vector2(10.185, 10.159)
+size = Vector2(50, 50)
 subdivide_width = 128
 subdivide_depth = 128
 
@@ -193,7 +197,7 @@ texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_hnnse"]
 material = SubResource("StandardMaterial3D_ewemw")
-size = Vector2(55.472, 56.656)
+size = Vector2(150, 150)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pc8jl"]
 resource_name = "wood"
@@ -394,7 +398,6 @@ shadow_mesh = SubResource("ArrayMesh_6odux")
 data = PackedVector3Array(0, 1, -1, 0, 1, 1, 0, 1, -1, 0, 1, -1, 0, 1, 1, 0, 1, 1, -1, -1, 1, -1, -1, -1, -1, -1, 1, -1, -1, 1, -1, -1, -1, -1, -1, -1, 0, -1, -1, 1, -1, 1, 1, -1, -1, 0, -1, -1, 0, -1, 1, 1, -1, 1, 1, -1, -1, 1, -1, 1, 1, -1, -1, 1, -1, -1, 1, -1, 1, 1, -1, 1, -1, -1, -1, 0, -1, 1, 0, -1, -1, -1, -1, -1, -1, -1, 1, 0, -1, 1, 0, 1, 1, -1, -1, -1, 0, 1, -1, 0, 1, 1, -1, -1, 1, -1, -1, -1, 0, 1, -1, 1, -1, 1, 0, 1, 1, 0, 1, -1, 1, -1, -1, 1, -1, 1, 0, 1, -1, 0, 1, 1, 0, 1, -1, 0, 1, -1, 0, 1, 1, 0, 1, 1, 0, -1, 1, 1, -1, 1, 1, -1, 1, 0, 1, 1, 0, -1, 1, 0, 1, 1, 1, -1, 1, 0, -1, 1, 0, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, -1, 0, 1, -1, 0, -1, -1, 0, 1, -1, -1, -1, -1, 0, -1, -1, 0, 1, -1, 0, -1, -1, 0, 1, -1, 0, 1, -1, 1, -1, -1, 0, -1, -1, 1, -1, -1, 0, -1, -1, 1, -1, -1, 0, 1, -1, 0, -1, 1, 0, 1, 1, 0, 1, 1, -1, -1, 1, 0, -1, 1, -1, -1, 1, 0, -1, 1, -1, -1, 1, 0, 1, 1)
 
 [node name="TestWorld" type="Node3D"]
-script = ExtResource("1_uv71e")
 
 [node name="Player" parent="." instance=ExtResource("2_ka6ks")]
 unique_name_in_owner = true
@@ -404,15 +407,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.222751, 0)
 environment = SubResource("Environment_n6rcq")
 script = ExtResource("4_hg2q4")
 
-[node name="Pause" type="Node" parent="."]
-process_mode = 3
-script = ExtResource("5_y73ct")
+[node name="sun" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 217.389, 0)
+light_energy = 0.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
 
-[node name="pauseBG" type="Sprite2D" parent="Pause"]
-visible = false
-position = Vector2(2812.5, 1437)
-scale = Vector2(87.9531, 45)
-texture = ExtResource("9_1l22d")
+[node name="Moon" type="Sprite3D" parent="WorldEnvironment/sun"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -780.125, -63.1996)
+pixel_size = 1.8
+billboard = 1
+texture = ExtResource("25_5jhf1")
+script = ExtResource("26_m32b5")
 
 [node name="Sign" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327388, 15.2849)
@@ -486,7 +492,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -43.9089, -0.107371, -0.66535
 script = ExtResource("16_ydtyy")
 current = Vector3(10.614, 0.681, -14.522)
 next = "res://route1.tscn"
-rot = -2.0
+rot = 90.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
 shape = SubResource("BoxShape3D_4boyh")
@@ -504,7 +510,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_otcqt")
 
 [node name="Plane001" type="MeshInstance3D" parent="beach1"]
-transform = Transform3D(5.142, 0, 0, 0, 1, 0, 0, 0, 5.166, -0.24949, -0.595471, -25.6171)
+transform = Transform3D(5.142, 0, 0, 0, 1, 0, 0, 0, 5.166, -0.943774, -0.70629, -96.2624)
 mesh = SubResource("PlaneMesh_eibkw")
 skeleton = NodePath("")
 
@@ -539,7 +545,7 @@ skeleton = NodePath("")
 shape = SubResource("ConcavePolygonShape3D_aaamp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="beach1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993185, -21.8733)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.993185, -66.5633)
 mesh = SubResource("PlaneMesh_hnnse")
 
 [node name="beach house" type="Node3D" parent="."]

@@ -20,10 +20,10 @@ var partyPos = "creature1"
 
 #important Variables for the player
 var playerName
+var playerPokemon
 var player
 var playerGridPosition
 var playerBHP
-var playerHP
 var playerLevel
 var playerAttack
 var playerDefense
@@ -35,6 +35,7 @@ var playerMoveChosen
 
 #Important Variables for the enemy
 var enemyName
+var enemyPokemon
 var enemy
 var enemyGridPosition
 var enemyBHP
@@ -57,6 +58,8 @@ func start_battle(creatureName, creatureLevel, _creatureNature, move1, move2, mo
 	get_node("/root").add_child(battlescene)
 	
 	#load enemy Pokemon
+	enemyPokemon = Pokemon.new(creatureName, creatureLevel, "Ice", [move1, move2, move3, move4])
+	add_child(enemyPokemon)
 	enemyName = creatureName
 	enemy = load_creature(creatureName)
 	enemyGridPosition = Vector3(4, 0, 4)
@@ -64,9 +67,8 @@ func start_battle(creatureName, creatureLevel, _creatureNature, move1, move2, mo
 	
 	enemyBHP = get_node("/root/mapBattle").monDict[creatureName]["BHP"]
 	enemyLevel = creatureLevel
-	enemyHP = calc_HP(enemyBHP, creatureLevel)
-	enemyAttack = calc_stats(get_node("/root/mapBattle").monDict[creatureName]["BATTACK"], enemyLevel)
-	enemyDefense = calc_stats(get_node("/root/mapBattle").monDict[creatureName]["BDEFENSE"], enemyLevel)
+	enemyPokemon._full_heal()
+	enemyHP = enemyPokemon.hp
 	enemyMoves = {
 		"move1" = move1,
 		"move2" = move2,
@@ -74,38 +76,34 @@ func start_battle(creatureName, creatureLevel, _creatureNature, move1, move2, mo
 		"move4" = move4
 	}
 	
-	get_node("/root/mapBattle/NME/EnemyHealth").text = str(enemyHP)
+	get_node("/root/mapBattle/NME/EnemyBar").max_value = enemyHP
+	get_node("/root/mapBattle/NME/EnemyBar").value = enemyHP
 	
 	#load player Pokemon
-	playerName = get_node("/root/PlayerOwn").Party["creature1"]["creatureName"]
-	player = load_creature(playerName)
+	playerPokemon = get_node("/root/PlayerParty").get_pokemon(0)
+	player = load_creature(playerPokemon.pokemonName) 
 	playerGridPosition = Vector3(1, 0, 1)
 	await move_on_grid(player, playerGridPosition, 0)
 	
-	playerBHP = get_node("/root/mapBattle").monDict[playerName]["BHP"]
-	playerLevel = get_node("/root/PlayerOwn").Party["creature1"]["creatureLevel"]
-	playerHP = calc_HP(playerBHP, playerLevel)
-	playerAttack = calc_stats(get_node("/root/mapBattle").monDict[playerName]["BATTACK"], playerLevel)
-	playerDefense = calc_stats(get_node("/root/mapBattle").monDict[playerName]["BDEFENSE"], playerLevel)
+	playerBHP = get_node("/root/mapBattle").monDict[playerPokemon.pokemonName]["BHP"]
+	playerLevel = playerPokemon.level
 	
-	get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
+	get_node("/root/mapBattle/GUI/PlayerBar").max_value = playerPokemon._get_max_hp()
+	get_node("/root/mapBattle/GUI/PlayerBar").value = playerPokemon.hp
 	
-	get_node("/root/mapBattle/joyPad/Top").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move1"]
-	get_node("/root/mapBattle/joyPad/Bottom").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move4"]
-	get_node("/root/mapBattle/joyPad/Left").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move2"]
-	get_node("/root/mapBattle/joyPad/Right").text = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move3"]
+	get_node("/root/mapBattle/joyPad/Top").text = playerPokemon.moves[0]
+	get_node("/root/mapBattle/joyPad/Bottom").text = playerPokemon.moves[3]
+	get_node("/root/mapBattle/joyPad/Left").text = playerPokemon.moves[1]
+	get_node("/root/mapBattle/joyPad/Right").text = playerPokemon.moves[2]
 	
 	playerMoves = {
-		"move1" = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move1"],
-		"move2" = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move2"],
-		"move3" = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move3"],
-		"move4" = get_node("/root/PlayerOwn").Party["creature1"]["creatureMoves"]["move4"]
+		"move1" = playerPokemon.moves[0],
+		"move2" = playerPokemon.moves[1],
+		"move3" = playerPokemon.moves[2],
+		"move4" = playerPokemon.moves[3]
 	}
 	
-	playerSpeed = calc_stats(get_node("/root/mapBattle").monDict[playerName]["BSPEED"], playerLevel)
-	enemySpeed = calc_stats(get_node("/root/mapBattle").monDict[creatureName]["BSPEED"], enemyLevel)
-	
-	if playerSpeed > enemySpeed:
+	if playerPokemon._speed() > enemyPokemon._speed():
 		call_deferred("player_turn")
 		return
 	else:
@@ -116,12 +114,12 @@ func player_turn():
 	movePicked = false
 	playerTurn = true
 	await MOVE_PICKED
-	get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
-	get_node("/root/mapBattle/NME/EnemyHealth").text = str(enemyHP)
+	get_node("/root/mapBattle/GUI/PlayerBar").value = playerPokemon.hp
+	get_node("/root/mapBattle/NME/EnemyBar").value = enemyHP
 	if enemyHP <= 0:
 		call_deferred("end_battle")
 		return
-	if playerHP <= 0:
+	if playerPokemon.hp <= 0:
 		call_deferred("end_battle")
 		return
 	enemy_turn()
@@ -201,12 +199,12 @@ func enemy_turn():
 				await hit_test(get_node("/root/MoveDex").MoveDex[enemyMovePick]["AttVector"], get_node("/root/MoveDex").MoveDex[enemyMovePick]["Power"], enemy, enemyFacing)
 			await move_on_grid(enemy, enemyGridPosition, 0.08)
 	
-	get_node("/root/mapBattle/GUI/PlayerHealth").text = str(playerHP)
-	get_node("/root/mapBattle/NME/EnemyHealth").text = str(enemyHP)
+	get_node("/root/mapBattle/GUI/PlayerBar").value = playerPokemon.hp
+	get_node("/root/mapBattle/NME/EnemyBar").value = enemyHP
 	if enemyHP <= 0:
 		call_deferred("end_battle")
 		return
-	if playerHP <= 0:
+	if playerPokemon.hp <= 0:
 		call_deferred("end_battle")
 		return
 	player_turn()
@@ -230,14 +228,6 @@ func move_on_grid(creature, creatureNewGridPos, speed):
 	tween.tween_property(creature, "position", Vector3(newX, 0.5, newZ), speed)
 	await tween.finished
 	return creatureNewGridPos
-
-func calc_HP(basehp, level):
-	var hp = floor(0.01 * (2 * basehp + 16 + floor(0.25 * 128)) * level) + level + 10
-	return hp
-
-func calc_stats(Battack, level):
-	var calcstat = (floor(0.01 * (2 * Battack + 16 + floor(0.25 * 128)) * level) + 5)
-	return calcstat
 
 func _input(_event):
 	if playerTurn == true && inBattle == true:
@@ -311,36 +301,36 @@ func _input(_event):
 		if playerChooseToMove == true:
 		
 			if Input.is_action_just_pressed("forward"):
-				playerAttVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party[partyPos]["creatureMoves"]["move1"]]["AttVector"]
-				playerMoveChosen = "move1"
+				playerAttVec = get_node("/root/MoveDex").MoveDex[playerPokemon.moves[0]]["AttVector"]
+				playerMoveChosen = playerPokemon.moves[0]
 				movePicked = true
 				player_hitmarker(playerFacing, playerGridPosition, playerAttVec)
 				
 
 				
 			if Input.is_action_just_pressed("back"):
-				playerAttVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party[partyPos]["creatureMoves"]["move4"]]["AttVector"]
-				playerMoveChosen = "move4"
+				playerAttVec = get_node("/root/MoveDex").MoveDex[playerPokemon.moves[3]]["AttVector"]
+				playerMoveChosen = playerPokemon.moves[3]
 				movePicked = true
 				player_hitmarker(playerFacing, playerGridPosition, playerAttVec)
 
 				
 			if Input.is_action_just_pressed("left"):
-				playerAttVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party[partyPos]["creatureMoves"]["move2"]]["AttVector"]
-				playerMoveChosen = "move2"
+				playerAttVec = get_node("/root/MoveDex").MoveDex[playerPokemon.moves[1]]["AttVector"]
+				playerMoveChosen = playerPokemon.moves[1]
 				movePicked = true
 				player_hitmarker(playerFacing, playerGridPosition, playerAttVec)
 
 				
 			if Input.is_action_just_pressed("right"):
-				playerAttVec = get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party[partyPos]["creatureMoves"]["move3"]]["AttVector"]
-				playerMoveChosen = "move3"
+				playerAttVec = get_node("/root/MoveDex").MoveDex[playerPokemon.moves[2]]["AttVector"]
+				playerMoveChosen = playerPokemon.moves[2]
 				movePicked = true
 				player_hitmarker(playerFacing, playerGridPosition, playerAttVec)
 				
 			
 			if Input.is_action_just_pressed("select") && movePicked == true:
-				await hit_test(playerAttVec, get_node("/root/MoveDex").MoveDex[get_node("/root/PlayerOwn").Party[partyPos]["creatureMoves"][playerMoveChosen]]["Power"], player, playerFacing)
+				await hit_test(playerAttVec, get_node("/root/MoveDex").MoveDex[playerMoveChosen]["Power"], player, playerFacing)
 				#print(playerFacing)
 func hit_test(attVec, power, attacker, facing):
 	var gridPos
@@ -353,16 +343,16 @@ func hit_test(attVec, power, attacker, facing):
 	if attacker == enemy:
 		gridPos = enemyGridPosition
 		enemyGridPos = playerGridPosition
-		attack = enemyAttack
-		defense = playerDefense
-		level = enemyLevel
+		attack = enemyPokemon._attack()
+		defense = playerPokemon._defense()
+		level = enemyPokemon.level
 		match facing:
-			"forward":
+			"back":
 				attackingSpot = gridPos + Vector3(attVec, 0, 0)
 				await move_on_grid(get_node("/root/mapBattle/HitMarker"), (gridPos + Vector3(attVec, 0, 0)), 0)
 				get_node("/root/mapBattle/HitMarker").position.y = 0
 				get_node("/root/mapBattle/HitMarker").visible = true
-			"back":
+			"forward":
 				attackingSpot = gridPos + Vector3(-attVec, 0, 0)
 				await move_on_grid(get_node("/root/mapBattle/HitMarker"), (gridPos + Vector3(-attVec, 0, 0)), 0)
 				get_node("/root/mapBattle/HitMarker").position.y = 0
@@ -380,9 +370,9 @@ func hit_test(attVec, power, attacker, facing):
 	if attacker == player:
 		enemyGridPos = enemyGridPosition
 		gridPos = playerGridPosition
-		attack = playerAttack
-		defense = playerDefense
-		level = playerLevel
+		attack = playerPokemon._attack()
+		defense = playerPokemon._defense()
+		level = playerPokemon.level
 	if attacker == player:
 		await get_tree().create_timer(0.1).timeout
 	if attacker == enemy:
@@ -391,10 +381,10 @@ func hit_test(attVec, power, attacker, facing):
 	playerChooseToMove = false
 	if enemyGridPos == attackingSpot:
 		if attacker == enemy:
-			hp = playerHP
+			hp = playerPokemon.hp
 			var newHP = damage_calc(attack, defense, hp, power, level)
 			get_node("/root/mapBattle/HIT").play()
-			playerHP = newHP
+			playerPokemon.hp = newHP
 			return
 		if attacker == player:
 			hp = enemyHP
@@ -414,12 +404,14 @@ func damage_calc(attack, defense, HP, power, level):
 	return HP
 
 func end_battle():
+	playerPokemon.calc_new_xp(enemyLevel)
+	playerPokemon.calc_new_level()
 	overworld.remove_child(spawnNode)
 	battlescene.free()
 	get_node("/root").add_child(overworld)
 	get_tree().set_current_scene(overworld)
 	battlescene = preload("res://battle.tscn").instantiate()
-	get_node("/root/TestWorld").call_deferred("_handle_states", get_node("/root/TestWorld").playerStates.IDLE)
+	get_node("/root/TestWorld/Player/PlayerStates").call_deferred("_set_state", get_node("/root/TestWorld/Player/PlayerStates").player_states.IDLE)
 	inBattle = false
 	return
 

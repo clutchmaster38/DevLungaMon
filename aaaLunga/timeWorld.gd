@@ -8,7 +8,7 @@ func _ready():
 	time = time["hour"]
 	#time = 1.0
 	matPara = self.environment.sky.get_material()
-	timeFloat = time / 24
+	timeFloat = float(time) / 24.0
 	matPara.set_shader_parameter("timeh", timeFloat)
 	self.environment.ambient_light_energy = (-abs(float(time-12))+12.7) / 12
 
@@ -19,5 +19,5 @@ func _input(_event):
 		timeFloat = float(time) / 24.0
 		matPara.set_shader_parameter("timeh", timeFloat)
 		self.environment.ambient_light_energy = (-abs(float(time-12))+12.7) / 12
-		
+		$sun.rotation_degrees.x = (time * 15) + 90
 

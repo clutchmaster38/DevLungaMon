@@ -22,7 +22,7 @@ func _ready():
 		var randomz = randf_range(-100,100)
 		fish.position = Vector3(randomx,randomy,randomz)
 
-func _process(_delta):
+func _physics_process(_delta):
 	for b in get_children():
 		var v1 = rule1(b) # Boids flock to the center of mass
 		var v2 = rule2(b) # Boids avoid other boids
@@ -64,5 +64,5 @@ func rule3(b):
 		if b != b2: # Ignore duplicate boids
 			pV += velocity
 	pV = pV / (boids - 1)
-	var result = (pV - velocity) / 400 # 0.5% towards the percieved center
+	var result = (pV - velocity) / 800 # 0.5% towards the percieved center
 	return(result)

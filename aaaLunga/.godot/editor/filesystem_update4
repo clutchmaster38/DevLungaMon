@@ -2,6 +2,8 @@ res://debug1.tscn
 res://pause.gd
 res://skybox.tres
 res://shaders/waterS.tres
-res://timeWorld.gd
+res://shaders/trans.tres
 res://Main/player.tscn
-res://battle.tscn
+res://title.tscn
+res://Fish Maker.gd
+res://timeWorld.gd

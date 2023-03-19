@@ -34,10 +34,10 @@ func _unhandled_input(_event):
 
 func _on_read():
 	if Reading == true:
-		get_parent()._handle_states(get_parent().playerStates.INTERACT)
+		get_node("/root/TestWorld/Player/PlayerStates")._set_state(get_node("/root/TestWorld/Player/PlayerStates").player_states.INTERACT)
 		$NinePatchRect.visible = true
 	if Reading == false && doneReading == true:
-		get_parent()._handle_states(get_parent().playerStates.IDLE)
+		get_node("/root/TestWorld/Player/PlayerStates")._set_state(get_node("/root/TestWorld/Player/PlayerStates").player_states.IDLE)
 		$NinePatchRect.visible = false
 		currentChar = 0
 
