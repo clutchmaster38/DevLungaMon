@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ce4dpamaut6ye"]
+[gd_scene load_steps=61 format=3 uid="uid://ce4dpamaut6ye"]
 
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_ka6ks"]
 [ext_resource type="Shader" uid="uid://c3f1lmj0ps7sh" path="res://skybox.tres" id="3_667hx"]
@@ -21,8 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://cdxememima6kf" path="res://Maps/beach house_14.png" id="20_e08eh"]
 [ext_resource type="Texture2D" uid="uid://cwrtom2oma5vf" path="res://Maps/beach house_23.png" id="21_vual6"]
 [ext_resource type="Script" path="res://Fish Maker.gd" id="22_4b42h"]
-[ext_resource type="Texture2D" uid="uid://bln24m5do7clc" path="res://Mats/tempMoon.png" id="25_5jhf1"]
-[ext_resource type="Script" path="res://Star Object.gd" id="26_m32b5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p63uj"]
 shader = ExtResource("3_667hx")
@@ -408,17 +406,12 @@ environment = SubResource("Environment_n6rcq")
 script = ExtResource("4_hg2q4")
 
 [node name="sun" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 217.389, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 217.389, 0)
 light_energy = 0.0
 light_indirect_energy = 0.0
 light_volumetric_fog_energy = 0.0
 
-[node name="Moon" type="Sprite3D" parent="WorldEnvironment/sun"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -780.125, -63.1996)
-pixel_size = 1.8
-billboard = 1
-texture = ExtResource("25_5jhf1")
-script = ExtResource("26_m32b5")
+[node name="Sprite3D" type="Sprite3D" parent="WorldEnvironment/sun"]
 
 [node name="Sign" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327388, 15.2849)

@@ -1,9 +1,9 @@
-res://debug1.tscn
+res://Main/player.tscn
 res://pause.gd
+res://shaders/trans.tres
 res://skybox.tres
 res://shaders/waterS.tres
-res://shaders/trans.tres
-res://Main/player.tscn
 res://title.tscn
-res://Fish Maker.gd
+res://debug1.tscn
+res://SpringArm3D.gd
 res://timeWorld.gd

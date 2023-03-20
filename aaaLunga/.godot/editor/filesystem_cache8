@@ -1,22 +1,22 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1679103506
+::res://::1679290305
 battle.tscn::PackedScene::6456302651573038076::1679010824::0::1::::<><>::res://monBattle.gd<>uid://b2flfywcegtuk<>uid://bvpdrw0aqq2ys<>uid://t4etdg6rj5f<>uid://ikbefryque43<>uid://dhi2rd16ip84f<>uid://c8c3kguaeg0tt<>uid://djyerlbdmo72u<>uid://cfd6g3af7tlky<>uid://dw77ejhh6hj6s<>uid://b7a0fv0tt8pxe<>uid://bxyqifbwwl5dt<>uid://ruj3ji48b0bd
-debug1.tscn::PackedScene::5113672653258101128::1679091221::0::1::::<><>::uid://xr3hd2jrduwv<>uid://c3f1lmj0ps7sh<>uid://c4lshviajyc8h<>res://timeWorld.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>res://Scripts/Battle.gd<>uid://dt66qrcmc8jt8<>uid://b4hktsq4rbub1<>uid://b0xtac7rmc06c<>uid://doe30a0v2i4lb<>res://door.gd<>uid://cilvj0d17ers<>uid://dfgtgdntqxl2p<>uid://bvhv28efgrs5l<>uid://v24860pj4o2q<>uid://cdxememima6kf<>uid://cwrtom2oma5vf<>res://Fish Maker.gd<>uid://bln24m5do7clc<>res://Star Object.gd
+debug1.tscn::PackedScene::5113672653258101128::1679290305::0::1::::<><>::uid://xr3hd2jrduwv<>uid://c3f1lmj0ps7sh<>uid://c4lshviajyc8h<>res://timeWorld.gd<>res://Interact.gd<>uid://7dyxyagwh2b7<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>res://Scripts/Battle.gd<>uid://dt66qrcmc8jt8<>uid://b4hktsq4rbub1<>uid://b0xtac7rmc06c<>uid://doe30a0v2i4lb<>res://door.gd<>uid://cilvj0d17ers<>uid://dfgtgdntqxl2p<>uid://bvhv28efgrs5l<>uid://v24860pj4o2q<>uid://cdxememima6kf<>uid://cwrtom2oma5vf<>res://Fish Maker.gd
 door.gd::GDScript::-1::1676168521::0::1::::<>Area3D<>::
 export_presets.cfg::TextFile::-1::1676102265::0::1::::<><>::
-Fish Maker.gd::GDScript::-1::1678849902::0::1::::<>Node<>::
+Fish Maker.gd::GDScript::-1::1679149514::0::1::::<>Node<>::
 icon.svg::CompressedTexture2D::5020595147807741154::1675118367::1675118373::1::::<><>::
 Interact.gd::GDScript::-1::1678914453::0::1::::<>Area3D<>::
 monBattle.gd::GDScript::-1::1678630763::0::1::::<>Node3D<>::
-pause.gd::GDScript::-1::1678914674::0::1::::<>RefCounted<>::
+pause.gd::GDScript::-1::1679280061::0::1::::<>RefCounted<>::
 Player.gd::GDScript::-1::1678943527::0::1::::<>CharacterBody3D<>::
 README.md::TextFile::-1::1675120782::0::1::::<><>::
 route1.tscn::PackedScene::331464045182845028::1679010825::0::1::::<><>::uid://xr3hd2jrduwv<>uid://b2flfywcegtuk<>res://Interact.gd<>uid://c4lshviajyc8h<>uid://dxklpuik5b5iw<>uid://tg3033kdemxs<>uid://cjd2l0e5dwugj<>uid://7dyxyagwh2b7<>res://Scripts/Battle.gd<>uid://b4hktsq4rbub1<>res://door.gd<>uid://cb3vp48a7phcy
-skybox.tres::VisualShader::6750049808906406859::1679031668::0::1::::<><>::uid://b2flfywcegtuk<>uid://dk7478dlm35f
-SpringArm3D.gd::GDScript::-1::1678761766::0::1::::<>SpringArm3D<>::
+skybox.tres::VisualShader::6750049808906406859::1679290305::0::1::::<><>::uid://b2flfywcegtuk<>uid://dk7478dlm35f
+SpringArm3D.gd::GDScript::-1::1679289614::0::1::::<>SpringArm3D<>::
 Star Object.gd::GDScript::-1::1678313968::0::1::::<>Sprite3D<>::
-timeWorld.gd::GDScript::-1::1678630763::0::1::::<>WorldEnvironment<>::
-title.tscn::PackedScene::6092127086782009002::1679091222::0::1::::<><>::uid://by3uikac1fvfh<>uid://cco6nou00jm4a<>uid://de1343rduubsl<>uid://7dyxyagwh2b7<>res://Scripts/startButton.gd<>uid://bg6j8inux8e6u<>uid://ompyk0nrqeqc<>uid://c3f1lmj0ps7sh<>res://timeWorld.gd<>res://Scripts/rotateslowly.gd<>uid://n4hnv3n5es6d
+timeWorld.gd::GDScript::-1::1679287070::0::1::::<>WorldEnvironment<>::
+title.tscn::PackedScene::6092127086782009002::1679290305::0::1::::<><>::uid://by3uikac1fvfh<>uid://cco6nou00jm4a<>uid://de1343rduubsl<>uid://7dyxyagwh2b7<>res://Scripts/startButton.gd<>uid://bg6j8inux8e6u<>uid://ompyk0nrqeqc<>uid://c3f1lmj0ps7sh<>res://timeWorld.gd<>res://Scripts/rotateslowly.gd<>uid://n4hnv3n5es6d
 transitition.tscn::PackedScene::8996898951013045533::1677205093::0::1::::<><>::res://Scripts/Transition.gd<>uid://oge6gu1mmxek
 ::res://addons/::1676068737
 ::res://addons/qodot/::1676068180
@@ -181,7 +181,7 @@ tangent-test.tres::ShaderMaterial::1491877661751243884::1676102180::0::1::::<><>
 ::res://addons/qodot/textures/special/::1676068180
 clip.png::CompressedTexture2D::8369999958819788034::1676068168::1676068180::1::::<><>::
 skip.png::CompressedTexture2D::3013576122456084822::1676068168::1676068180::1::::<><>::
-::res://Main/::1679091221
+::res://Main/::1679290305
 BAG.gd::GDScript::-1::1679073805::0::1::::<>TextureRect<>::
 cacacaman.gdshader::Shader::-1::1677192531::0::1::::<><>::
 MenuStates.gd::GDScript::-1::1679006274::0::1::::<>Node<>::
@@ -189,7 +189,7 @@ PartyMenu.gd::GDScript::-1::1677131644::0::1::::<>Control<>::
 PARTYScreen.gd::GDScript::-1::1679079137::0::1::::<>Control<>::
 partySel.tscn::PackedScene::1824290306895092950::1677830697::0::1::::<><>::uid://c7nl2e87qcje3<>uid://crdh567jnob3q<>uid://bi1ro534tq7dx<>uid://4uhmysf2m8jj<>uid://c8i1bnoawyxt4<>uid://c1fyj4hx1cn5l
 player.tres::VisualShader::8648359938147624677::1676953730::0::1::::<><>::
-player.tscn::PackedScene::1651150601560104281::1679091221::0::1::::<><>::res://Player.gd<>res://SpringArm3D.gd<>uid://4gketpmwcj47<>uid://ruj3ji48b0bd<>uid://vx4huhdoni6h<>uid://bxq2s5kcdkeu3<>uid://3mbt75kn8hnf<>uid://c75gp2qyb2ane<>uid://bpxts05uaihnb<>res://Main/playerStates.gd<>uid://7rtpeo2pp5gp<>res://Main/PARTYScreen.gd<>uid://btw8otdfcbbn5<>uid://bo01wr21m5mah<>res://Scripts/main/Button Scripts/addCreatureButton.gd<>res://Main/MenuStates.gd<>res://Scripts/main/Button Scripts/addItem.gd<>uid://bmpf5bn8b5nv6<>uid://caqthgaa3evqe<>uid://crdh567jnob3q<>res://Main/BAG.gd
+player.tscn::PackedScene::1651150601560104281::1679290305::0::1::::<><>::res://Player.gd<>res://SpringArm3D.gd<>uid://4gketpmwcj47<>uid://ruj3ji48b0bd<>uid://vx4huhdoni6h<>uid://bxq2s5kcdkeu3<>uid://3mbt75kn8hnf<>uid://c75gp2qyb2ane<>uid://bpxts05uaihnb<>res://Main/playerStates.gd<>uid://7rtpeo2pp5gp<>res://Main/PARTYScreen.gd<>uid://btw8otdfcbbn5<>uid://bo01wr21m5mah<>res://Scripts/main/Button Scripts/addCreatureButton.gd<>res://Main/MenuStates.gd<>res://Scripts/main/Button Scripts/addItem.gd<>uid://bmpf5bn8b5nv6<>uid://caqthgaa3evqe<>uid://crdh567jnob3q<>res://Main/BAG.gd
 playerStates.gd::GDScript::-1::1678920734::0::1::::<>Node<>::
 ::res://Maps/::1676604339
 beach1.glb::PackedScene::8279125122714485503::1676077876::1676077881::1::::<><>::
@@ -251,8 +251,10 @@ idIcon.png::CompressedTexture2D::3422292803560106343::1678941864::1678941891::1:
 partyIcon.png::CompressedTexture2D::1990156529554952819::1678941889::1678941891::1::::<><>::
 ::res://Mats/MonPortraits/::1677203260
 Snurkey.png::CompressedTexture2D::7107169361540765599::1677203258::1677203260::1::::<><>::
-::res://Mats/sprite3Ds/::1678672607
+::res://Mats/sprite3Ds/::1679329022
+LensSecond.png::CompressedTexture2D::5966528136776908876::1679289665::1679289666::1::::<><>::
 shadow.png::CompressedTexture2D::3260009706549073277::1678672600::1678672607::1::::<><>::
+white_flare.png::CompressedTexture2D::246325602980552363::1679329069::1679329070::1::::<><>::
 ::res://Models/::1679015339
 ping (3).glb::PackedScene::6853393002076031179::1678600387::1678600388::1::::<><>::
 ping (3)_6.png::CompressedTexture2D::2048478066821015502::1678600387::1678600388::1::::<><>::
@@ -286,9 +288,9 @@ stateMachine.gd::GDScript::-1::1678420614::0::1::::stateMachine<>Node<>::
 ::res://Scripts/main/Button Scripts/::1679078975
 addCreatureButton.gd::GDScript::-1::1679078975::0::1::::<>Button<>::
 addItem.gd::GDScript::-1::1679010606::0::1::::<>Button<>::
-::res://shaders/::1679073313
-trans.tres::VisualShader::4944026552708280706::1679016277::0::1::::<><>::
-waterS.tres::VisualShader::8151908133283762747::1679073313::0::1::::<><>::
+::res://shaders/::1679280061
+trans.tres::VisualShader::4944026552708280706::1679280061::0::1::::<><>::
+waterS.tres::VisualShader::8151908133283762747::1679280061::0::1::::<><>::
 ::res://sound/::1678914671
 battlehit.mp3::AudioStreamMP3::4633991676399265446::1677123332::1677123389::1::::<><>::
 Beach Sounds.ogg::AudioStreamOggVorbis::8558757486591777395::1676070003::1676070012::1::::<><>::
