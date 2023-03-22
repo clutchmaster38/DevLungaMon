@@ -19,6 +19,5 @@ func _input(_event):
 		timeFloat = float(time) / 24.0
 		matPara.set_shader_parameter("timeh", timeFloat)
 		self.environment.ambient_light_energy = (-abs(float(time-12))+12.7) / 12
-		$sun.rotation_degrees.x = wrap((time * 15) + 90, 0, 360)
-		
-
+		if get_child_count() >= 1:
+			$sun.rotation_degrees.x = wrap((time * 15) + 90, 0, 360)

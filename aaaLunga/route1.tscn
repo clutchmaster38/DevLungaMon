@@ -1,29 +1,18 @@
-[gd_scene load_steps=44 format=3 uid="uid://eytfubpf4357"]
+[gd_scene load_steps=45 format=3 uid="uid://eytfubpf4357"]
 
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_bcmud"]
-[ext_resource type="Texture2D" uid="uid://b2flfywcegtuk" path="res://Mats/79141b08-2935-4a81-8fe7-770adb064c32_scaled.jpg" id="3_atof5"]
+[ext_resource type="Script" path="res://timeWorld.gd" id="3_6euh5"]
 [ext_resource type="Script" path="res://Interact.gd" id="6_iat71"]
 [ext_resource type="Texture2D" uid="uid://c4lshviajyc8h" path="res://Mats/test.png" id="7_25rlx"]
 [ext_resource type="AudioStream" uid="uid://dxklpuik5b5iw" path="res://sound/route 1 new.mp3" id="8_feryh"]
 [ext_resource type="Texture2D" uid="uid://tg3033kdemxs" path="res://Mats/text_box.png" id="8_gllym"]
 [ext_resource type="FontFile" uid="uid://cjd2l0e5dwugj" path="res://Mats/pkmnrs.ttf" id="9_c1b7c"]
 [ext_resource type="FontFile" uid="uid://7dyxyagwh2b7" path="res://Mats/ADOBEFANHEITISTD-BOLD.OTF" id="10_31gfy"]
+[ext_resource type="Shader" uid="uid://c3f1lmj0ps7sh" path="res://skybox.tres" id="12_1rt1n"]
 [ext_resource type="Script" path="res://Scripts/Battle.gd" id="12_xyrli"]
 [ext_resource type="PackedScene" uid="uid://b4hktsq4rbub1" path="res://mon/test1.glb" id="13_sogms"]
 [ext_resource type="Script" path="res://door.gd" id="14_x0flc"]
 [ext_resource type="Texture2D" uid="uid://cb3vp48a7phcy" path="res://Maps/route1_4.png" id="15_gytf1"]
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qrsnc"]
-panorama = ExtResource("3_atof5")
-
-[sub_resource type="Sky" id="Sky_adywd"]
-sky_material = SubResource("PanoramaSkyMaterial_qrsnc")
-
-[sub_resource type="Environment" id="Environment_n6rcq"]
-background_mode = 2
-sky = SubResource("Sky_adywd")
-ambient_light_source = 2
-ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noy3m"]
 albedo_texture = ExtResource("7_25rlx")
@@ -247,14 +236,31 @@ shadow_mesh = SubResource("ArrayMesh_fwa8u")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_h1y7b"]
 data = PackedVector3Array(-11, -1, 1, -11, 4, -1, -11, 4, 1, -11, -1, 1, -11, -1, -1, -11, 4, -1, -11, -1, -1, 1, 4, -1, -11, 4, -1, -11, -1, -1, 1, -1, -1, 1, 4, -1, 1, -1, -1, 1, 4, 1, 1, 4, -1, 1, -1, -1, 1, -1, 1, 1, 4, 1, 1, -1, 1, -11, 4, 1, 1, 4, 1, 1, -1, 1, -11, -1, 1, -11, 4, 1, -11, -1, -1, 1, -1, 1, 1, -1, -1, -11, -1, -1, -11, -1, 1, 1, -1, 1, 1, 4, -1, -11, 4, 1, -11, 4, -1, 1, 4, -1, 1, 4, 1, -11, 4, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gaqwf"]
+shader = ExtResource("12_1rt1n")
+shader_parameter/timeh = 0.682
+
+[sub_resource type="Sky" id="Sky_ysdet"]
+sky_material = SubResource("ShaderMaterial_gaqwf")
+radiance_size = 0
+
+[sub_resource type="Environment" id="Environment_rt6iw"]
+background_mode = 2
+background_energy_multiplier = 1.5
+sky = SubResource("Sky_ysdet")
+ambient_light_source = 2
+ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
+volumetric_fog_density = 0.0084
+volumetric_fog_detail_spread = 3.605
+volumetric_fog_ambient_inject = 0.73
+adjustment_contrast = 1.39
+adjustment_saturation = 1.06
+
 [node name="TestWorld" type="Node3D"]
 
 [node name="Player" parent="." instance=ExtResource("2_bcmud")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6141, 0.681336, -14.5223)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_n6rcq")
 
 [node name="Sign" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327388, 15.2849)
@@ -395,6 +401,18 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="route1/Cube006/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_h1y7b")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rt6iw")
+script = ExtResource("3_6euh5")
+
+[node name="sun" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 217.389, 0)
+light_energy = 0.0
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+
+[node name="Sprite3D" type="Sprite3D" parent="WorldEnvironment/sun"]
 
 [connection signal="body_entered" from="Sign" to="Sign" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign" to="Sign" method="_on_body_exited"]

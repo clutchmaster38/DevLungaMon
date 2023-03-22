@@ -7,3 +7,5 @@ res://title.tscn
 res://debug1.tscn
 res://SpringArm3D.gd
 res://timeWorld.gd
+res://route1.tscn
+res://Scripts/main/Button Scripts/addItem.gd

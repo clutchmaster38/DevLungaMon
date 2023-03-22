@@ -26,14 +26,14 @@
 shader = ExtResource("3_667hx")
 shader_parameter/timeh = 0.682
 
-[sub_resource type="Sky" id="Sky_ysdet"]
+[sub_resource type="Sky" id="Sky_a646h"]
 sky_material = SubResource("ShaderMaterial_p63uj")
 radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_n6rcq"]
 background_mode = 2
 background_energy_multiplier = 1.5
-sky = SubResource("Sky_ysdet")
+sky = SubResource("Sky_a646h")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
 volumetric_fog_density = 0.0084
