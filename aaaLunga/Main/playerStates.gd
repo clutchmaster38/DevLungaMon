@@ -27,6 +27,8 @@ func _state_logic(delta):
 			parent._pause()
 			if Input.is_action_just_pressed("escape"):
 				_set_state(player_states.IDLE)
+			if Input.is_action_just_pressed("interact"):
+				get_node("/root/Save")._save()
 		player_states.MENU:
 			pass
 			if parent.get_node("MenuStates").state == parent.get_node("MenuStates").menu_states.NONE:
@@ -35,7 +37,7 @@ func _state_logic(delta):
 			if parent.get_node("Origin/ping/AnimationPlayer").is_playing() == true:
 				parent.get_node("Origin/ping/AnimationPlayer").play("PingIdle")
 			
-func _get_transition(delta):
+func _get_transition(_delta):
 	return null
 	
 func _enter_state(new_state, old_state):

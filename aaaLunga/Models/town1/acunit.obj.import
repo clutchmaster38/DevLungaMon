@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dwcwo2t3kcb6p"
+path="res://.godot/imported/acunit.obj-1dc469b3bc28690f9dcf11d5f78442ca.mesh"
+
+[deps]
+
+files=["res://.godot/imported/acunit.obj-1dc469b3bc28690f9dcf11d5f78442ca.mesh"]
+
+source_file="res://Models/town1/acunit.obj"
+dest_files=["res://.godot/imported/acunit.obj-1dc469b3bc28690f9dcf11d5f78442ca.mesh", "res://.godot/imported/acunit.obj-1dc469b3bc28690f9dcf11d5f78442ca.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -240,14 +240,14 @@ data = PackedVector3Array(-11, -1, 1, -11, 4, -1, -11, 4, 1, -11, -1, 1, -11, -1
 shader = ExtResource("12_1rt1n")
 shader_parameter/timeh = 0.682
 
-[sub_resource type="Sky" id="Sky_ysdet"]
+[sub_resource type="Sky" id="Sky_5vp87"]
 sky_material = SubResource("ShaderMaterial_gaqwf")
 radiance_size = 0
 
 [sub_resource type="Environment" id="Environment_rt6iw"]
 background_mode = 2
 background_energy_multiplier = 1.5
-sky = SubResource("Sky_ysdet")
+sky = SubResource("Sky_5vp87")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
 volumetric_fog_density = 0.0084

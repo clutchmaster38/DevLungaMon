@@ -36,10 +36,6 @@ window/size/mode=3
 
 movie_writer/movie_file="C:/Users/bacon/Documents/Game Movies/.avi"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/qodot/plugin.cfg")
-
 [input]
 
 right={

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://csm4x0hece7ut"
+path="res://.godot/imported/palm1.obj-044c7bf1b60eb054380035f86edafc22.mesh"
+
+[deps]
+
+files=["res://.godot/imported/palm1.obj-044c7bf1b60eb054380035f86edafc22.mesh"]
+
+source_file="res://Models/town1/palm1.obj"
+dest_files=["res://.godot/imported/palm1.obj-044c7bf1b60eb054380035f86edafc22.mesh", "res://.godot/imported/palm1.obj-044c7bf1b60eb054380035f86edafc22.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

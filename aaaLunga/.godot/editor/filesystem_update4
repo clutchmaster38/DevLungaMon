@@ -1,11 +1,14 @@
-res://Main/player.tscn
+res://title.tscn
 res://pause.gd
 res://shaders/trans.tres
 res://skybox.tres
 res://shaders/waterS.tres
-res://title.tscn
+res://Models/town1/meshLib/town1.tres
 res://debug1.tscn
-res://SpringArm3D.gd
-res://timeWorld.gd
 res://route1.tscn
-res://Scripts/main/Button Scripts/addItem.gd
+res://Maps/Town1/town1.tscn
+res://Models/town1/meshLib/town1lib.tscn
+res://Main/player.tscn
+res://Player.gd
+res://Main/battleTurn.tscn
+res://Scripts/save.gd

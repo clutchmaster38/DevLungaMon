@@ -32,7 +32,17 @@ extends Node3D
 		"BSPAT" : 55,
 		"BSPDF" : 65,
 		"BSPEED" : 45
-		}
+		},
+	"BirdGlasses" = {
+		"MODEL" : "res://mon/snurkey.gltf",
+		"NAME" : "/Snurkey",
+		"BHP" : 80,
+		"BATTACK" : 50,
+		"BDEFENSE" : 130,
+		"BSPAT" : 55,
+		"BSPDF" : 65,
+		"BSPEED" : 45
+	}
 }
 
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxllbm7cw5qmy"
+path="res://.godot/imported/trashcan.obj-0d24160a21e4829855e18397e96f8489.mesh"
+
+[deps]
+
+files=["res://.godot/imported/trashcan.obj-0d24160a21e4829855e18397e96f8489.mesh"]
+
+source_file="res://Models/town1/trashcan.obj"
+dest_files=["res://.godot/imported/trashcan.obj-0d24160a21e4829855e18397e96f8489.mesh", "res://.godot/imported/trashcan.obj-0d24160a21e4829855e18397e96f8489.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

@@ -24,7 +24,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p63uj"]
 shader = ExtResource("3_667hx")
-shader_parameter/timeh = 0.682
+shader_parameter/timeh = 0.521
 
 [sub_resource type="Sky" id="Sky_a646h"]
 sky_material = SubResource("ShaderMaterial_p63uj")
@@ -96,12 +96,12 @@ shadow_mesh = SubResource("ArrayMesh_ks2ml")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_otcqt"]
 data = PackedVector3Array(5, 0, -5, 20, -1, -10, 20, 0, -5, 5, 0, -5, 5, -1, -10, 20, -1, -10, -5, 0, -5, 0, -1, -10, 0, 0, -5, -5, 0, -5, -5, -1, -10, 0, -1, -10, -5, 0, 5, 0, 0, 0, 0, 0, 5, -5, 0, 5, -5, 0, 0, 0, 0, 0, 5, 0, 5, 20, 0, 0, 20, 0, 5, 5, 0, 5, 5, 0, 0, 20, 0, 0, 0, 0, 5, 5, 0, 0, 5, 0, 5, 0, 0, 5, 0, 0, 0, 5, 0, 0, -19, 0, 5, -5, 0, 0, -5, 0, 5, -19, 0, 5, -19, 0, 0, -5, 0, 0, -19, 0, -5, -5, -1, -10, -5, 0, -5, -19, 0, -5, -19, -1, -10, -5, -1, -10, -19, 0, 0, -5, 0, -5, -5, 0, 0, -19, 0, 0, -19, 0, -5, -5, 0, -5, -5, 0, 0, 0, 0, -5, 0, 0, 0, -5, 0, 0, -5, 0, -5, 0, 0, -5, 0, 0, -5, 5, -1, -10, 5, 0, -5, 0, 0, -5, 0, -1, -10, 5, -1, -10, 0, 0, 0, 5, 0, -5, 5, 0, 0, 0, 0, 0, 0, 0, -5, 5, 0, -5, 5, 0, 0, 20, 0, -5, 20, 0, 0, 5, 0, 0, 5, 0, -5, 20, 0, -5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lvh7v"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_klj61"]
 render_priority = -1
 shader = ExtResource("16_l3a1b")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_eibkw"]
-material = SubResource("ShaderMaterial_lvh7v")
+material = SubResource("ShaderMaterial_klj61")
 size = Vector2(50, 50)
 subdivide_width = 128
 subdivide_depth = 128

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b5ubj1dewym88"
+path="res://.godot/imported/BeachSand.obj-995a9b1c671686d58a09b2b6ea35e074.mesh"
+
+[deps]
+
+files=["res://.godot/imported/BeachSand.obj-995a9b1c671686d58a09b2b6ea35e074.mesh"]
+
+source_file="res://Models/town1/BeachSand.obj"
+dest_files=["res://.godot/imported/BeachSand.obj-995a9b1c671686d58a09b2b6ea35e074.mesh", "res://.godot/imported/BeachSand.obj-995a9b1c671686d58a09b2b6ea35e074.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

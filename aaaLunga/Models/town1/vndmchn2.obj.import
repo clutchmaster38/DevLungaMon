@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ds81rrqfbb6u7"
+path="res://.godot/imported/vndmchn2.obj-37268fab8bdf8c1bbe2da41f10565d52.mesh"
+
+[deps]
+
+files=["res://.godot/imported/vndmchn2.obj-37268fab8bdf8c1bbe2da41f10565d52.mesh"]
+
+source_file="res://Models/town1/vndmchn2.obj"
+dest_files=["res://.godot/imported/vndmchn2.obj-37268fab8bdf8c1bbe2da41f10565d52.mesh", "res://.godot/imported/vndmchn2.obj-37268fab8bdf8c1bbe2da41f10565d52.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

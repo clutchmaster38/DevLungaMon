@@ -12,7 +12,7 @@ func _ready() -> void:
 	sunSpec.texture = load("res://Mats/sprite3Ds/white_flare.png")
 	add_child(sunSpec)
 	line = Sprite2D.new()
-	line.texture = load("res://Mats/sprite3Ds/white_flare.png")
+	line.texture = load("res://Mats/sprite3Ds/LensSecond.png")
 	add_child(line)
 	sunPoint = get_node("/root/TestWorld/WorldEnvironment/sun").global_rotation.x
 	
@@ -42,7 +42,7 @@ func _physics_process(delta):
 	var space_state = get_world_3d().direct_space_state
 	var result = space_state.intersect_ray(query)
 	
-	if result.is_empty() == true && get_viewport().get_camera_3d().is_position_behind((get_node("/root/TestWorld/Player").global_position) + Vector3(0,0,600).rotated(Vector3(1,0,0), sunPoint)) == false:
+	if result.is_empty() == true && get_viewport().get_camera_3d().is_position_in_frustum((get_node("/root/TestWorld/Player").global_position) + Vector3(0,0,600).rotated(Vector3(1,0,0), sunPoint)) == true:
 		line.visible = true
 		sunSpec.visible = true
 	else:
