@@ -2,6 +2,8 @@ extends Control
 
 var menuChanged = false
 
+signal selected
+
 var menuCounter = Vector2(1,1)
 var isTicking = false
 var ticker_text
@@ -38,6 +40,7 @@ func drawParty():
 		newbut.get_node("HEALTH VU/Level").text += str(get_node("/root/PlayerParty").get_pokemon(i).level).pad_zeros(3)
 		newbut.get_node("BUTTON").text = newbut.get_node("BUTTON").text.to_upper()
 		newbut.get_node("BUTTON").visible_characters = 7
+		newbut.get_node("VU/ColorRect").position.x = ((get_node("/root/PlayerParty").get_pokemon(i).hp / get_node("/root/PlayerParty").get_pokemon(i)._get_max_hp()) * 74) - 38
 	menuOpen = true
 
 func partyLogic():
@@ -58,6 +61,8 @@ func partyLogic():
 			menuCounter.x += 1
 			menuCounter.x = wrap(menuCounter.x, 1, 4)
 			menuChanged = true
+		if Input.is_action_just_pressed("select"):
+			emit_signal("selected")
 	if menuOpen == true and get_node("/root/PlayerParty").get_party_size() != 0:
 		match menuCounter:
 			Vector2(1,1):
@@ -169,3 +174,7 @@ func deleteParty():
 	for n in $VFD.get_children():
 		$VFD.remove_child(n)
 		n.queue_free()
+
+func chooseCreature():
+	await selected
+	return ((menuCounter.x * 2) + menuCounter.y)- 3

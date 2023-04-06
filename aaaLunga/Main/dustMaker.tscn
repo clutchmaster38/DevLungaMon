@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://8s63osxsm2m4"]
+
+[node name="dustMaker" type="Node3D"]

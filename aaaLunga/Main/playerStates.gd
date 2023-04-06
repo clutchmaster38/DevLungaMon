@@ -15,7 +15,7 @@ func _state_logic(delta):
 			elif Input.is_action_just_pressed("menu"):
 				_set_state(player_states.MENU)
 			else:
-				parent._idle()
+				parent._idle(delta)
 				
 		player_states.WALKING:
 			parent._player_move(delta)

@@ -1,0 +1,41 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://de0dkqro838yq"]
+
+[ext_resource type="Texture2D" uid="uid://dxfnn620uu15k" path="res://Models/ping_27.png" id="1_sbibs"]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_wsh6d"]
+input_name = "uv2"
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_a0tlx"]
+expanded_output_ports = [0]
+texture = ExtResource("1_sbibs")
+texture_type = 1
+
+[resource]
+code = "shader_type spatial;
+uniform sampler2D tex_frg_3 : source_color;
+
+
+
+void fragment() {
+// Input:2
+	vec2 n_out2p0 = UV2;
+
+
+// Texture2D:3
+	vec4 n_out3p0 = texture(tex_frg_3, n_out2p0);
+	float n_out3p4 = n_out3p0.a;
+
+
+// Output:0
+	ALBEDO = vec3(n_out3p0.xyz);
+	ALPHA = n_out3p4;
+
+
+}
+"
+graph_offset = Vector2(193.025, 174.497)
+nodes/fragment/2/node = SubResource("VisualShaderNodeInput_wsh6d")
+nodes/fragment/2/position = Vector2(-560, 280)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_a0tlx")
+nodes/fragment/3/position = Vector2(-40, 200)
+nodes/fragment/connections = PackedInt32Array(3, 0, 0, 0, 2, 0, 3, 0, 3, 4, 0, 1)

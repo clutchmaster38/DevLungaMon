@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxoltxoabyfvu"]
+
+[ext_resource type="ArrayMesh" uid="uid://ftssyv5y468p" path="res://mon/Slipup/slipup.res" id="1_3w02g"]
+
+[node name="slipup" type="Node3D"]
+
+[node name="Slipup" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.31134e-07, -3, -1.31134e-07, 0, -1.31134e-07, 3, -3, 1.31134e-07, 5.73206e-15, 0, 0, 0)
+mesh = ExtResource("1_3w02g")

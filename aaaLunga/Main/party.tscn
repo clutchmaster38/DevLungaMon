@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://1puvesmke75c"]
+
+[ext_resource type="Script" path="res://Main/PARTYScreen.gd" id="1_yr1nx"]
+[ext_resource type="Texture2D" uid="uid://c75gp2qyb2ane" path="res://Mats/PartyMenu.png" id="2_10su0"]
+
+[node name="PARTY" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yr1nx")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.0509804, 0.0784314, 0.0509804, 0.988235)
+
+[node name="VFD" type="Sprite2D" parent="."]
+position = Vector2(942, 541)
+scale = Vector2(4, 4)
+texture = ExtResource("2_10su0")

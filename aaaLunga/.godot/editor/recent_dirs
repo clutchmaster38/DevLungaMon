@@ -1,9 +1,12 @@
+res://Models
+res://shaders
 res://Main
+res://mon/Slipup
+res://
+res://mon
 res://Scripts/debug
 res://Models/town1/meshLib
 res://Scripts
-res://
-res://shaders
 res://Scripts/main
 res://Scripts/main/Button Scripts
 res://Mats

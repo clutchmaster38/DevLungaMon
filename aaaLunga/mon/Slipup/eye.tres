@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://coocan0ijk65p"]
+
+[ext_resource type="Texture2D" uid="uid://c2n7w1bvrik5c" path="res://mon/Slipup/pm0828_00_Eye1.png" id="1_rt7oo"]
+
+[resource]
+albedo_texture = ExtResource("1_rt7oo")

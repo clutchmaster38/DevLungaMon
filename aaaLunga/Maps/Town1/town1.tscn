@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bmnk2ohya4lsk"]
+[gd_scene load_steps=28 format=3 uid="uid://bk1mh3c7rtwc6"]
 
 [ext_resource type="MeshLibrary" uid="uid://1omllkxluume" path="res://Models/town1/meshLib/town1.tres" id="1_ajw4r"]
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="2_gw3kj"]

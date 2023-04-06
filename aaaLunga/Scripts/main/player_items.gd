@@ -12,5 +12,4 @@ func add_item(new_item: Item) -> bool:
 
 func use_item(item: Item, pokemon: Pokemon):
 	item.use(pokemon)
-	print(pokemon.hp)
 	items.erase(item)
