@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb8ftn2f44jm8"]
+
+[ext_resource type="Script" path="res://Interact.gd" id="1_ciyny"]
+[ext_resource type="Texture2D" uid="uid://tg3033kdemxs" path="res://Mats/text_box.png" id="2_06je4"]
+[ext_resource type="FontFile" uid="uid://cjd2l0e5dwugj" path="res://Mats/pkmnrs.ttf" id="3_ipdao"]
+[ext_resource type="FontFile" uid="uid://7dyxyagwh2b7" path="res://Mats/ADOBEFANHEITISTD-BOLD.OTF" id="4_jyfje"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7tt4q"]
+
+[node name="Sign" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.327388, 15.2849)
+script = ExtResource("1_ciyny")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0018003, 0, -0.57807)
+shape = SubResource("BoxShape3D_7tt4q")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+texture_filter = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -360.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_06je4")
+region_rect = Rect2(-7, -8, 371, 239)
+patch_margin_left = 65
+patch_margin_top = 56
+patch_margin_right = 65
+patch_margin_bottom = 56
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.042
+anchor_top = 0.175
+anchor_right = 0.955
+anchor_bottom = 0.794
+offset_left = -0.640007
+offset_right = 4.3999
+offset_bottom = 1.16
+theme_override_fonts/normal_font = ExtResource("3_ipdao")
+theme_override_fonts/mono_font = ExtResource("4_jyfje")
+theme_override_font_sizes/normal_font_size = 53
+theme_override_font_sizes/mono_font_size = 44
+bbcode_enabled = true
+shortcut_keys_enabled = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

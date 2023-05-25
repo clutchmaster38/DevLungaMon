@@ -20,10 +20,11 @@ func _ready():
 		var randomx = randf_range(-100,100)
 		var randomy = randf_range(0,1)
 		var randomz = randf_range(-100,100)
-		fish.position = Vector3(randomx,randomy,randomz)
+		fish.global_position = Vector3(randomx,randomy,randomz)
 
 func _physics_process(_delta):
 	for b in get_children():
+		velocity = Vector3(0,0,0)
 		var v1 = rule1(b) # Boids flock to the center of mass
 		var v2 = rule2(b) # Boids avoid other boids
 		var v3 = rule3(b) # Boids try to match the speed of other boids
@@ -44,18 +45,18 @@ func rule1(b):
 	var pC = Vector3(0,0,0)
 	for b2 in get_children():
 		if b != b2:
-			pC += b2.position
+			pC += b2.global_position
 	pC = pC / (boids - 1)
-	var result = (pC - b.position) / 800 # 0.5% towards the percieved center
+	var result = (pC - b.global_position) / 800 # 0.5% towards the percieved center
 	return(result)
 
 func rule2(b):
-	var distance = .2 # Threshold of distance between boids
+	var distance = 4 # Threshold of distance between boids
 	var result = Vector3(0, 0, 0)
 	for b2 in get_children():
 		if b != b2: # Ignore duplicate boids
-			if b.position.distance_to(b2.position) < distance:
-				result -= (b2.position - b.position)
+			if b.position.distance_to(b2.global_position) < distance:
+				result -= (b2.global_position - b.global_position)
 	return(result)
 
 func rule3(b):

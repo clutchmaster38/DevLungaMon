@@ -61,7 +61,7 @@ func partyLogic():
 			menuCounter.x += 1
 			menuCounter.x = wrap(menuCounter.x, 1, 4)
 			menuChanged = true
-		if Input.is_action_just_pressed("select"):
+		if Input.is_action_just_pressed("interact"):
 			emit_signal("selected")
 	if menuOpen == true and get_node("/root/PlayerParty").get_party_size() != 0:
 		match menuCounter:

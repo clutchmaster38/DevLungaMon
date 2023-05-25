@@ -1,0 +1,27 @@
+[gd_resource type="VisualShader" load_steps=2 format=3 uid="uid://djsiaedcobns"]
+
+[sub_resource type="VisualShaderNodeVec3Constant" id="VisualShaderNodeVec3Constant_iyte3"]
+constant = Vector3(100, 100, 100)
+
+[resource]
+code = "shader_type canvas_item;
+
+
+
+void vertex() {
+// Vector3Constant:3
+	vec3 n_out3p0 = vec3(100.000000, 100.000000, 100.000000);
+
+
+// Output:0
+	VERTEX = vec2(n_out3p0.xy);
+
+
+}
+"
+graph_offset = Vector2(-393.657, 21.9081)
+mode = 1
+flags/light_only = false
+nodes/vertex/3/node = SubResource("VisualShaderNodeVec3Constant_iyte3")
+nodes/vertex/3/position = Vector2(0, 160)
+nodes/vertex/connections = PackedInt32Array(3, 0, 0, 0)

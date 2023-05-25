@@ -10,5 +10,5 @@ func _on_button_down():
 	if FileAccess.file_exists("user://save.dat"):
 		get_tree().change_scene_to_file(saveDict["playerMap"])
 	else:
-		get_tree().change_scene_to_file("res://debug1.tscn")
+		get_tree().change_scene_to_file("res://Maps/Beach/scene/debug1.tscn")
 	get_node("/root/Save")._load()

@@ -18,19 +18,19 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-BatLogic="*res://Scripts/BatLogic.gd"
 MoveDex="*res://Scripts/moveDex.gd"
 Transitition="*res://transitition.tscn"
 Save="*res://Scripts/save.gd"
 PlayerParty="*res://Scripts/main/party.gd"
 Dex="*res://monBattle.gd"
 PlayerItems="*res://Scripts/main/player_items.gd"
+MonBattle="*res://monBattle.gd"
+BatLogic="*res://Scripts/BatLogic.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 
 [editor]
 
@@ -81,6 +81,8 @@ select={
 
 [rendering]
 
+anti_aliasing/quality/msaa_3d=2
+mesh_lod/lod_change/threshold_pixels=0.0
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true
 textures/canvas_textures/default_texture_filter=0

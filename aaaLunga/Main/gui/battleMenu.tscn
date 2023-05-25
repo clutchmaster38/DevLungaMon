@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://wf8xd2os2whf"]
+
+[ext_resource type="Script" path="res://Main/gui/battleMenu.gd" id="1_84hbl"]
+[ext_resource type="FontFile" uid="uid://cjd2l0e5dwugj" path="res://Mats/pkmnrs.ttf" id="1_jo2a5"]
+[ext_resource type="Texture2D" uid="uid://bwf5lwpk268b8" path="res://Main/gui/9patch.png" id="2_4qbo1"]
+[ext_resource type="Texture2D" uid="uid://cy7j585qe1ti3" path="res://Main/gui/arrow.png" id="4_4km48"]
+[ext_resource type="Texture2D" uid="uid://dscwv07mt3e1s" path="res://Main/gui/fightpatch.png" id="5_72x43"]
+
+[sub_resource type="Theme" id="Theme_saqyt"]
+default_font = ExtResource("1_jo2a5")
+default_font_size = 70
+
+[node name="battleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_saqyt")
+script = ExtResource("1_84hbl")
+
+[node name="Selecto" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 965.0
+offset_top = 754.0
+offset_right = 1918.0
+offset_bottom = 1077.0
+texture = ExtResource("2_4qbo1")
+region_rect = Rect2(-0.253447, -0.0828724, 120.015, 48.0713)
+
+[node name="Arrow" type="TextureRect" parent="Selecto"]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 205.0
+offset_right = 573.0
+offset_bottom = 245.0
+texture = ExtResource("4_4km48")
+
+[node name="Fight" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 969.0
+offset_top = 753.0
+offset_right = 1935.0
+offset_bottom = 1079.0
+texture = ExtResource("5_72x43")
+
+[node name="Arrow" type="TextureRect" parent="Fight"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 206.0
+offset_right = 569.0
+offset_bottom = 246.0
+texture = ExtResource("4_4km48")
+
+[node name="m0" type="RichTextLabel" parent="Fight"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 82.0
+offset_right = 367.0
+offset_bottom = 154.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "TEST"
+
+[node name="m1" type="RichTextLabel" parent="Fight"]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 79.0
+offset_right = 808.0
+offset_bottom = 151.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "TEST"
+
+[node name="m2" type="RichTextLabel" parent="Fight"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 186.0
+offset_right = 458.0
+offset_bottom = 258.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "TEST"
+
+[node name="m3" type="RichTextLabel" parent="Fight"]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 189.0
+offset_right = 897.0
+offset_bottom = 261.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "TEST"

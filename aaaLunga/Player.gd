@@ -31,8 +31,8 @@ func _ready():
 	newline.default_color = Color("Red")
 	dirline.default_color = Color("Green")
 	
-	newline.visible = false
-	dirline.visible = false
+	newline.visible = true
+	dirline.visible = true
 	
 	$Origin/ping/AnimationPlayer.get_animation("PingRun").set_loop_mode(1)
 	$Origin/ping/AnimationPlayer.get_animation("PingRunTurnL").set_loop_mode(1)
@@ -93,7 +93,6 @@ func _player_move(delta: float) -> void:
 	dirline.clear_points()
 	dirline.add_point(start)
 	dirline.add_point(moveend)
-	blink(delta)
 	
 func _move_up_stairs():
 	_velocity.y += 4
@@ -104,7 +103,7 @@ func _exit_walking():
 	pass
 	
 
-func _idle(delta: float) -> void:
+func _idle(_delta: float) -> void:
 	$Origin/ping/AnimationTree.set("parameters/blend_position", Vector2(0,-1))
 
 		
@@ -112,7 +111,6 @@ func _idle(delta: float) -> void:
 	if is_on_floor() == false:
 		set_velocity(_velocity)
 		move_and_slide()
-	blink(delta)
 func _pause():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$pauseBG.visible = true
@@ -150,12 +148,6 @@ func align_with_y(xform, new_y):
 	xform.basis = xform.basis.orthonormalized() 
 	return xform
 
-func blink(delta):
-	accum += delta
-	if accum >= 10:
-		$Origin/ping/Armature/Skeleton3D/pingface.get_active_material(1).set_shader_parameter("offset", 9)
-	if accum >= 10.2:
-		$Origin/ping/Armature/Skeleton3D/pingface.get_active_material(1).set_shader_parameter("offset", 0)
-		accum = 0
+
 
 	
