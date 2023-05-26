@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cy7j585qe1ti3" path="res://Main/gui/arrow.png" id="4_4km48"]
 [ext_resource type="Texture2D" uid="uid://dscwv07mt3e1s" path="res://Main/gui/fightpatch.png" id="5_72x43"]
 
-[sub_resource type="Theme" id="Theme_saqyt"]
+[sub_resource type="Theme" id="Theme_24h8g"]
 default_font = ExtResource("1_jo2a5")
 default_font_size = 70
 
@@ -17,7 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_saqyt")
+theme = SubResource("Theme_24h8g")
 script = ExtResource("1_84hbl")
 
 [node name="Selecto" type="NinePatchRect" parent="."]

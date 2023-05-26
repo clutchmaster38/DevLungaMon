@@ -45,6 +45,8 @@ func _enter_state(new_state, old_state):
 		parent._menu()
 	if new_state == player_states.WALKING:
 		parent._enter_running()
+	if new_state == player_states.INTERACT:
+		parent._enter_sign()
 	
 func _exit_state(old_state, new_state):
 	if old_state == player_states.IDLE && new_state == player_states.WALKING:
@@ -55,3 +57,5 @@ func _exit_state(old_state, new_state):
 		parent._unpause()
 	if old_state == player_states.MENU:
 		parent._unmenu()
+	if old_state == player_states.INTERACT:
+		parent._exit_sign()

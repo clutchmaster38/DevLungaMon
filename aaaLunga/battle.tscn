@@ -12,19 +12,19 @@
 [ext_resource type="AudioStream" uid="uid://bxyqifbwwl5dt" path="res://sound/Denied.ogg" id="10_r1jbj"]
 [ext_resource type="AudioStream" uid="uid://ruj3ji48b0bd" path="res://sound/ftstp.ogg" id="11_myf4q"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6uv3l"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_a6vso"]
 panorama = ExtResource("3_1c2op")
 
-[sub_resource type="Sky" id="Sky_onkwp"]
-sky_material = SubResource("PanoramaSkyMaterial_6uv3l")
+[sub_resource type="Sky" id="Sky_wkwmy"]
+sky_material = SubResource("PanoramaSkyMaterial_a6vso")
 
-[sub_resource type="Environment" id="Environment_m24su"]
+[sub_resource type="Environment" id="Environment_byndc"]
 background_mode = 2
-sky = SubResource("Sky_onkwp")
+sky = SubResource("Sky_wkwmy")
 ambient_light_source = 2
 ambient_light_color = Color(0.878431, 0.878431, 0.878431, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnf0p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3vj4a"]
 albedo_texture = ExtResource("5_rhgpd")
 heightmap_scale = -16.0
 heightmap_deep_parallax = true
@@ -34,11 +34,11 @@ uv1_scale = Vector3(100, 100, 100)
 texture_filter = 0
 proximity_fade_distance = 0.0
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_mqx1j"]
-material = SubResource("StandardMaterial3D_nnf0p")
+[sub_resource type="PlaneMesh" id="PlaneMesh_ar506"]
+material = SubResource("StandardMaterial3D_3vj4a")
 size = Vector2(100, 100)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jl3d8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mo3fk"]
 transparency = 1
 albedo_texture = ExtResource("8_rbexa")
 
@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0887737, 0.0594254, 0.04754
 script = ExtResource("1_ybxwt")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_m24su")
+environment = SubResource("Environment_byndc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.360564, 0.387298, -0.848525, 0.0313405, 0.914234, 0.403972, 0.932208, 0.119065, -0.341778, -5.36088, 1.2998, -3.31534)
@@ -83,7 +83,7 @@ volume_db = -14.432
 autoplay = true
 
 [node name="Plane" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_mqx1j")
+mesh = SubResource("PlaneMesh_ar506")
 
 [node name="NME" type="Control" parent="."]
 top_level = true
@@ -125,7 +125,7 @@ texture = ExtResource("6_h3dlr")
 [node name="EnemySpot" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.12199, 0, 3.48296)
 size = Vector3(2.5, 0.2, 2.5)
-material = SubResource("StandardMaterial3D_jl3d8")
+material = SubResource("StandardMaterial3D_mo3fk")
 
 [node name="HIT" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_njhso")
@@ -143,4 +143,4 @@ volume_db = -4.685
 [node name="PlayerSpot" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.56972, 0, -3.16061)
 size = Vector3(2.5, 0.2, 2.5)
-material = SubResource("StandardMaterial3D_jl3d8")
+material = SubResource("StandardMaterial3D_mo3fk")

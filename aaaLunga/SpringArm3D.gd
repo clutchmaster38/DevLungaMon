@@ -4,6 +4,7 @@ extends SpringArm3D
 var line
 var sunPoint
 var sunSpec
+var mouse_on = true
 
 func _ready() -> void:
 	set_as_top_level(true)
@@ -18,7 +19,7 @@ func _ready() -> void:
 	
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion && Input.get_mouse_mode() == 2:
+	if event is InputEventMouseMotion && mouse_on == true:
 		rotation_degrees.x -= event.relative.y * mouse_sensitivity
 		rotation_degrees.x = clamp(rotation_degrees.x, -90.0, 30.0)
 		

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci2o4bwn5p1ya"]
+
+[ext_resource type="Script" path="res://Main/wild encounter.gd" id="1_ijmpi"]
+[ext_resource type="ArrayMesh" uid="uid://cictwa3imma0a" path="res://Models/aaaplaceholder.obj" id="2_mqduv"]
+[ext_resource type="Texture2D" uid="uid://e5t136raq308" path="res://Mats/PLACEHOLDER.png" id="3_2ykc5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ivgv"]
+albedo_texture = ExtResource("3_2ykc5")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pfids"]
+size = Vector3(1.97701, 2.04869, 2.02152)
+
+[node name="Enc_Node" type="Node3D"]
+script = ExtResource("1_ijmpi")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = ExtResource("2_mqduv")
+material = SubResource("StandardMaterial3D_8ivgv")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_pfids")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

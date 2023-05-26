@@ -1,8 +1,10 @@
+CollisionShape3D
+Area3D
+CSGMesh3D
 AnimationTree
 AnimationPlayer
 GridMap
 Node3D
-CSGMesh3D
 CSGCombiner3D
 LightmapGI
 CSGPolygon3D
@@ -25,8 +27,6 @@ MeshInstance3D
 CanvasLayer
 Node
 RayCast3D
-CollisionShape3D
 AudioStreamPlayer
 DirectionalLight3D
 Sprite2D
-ItemList

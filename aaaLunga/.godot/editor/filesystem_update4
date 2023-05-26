@@ -3,11 +3,26 @@ res://pause.gd
 res://skybox.tres
 res://shaders/trans.tres
 res://shaders/waterS.tres
+res://Models/town1/meshLib/town1.tres
 res://battle.tscn
 res://Main/gui/battleMenu.tscn
 res://route1.tscn
 res://title.tscn
 res://transitition.tscn
 res://Maps/Beach/scene/debug1.tscn
-res://Models/town1/meshLib/town1.tres
 res://Maps/Town1/town1.tscn
+res://Maps/Beach/beach_5.png
+res://Maps/Beach/beach_11.png
+res://Maps/Beach/beach_17.png
+res://Maps/Beach/beach_23.png
+res://Maps/Beach/beach_28.png
+res://Main/wild encounter.tscn
+res://Main/wild encounter.gd
+res://Maps/Route 1/ROUTE1_5.png
+res://Maps/Route 1/ROUTE1_11.png
+res://Maps/Route 1/ROUTE1_16.png
+res://Maps/Route 1/ROUTE1_21.png
+res://Maps/Route 1/scene/route_1INH.tscn
+res://Player.gd
+res://Main/playerStates.gd
+res://SpringArm3D.gd

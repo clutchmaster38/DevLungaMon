@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://kqqdy7bywdd3"]
+[gd_scene load_steps=88 format=3 uid="uid://kqqdy7bywdd3"]
 
 [ext_resource type="PackedScene" uid="uid://xr3hd2jrduwv" path="res://Main/player.tscn" id="1_c14bl"]
 [ext_resource type="Shader" uid="uid://c3f1lmj0ps7sh" path="res://skybox.tres" id="2_7nfub"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://drkrqg2otb3s7" path="res://Maps/gate/gate_9.png" id="23_jwp16"]
 [ext_resource type="PackedScene" uid="uid://clsbm7wdwf2vb" path="res://Maps/Beach/beach.glb" id="26_a3khd"]
 [ext_resource type="Texture2D" uid="uid://hug03lsn75oo" path="res://Models/beachstart/nofishing_4.png" id="26_fl3ck"]
+[ext_resource type="PackedScene" uid="uid://ci2o4bwn5p1ya" path="res://Main/wild encounter.tscn" id="27_q5xli"]
 [ext_resource type="PackedScene" uid="uid://dmvlp3pph31o8" path="res://Models/terrain/grass.glb" id="29_g8pl1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p63uj"]
@@ -1075,6 +1076,11 @@ transform = Transform3D(0.549562, 0, 0.835453, 0, 1, 0, -0.835453, 0, 0.549562, 
 
 [node name="beach" parent="." instance=ExtResource("26_a3khd")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.316, 0, 28.341)
+
+[node name="Enc_Node" parent="." node_paths=PackedStringArray("pokemon") instance=ExtResource("27_q5xli")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2642, 0, 2.30927)
+pokemon = NodePath("../Battle01/Slipup")
+chance = 0.5
 
 [connection signal="body_entered" from="Sign" to="Sign" method="_on_body_entered"]
 [connection signal="body_exited" from="Sign" to="Sign" method="_on_body_exited"]

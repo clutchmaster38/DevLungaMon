@@ -148,6 +148,10 @@ func align_with_y(xform, new_y):
 	xform.basis = xform.basis.orthonormalized() 
 	return xform
 
-
+func _enter_sign():
+	_spring_arm.mouse_on = false
+	
+func _exit_sign():
+	_spring_arm.mouse_on = true
 
 	
